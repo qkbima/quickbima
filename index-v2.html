@@ -71,22 +71,14 @@
                             </select>
                             <label>Make and Model</label>
                         </div>
-                        <div class="col-sm-2 drop-select">
+                        <div class="col-sm-4 drop-select">
                             <select class="ui search dropdown">
                               <option value="">Fuel Type</option>
-                              <option value="petrol">Petrol</option>
+                              <option value="petrol" selected>Petrol</option>
                               <option value="deisel">Deisel</option>
                            </select>
                             <label>Fuel Type</label>
                         </div>
-                        <div class="col-sm-2">
-                          <div class="input-effect dob">
-                            <input class="effect datepicker" value="" id="datepicker" type="text">
-                            <label>Registration Date</label>
-                            <span class="focus-border"></span>
-                            <span class="fa-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                        </div>
-                      </div>
                         <div class="col-sm-4 drop-select">
                             <select class="ui search dropdown">
                               <option value="">Variant</option>
@@ -96,7 +88,6 @@
                            </select>
                           <label>Variant</label>
                         </div>
-                        
                     </div>
                     <div id="step2" class="row" style="display:none;">
                         <div class="col-sm-4">
@@ -177,11 +168,16 @@
                                     <label for="ncb6">50%</label>
                                 </span>
                             </h4>
-                            <p class="pncb">Please check your previous NCB in your last policy.</p>
-                            <span class="ncberror">Please select previous No Claim Bonus.</span>
                         </div>
                       </div>
-
+                      <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <div class="remember">
+                                <input type="checkbox" id="remember" name="remember" class="checkbox"/>
+                                <label for="remember">Don't remember previous NCB?</label>
+                             </div>
+                        </div>
+                      </div>
                   </div>
               </div>
               <div class="footer-section">
@@ -200,6 +196,31 @@
 
       </div>
     </div>
+        
+    <div id="verifyrenewal" class="modal fade" role="dialog">
+                          <div class="modal-dialog details-renew">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                  <button type="button" class="btn close" data-dismiss="modal"></button>
+                                  <div class="vertical-center">
+                                      <div id="are-correct" class="container">
+                                        <div class="row">
+                                            <div class="col-sm-12 text-center renewal">
+                                                <h3>Quick Renewal</h3>
+                                                <p>Renew that policy which bought on Quickbima</p>
+                                                <div class="policy">
+                                                    <input type="text"  placeholder="Policy/Mobile Number">
+                                                </div>
+                                                <a href="#" class="renew">Renew</a>
+                                            </div>  
+                                        </div>                                        
+                                     </div>                                      
+                                  </div>                                  
+                              </div>
+                            </div>
+                           </div>
+                        </div>
     
     <div id="login" class="modal fade" role="dialog">
       <div class="modal-dialog details-correct">
@@ -537,7 +558,7 @@
                         </ul>
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="car">
-                                <!---div class="row firstrow">
+                                <div class="row firstrow">
                                     <div class="col-sm-12">
                                         <div class="registration">
                                             <input type="text" class="form-control text-center" placeholder="CH 01 AB 1234">
@@ -556,92 +577,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                </div--->
-                                
-                                <div class="row firstrow">
-                                    <div class="bgshadow">
-                                        <div class="col-sm-4">
-                                            <span id="gender-title" class="title">Make and Model</span>
-                                            <select class="ui search dropdown">
-                                              <option value="">Make and Model</option>
-                                              <option value="Ad">Audi Q5</option>
-                                              <option value="ms">MARUTI SWIFT VDI</option>
-                                              <option value="msd" selected>Maruti Swift Dezire</option>
-                                              <option value="ha">Honda Amaze</option>
-                                              <option value="hc">Honda City</option>
-                                              <option value="hv">Honda Civic</option>
-                                              <option value="hi">Hundai i20</option>
-                                              <option value="ti">Tata Indica Vista</option>
-                                              <option value="tm">Tata Indica Manza</option>
-                                              <option value="tic">Tata Indigo Cs</option>
-                                            </select>
-                                        </div>	
-                                        <div class="col-sm-2">
-                                            <span id="gender-title" class="title">Fuel Type</span>
-                                            <select class="ui search dropdown" id="gendertitle">
-                                                <option value="">Fuel Type</option>
-                                                <option value="m" selected>Diesel</option>
-                                                <option value="f">Petrol</option>
-                                            </select>
-                                            <span class="error">Enter input</span>
-                                        </div>
-                                        <div class="col-sm-6 lastchild">
-                                            <select class="ui search dropdown" id="agetitle">
-                                                <option value="">Variant</option>
-                                                  <option value="AL" selected>1.4 CX CRDI 6-Speed MT</option>
-                                                  <option value="AL">LDI, 1248 CC</option>
-                                                  <option value="AL">ZDI, 1248 CC</option>
-                                            </select>
-                                            <span id="age-title" class="title" style="display:none;">Eldest Member</span>
-                                        </div>
-                                    </div>
                                 </div>
-                                
-                                <div class="row firstrow">
-                                    <div class="bgshadow">
-                                        <div class="col-sm-2">
-                                            <div class="input-effect">
-                                                <input type="text" placeholder="Registration Date" class="form-control effect datepicker">
-                                                <label>Registration Date</label>
-                                                <span class="focus-border"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <span id="claimed-title" class="title">Claimed?</span>
-                                            <select class="ui search dropdown" id="madeclaim">
-                                                <option value="">Claimed</option>
-                                                <option value="m">No</option>
-                                                <option value="f">Yes</option>
-                                            </select>
-                                            <span class="claimshare sr-only"></span>
-                                            <ul class="previousncb animated sr-only text-center">
-                                                <p>Previous NCB</p>
-                                                <li><a href="">0%</a></li>
-                                                <li><a href="">20%</a></li>
-                                                <li><a href="">25%</a></li>
-                                                <li><a href="">35%</a></li>
-                                                <li><a href="">45%</a></li>
-                                                <li><a href="">50%</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3 borderleft">
-                                            <div class="input-effect">
-                                                <input type="text" placeholder="Mobile" class="form-control effect">
-                                                <label>Mobile</label>
-                                                <span class="focus-border"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5 lastchild">
-                                            <div class="input-effect">
-                                                <input type="text" placeholder="Email" class="form-control effect">
-                                                <label>Email</label>
-                                                <span class="focus-border"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                
                                 <div class="row">
                                     <div class="col-sm-12 text-center">
                                         <button type="button" class="btn submit" data-toggle="modal" data-target="#verifydetails">Verify Details</button>
@@ -922,6 +858,14 @@
                             
                         </div>
                         <!------ /Nav Tabs------>
+                        <!-- Renewal Box Starts Here --->
+                        <a href="#" class="renewel-box" data-toggle="modal" data-target="#verifyrenewal">
+                            <h2>Quick Renewal</h2>                            
+                            <p>Which Policies Bought on Quickbima</p>
+                        </a>
+                        
+                        
+                        <!-- Renewal Box Ends -->
                     </div>
                     
                     <!------
@@ -933,7 +877,6 @@
                         <p>Service tax on premium to go up by 3% under GST. </p>
                     </div>----->
                 </div>
-                
                 <div class="licenced text-center">
                     <a href=""><img src="images/irda-logo.svg" alt="irda">
                     <p>Licenced by</p></a>
@@ -6781,18 +6724,6 @@ animantium statui deceat extremum quid enim est a chrysippo praetermissum in sto
         </script>
         
         <script>
-            $('#madeclaim').change(function(){
-               if($(this).parent().parent().find('default')){
-                   $('#claimed-title').css({'top': '4px'});
-                   $(this).parent().parent().find('.text').css('top', "9px");
-                   $(this).parent().parent().find('input').css('top', "9px");
-                   $(".previousncb").removeClass('sr-only');
-                   $(".previousncb").addClass('fadeInDown');
-               }else{
-                   $('#claimed-title').hide();
-               }
-            });
-            
             $("#close-sessionv2").click(function() {
                 $(".last-session-v2").removeClass('slideInUp');
                 $(".last-session-v2").addClass('slideOutDown');
@@ -6946,6 +6877,8 @@ animantium statui deceat extremum quid enim est a chrysippo praetermissum in sto
                     $("#otpwindow").modal('show');
                     //$("body").addClass('modal-open');
                 });
+                
+                
                 
                 $("#continue1").click(function(){
                     $("#step1").hide();
