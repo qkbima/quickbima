@@ -1,2 +1,0 @@
-# quickbima
-New GUI design
