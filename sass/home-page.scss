@@ -1098,7 +1098,7 @@ textarea:focus, textarea:active, textarea:hover {
     .tab-content {
         @include margin(40px, auto, null, auto);
         border:none;
-        width: 650px;
+        width: 670px;
         .firstrow {
             min-height:160px;
             
@@ -1204,6 +1204,11 @@ textarea:focus, textarea:active, textarea:hover {
             .noborder {
                 border-left: none!important;;
             }
+        }
+        .last-claimed {
+            border-right:1px solid $theme; 
+            min-height: 56px;
+            padding-top: 1px;
         }
         .claimshare {
             position: absolute;
@@ -1443,7 +1448,7 @@ textarea:focus, textarea:active, textarea:hover {
         .ui {
           &.search {
             &.dropdown {
-              background:$body-bg url("../images/arrow-down.svg") no-repeat 96% center/22px;
+              background:$body-bg;
               border: none;
               min-width:50px;
               max-height: 55px;
