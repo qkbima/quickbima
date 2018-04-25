@@ -415,7 +415,7 @@ select option {
 }
 .call {
     color: #fff;
-    font-size: 22px;
+    font-size: 24px;
     margin-top: 12px;
     margin-right: 10px;
     margin-left: 10px;
@@ -1005,6 +1005,33 @@ textarea:focus, textarea:active, textarea:hover {
             top: 50%;
             width: 100%;
             min-height: 450px;
+            .renewel-box{
+                position: absolute;                
+                border: 1px dashed #829eb4;
+                bottom: 40%;
+                padding: 8px 10px 6px 10px;
+                border-radius: 4px;
+                &:after{
+                    position: absolute;
+                    content: "";
+                    top: -22px;
+                    right: 6px;
+                    background: url("../images/renewalIcon.svg") no-repeat 50% 50%/30px;                    
+                    width: 50px;
+                    height: 50px;                  
+                }
+                h2{
+                    font-size: 20px;
+                    line-height: 20px;
+                    font-family: 'Nobel-Book';                    
+                }
+                
+                p{
+                    color: #829eb4;
+                    margin-bottom: 0;
+                    font-size: 12px;
+                }
+            }
         }
         .notification {
             border: 1px solid #586774;
@@ -1074,6 +1101,13 @@ textarea:focus, textarea:active, textarea:hover {
         width: 650px;
         .firstrow {
             min-height:160px;
+            
+        }
+        .r-height{
+            min-height: 90px;
+        }
+        .secondrow{
+            @extend .firstrow;
         }
         .submitrow {
             @include margin(100px, null, null, null);
@@ -1170,9 +1204,6 @@ textarea:focus, textarea:active, textarea:hover {
             .noborder {
                 border-left: none!important;;
             }
-            .borderleft {
-                border-left: 1px solid $theme;
-            }
         }
         .claimshare {
             position: absolute;
@@ -1211,6 +1242,7 @@ textarea:focus, textarea:active, textarea:hover {
                 }
             }
         }
+        
         .trip-multidate {
             border-right: 1px solid $theme;
             .input-effect {
@@ -1375,7 +1407,7 @@ textarea:focus, textarea:active, textarea:hover {
               font-size:$font-size-large - 2px;
               font-family: 'Nobel-Light';
               @include border-radius(3px 0px 0px 3px);
-              @include position (absolute, $left:0px, $top:0px);
+              @include position (absolute, $left:3px, $top:0px);
               z-index: 9;
               ~ label {
                 position: absolute;
@@ -1390,6 +1422,7 @@ textarea:focus, textarea:active, textarea:hover {
                 transition: top 0.2s linear 0.2s;
               }
             }
+
             .title-content {
               @include padding(24px, 0px, 5px, 10px);
               font-family: 'Nobel-Book';
@@ -1410,7 +1443,7 @@ textarea:focus, textarea:active, textarea:hover {
         .ui {
           &.search {
             &.dropdown {
-              background:$body-bg;
+              background:$body-bg url("../images/arrow-down.svg") no-repeat 96% center/22px;
               border: none;
               min-width:50px;
               max-height: 55px;
@@ -1442,7 +1475,9 @@ textarea:focus, textarea:active, textarea:hover {
                   position: relative;
                   font-family: 'Nobel-Book';
                   left: 1px;
+                  top: 0px;
                   z-index: 3;
+                    
                 }
               }
               .dropdown.icon {
@@ -2563,7 +2598,117 @@ textarea:focus, textarea:active, textarea:hover {
         }
     }
 }
-
+.details-renew{
+    @extend .details-correct;
+    .modal-content{
+        background: $theme;
+        border-radius: 0;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        .modal-body{
+            .policy{
+                position: relative;
+                margin-top: 70px;
+                margin-right: auto;
+                margin-bottom: 60px;
+                margin-left: auto;
+                -webkit-border-radius: 6px;
+                -moz-border-radius: 6px;
+                border-radius: 4px;
+                background: #fff;                
+                border: 1px solid #fff;                
+                text-align: center;
+                font-family: 'Nobel-Regular';
+                font-size: 20px;
+                height: 55px;
+                width: 300px;
+                @include box-shadow(0 -8px 8px -8px rgba(0,0,0,0.15));
+                input[type="text"] {
+                    background: transparent;
+                    @include box-shadow(0 0px 0px rgba(0,0,0,0));
+                    @include padding(null, null, null, 10px!important);
+                    @include margin(0px, null, 0px, null);
+                    border:none;
+                    color: $theme;
+                    text-align: left;
+                    font-family: 'Nobel-Regular';
+                    font-size: $font-size-h4 + 2px;
+                    height: 55px;
+                    width: 300px;
+                }
+            }
+            .vertical-center{
+                .container{
+                    background: $theme;
+                    .renewal{
+                        position: relative;
+                        &:after{
+                            position: absolute;
+                            content: "";
+                            width: 60px;
+                            height: 60px;
+                            background: url("../images/renewalIcon.svg") no-repeat 50% 50%/40px;
+                            top: -10px;
+                            left: 36%;
+                            transform: translateX(-50%);
+                        }
+                        h3{
+                        font-size: 35px;
+                        color: #fff;
+                        margin-bottom: 15px;
+                        font-family: 'Nobel-Light';
+                    }
+                    p{
+                        color:lighten($theme, 30%);
+                        font-size: 22px;
+                    }
+                    .renew{
+                        background: #e6253c;
+                        border: none;
+                        font-size: 22px;
+                        color: #fff;
+                        padding-top: 15px;
+                        padding-right: 30px;
+                        padding-bottom: 15px;
+                        padding-left: 30px;                        
+                        -webkit-border-radius: 3px;
+                        -moz-border-radius: 3px;
+                        border-radius: 3px;
+                        min-width: 160px;
+                        display: inline-block;
+                        @include box-shadow(0 -8px 8px -8px rgba(0,0,0,0.15));
+                    }
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    .policyNumber{
+        @extend .regno;
+        background: transparent;
+    }
+    .continue{
+        background:$logo-red;
+                border: none;
+                font-size:$font-size-h4 + 2px;
+                color:$body-bg;
+                @include padding(8px, 30px, 8px, 30px);
+                @include margin(null, null, null, 20px);
+                @include border-radius(3px);
+                min-width:200px;
+                display: inline-block;
+                &:hover {
+                    text-decoration: none;
+                }
+    }
+}
 fieldset[disabled] .otp .btn-default {
   &.focus, &:focus, &:hover {
     background-color: #d44548;
