@@ -1208,7 +1208,7 @@ textarea:focus, textarea:active, textarea:hover {
         .last-claimed {
             border-right:1px solid $theme; 
             min-height: 56px;
-            padding-top: 1px;
+            padding-right: 1px;
         }
         .claimshare {
             position: absolute;
@@ -1412,7 +1412,7 @@ textarea:focus, textarea:active, textarea:hover {
               font-size:$font-size-large - 2px;
               font-family: 'Nobel-Light';
               @include border-radius(3px 0px 0px 3px);
-              @include position (absolute, $left:3px, $top:0px);
+              @include position (absolute, $left:0px, $top:0px);
               z-index: 9;
               ~ label {
                 position: absolute;
