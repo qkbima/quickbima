@@ -60,7 +60,7 @@
                 </div>
             </div>
                 
-            <section id="owner-detail" class="animated">
+            <section id="owner-detail" class="animated sr-only">
                 <div class="row form-section">
                     <div class="col-xs-12 fullwidth-checkbox">
                         <input type="checkbox" id="company" name="car" class="checkbox"/>
@@ -331,7 +331,7 @@
                     </div>
                 </div>
             </section>
-            <section id="preview-details" class="sr-only">
+            <section id="preview-details" class="animated">
                 <div class="row form-section">
                     <div class="col-xs-12">
                         <div class="detailbox" id="ownerdetails">
@@ -434,9 +434,23 @@
                             <h5><i class="fa fa-check-square-o" aria-hidden="true"></i> <span> Mailing address is same.</span></h5>
                         </div>
                     </div>
+                    <div class="col-xs-12 full-checkbox">
+                        <p>Pyament Mode</p>
+                        <span class="icon"><i class="fa fa-money" aria-hidden="true"></i></span>
+                        <span>
+                            <input type="radio" id="cc" name="payment" checked class="checkbox"/>
+                            <label for="cc">Credit Card</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="nb" name="payment" class="checkbox"/>
+                            <label for="nb">Net Banking</label>
+                        </span>
+                    </div>
                     
                     <div class="footer">
-                        <a href="javascript:void(0);" id="step1">All Ok Pay <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        <!---a href="javascript:void(0);" id="step1">All Ok <img src="../images/q-icon.svg" alt="icon"> Pay</a--->
+                        <button type="submit" class="okbtn" id="step1">All Ok <img src="../images/q-icon.svg" alt="icon"> Pay</button>
+                        <p>By clicking on this button, I Agree to the Terms &amp; Conditons.</p>
                     </div>
                 </div>
             </section>

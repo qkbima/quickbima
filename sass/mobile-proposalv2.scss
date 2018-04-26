@@ -803,10 +803,30 @@ select:-webkit-autofill:focus {
                     margin-left: 6px;
                     font-size: 18px;
                 }
+                img {
+                    height: 20px;
+                }
+                &:hover {
+                    color: #fff;
+                }
             }
             .btn {
                 @extend a;
                 display: inline-block;
+            }
+            .okbtn {
+                @extend a;
+                height: 50px;
+                padding: 12px 20px;
+                display: inline-block;
+            }
+            p {
+                color: #fff;
+                position: absolute;
+                bottom: 0px;
+                font-size: 9px;
+                margin-bottom: 2px;
+                width: 100%;
             }
         }
     }
