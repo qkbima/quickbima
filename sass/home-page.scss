@@ -1673,6 +1673,9 @@ textarea:focus, textarea:active, textarea:hover {
                 padding: 8px 10px 6px 10px;
                 border-radius: 4px;
                 z-index: 9999;
+                @include media(">tablet", "<=desktop"){
+                    bottom: 30%;
+                }
                 &:after{
                     position: absolute;
                     content: "";
@@ -1693,6 +1696,7 @@ textarea:focus, textarea:active, textarea:hover {
                     margin-bottom: 0;
                     font-size: 12px;
                 }
+                
             }
     .quickquotes {
         width: 100%;
