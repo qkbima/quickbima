@@ -1236,6 +1236,9 @@ textarea:focus, textarea:active, textarea:hover {
             li {
                 width: 50%;
                 float: left;
+                input[type="radio"], input[type="checkbox"]{
+                    display: none;
+                }
                 a {
                     color: $theme;
                     padding: 5px 0px;
@@ -2633,6 +2636,11 @@ textarea:focus, textarea:active, textarea:hover {
                 height: 55px;
                 width: 300px;
                 @include box-shadow(0 -8px 8px -8px rgba(0,0,0,0.15));
+                .error{
+                    font-size: 14px;
+                    border: none!important;
+                    bottom: -22px!important;
+                    }
                 input[type="text"] {
                     background: transparent;
                     @include box-shadow(0 0px 0px rgba(0,0,0,0));
@@ -2647,9 +2655,11 @@ textarea:focus, textarea:active, textarea:hover {
                     width: 300px;
                 }
             }
+            
             .vertical-center{
                 .container{
                     background: $theme;
+                    
                     .renewal{
                         position: relative;
                         &:after{
