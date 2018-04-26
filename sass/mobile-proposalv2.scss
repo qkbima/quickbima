@@ -125,7 +125,9 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus
 select:focus {
-    background-color: transparent !important;
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    background: #fff!important;
 }
 
 body{
@@ -152,6 +154,20 @@ html, body {
 }
 a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus {
     outline:none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    background-color: transparent;
 }
 .sr-only {
     position: absolute !important;
@@ -272,7 +288,9 @@ a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus
         }
     }
     .form-section {
-        padding-bottom: 80px;
+        padding-top:80px;
+        overflow: scroll;
+        height: calc(100% - 70px);
         .more-space {
             margin-top: 25px;
         }
@@ -499,7 +517,7 @@ a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus
               border:none;
               @include padding(10px, 0px, 5px, 0px);
               border-bottom:1px solid #ccc;
-              background-color: transparent;
+              background: transparent!important;
               width: calc(100% - 40px);
               height: 40px;
               font-size:17px;
@@ -531,6 +549,7 @@ a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus
                 font-size:16px;
                 color: #777;
                 transition: 0.3s;
+                z-index: 8;
               }
               &:focus ~ label {
                 top: -10px;
@@ -541,12 +560,16 @@ a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus
                 z-index: 99;
               }
             }   
-            .has-content.effect ~ label {
-              top: -10px;
-              font-size:14px;
-              color: $logo-blue;
-              font-family: 'Nobel-Book';
-              transition: 0.3s;
+            .has-content.effect {
+                background: transparent!important;
+                ~ label {
+                  top: -10px;
+                  font-size:14px;
+                  color: $logo-blue;
+                  font-family: 'Nobel-Book';
+                  transition: 0.3s;
+                  z-index: 9999;
+                }
             }
             .has-error.effect ~ .focus-border {
               width: calc(100% - 40px);
@@ -781,6 +804,10 @@ a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus
                     font-size: 18px;
                 }
             }
+            .btn {
+                @extend a;
+                display: inline-block;
+            }
         }
     }
     .filter-overlay {
@@ -819,6 +846,7 @@ a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus
             left: 0px;
             height: 70px;
             width:100%;
+            z-index: 999;
             &:before {
                 position: absolute;
                 top: 8px;
@@ -882,6 +910,7 @@ a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus
             padding-bottom: 12px;
             border: none;
             color: #000;
+            z-index: 9991;
         }
         .searchtitle {
             position: fixed;
@@ -891,6 +920,7 @@ a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus
             margin-top: 0px;
             font-size: 13px;
             font-family: 'Nobel-Book';
+            z-index: 9991;
         }
     }
     .addon-details {
@@ -1233,7 +1263,6 @@ a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus
         width: 100%;
         height: 100%;
         left: 0px;
-        padding-top: 80px;
         padding-left: 15px;
         padding-right: 15px;
     }

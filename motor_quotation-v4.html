@@ -9,7 +9,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="javascripts/bootstrap.min.js"></script>
 		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet"> 
 		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css' rel='stylesheet' type='text/css'>
 		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css' rel='stylesheet' type='text/css'>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
@@ -32,7 +32,7 @@
          });
       </script>
 	</head>
-<body>
+<body style="font-family: 'Quicksand';">
 
     <nav class="navbar navbar-fixed-top navbar-default">
 		  <div class="container">
@@ -48,14 +48,12 @@
     <div class="container-fluid quotes-page">
         
         <!-- Modify Details -->
-        <div id="modifydetails" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-body">
-                   <div class="row">
+        <div id="cardetails" class="popup-content animated sr-only">
+          <div class="v-center">
+            <div class="inner-content">
+                  <div class="row">
                        <div class="col-sm-12 text-center">
-                           <h3 class="text-uppercase">Modify Vehicle Details</h3>
+                           <h3>Modify Vehicle Details</h3>
                        </div>
                        <div class="col-sm-4">
                             <select class="ui search dropdown">
@@ -66,6 +64,7 @@
                                 <option value="4">Hyundai Excent</option>
                                 <option value="5">Hyundai Fludic Verna</option>
                                 <option value="6">Hyundai Verna</option>
+                                <option value="7">Land Rover Range Rover Evoque </option>
                            </select>
                         </div>
                        <div class="col-sm-2">
@@ -86,7 +85,7 @@
                        </div>
                    </div>
                   <div class="row">
-                      <div class="col-sm-3">
+                      <div class="col-sm-4">
                           <div class="input-effect">
                             <input value="08-10-2014" class="effect has-content" type="text">
                             <label>Registration Date</label>
@@ -100,7 +99,7 @@
                             <span class="focus-border"></span>
                           </div>
                       </div>
-                      <div class="col-sm-6 droplist">
+                      <div class="col-sm-5 droplist">
                           <span class="titlelabel">Previous Insurer</span>
                           <select class="ui search dropdown">
                                 <option value="">Previous Insurer</option>
@@ -113,157 +112,178 @@
                            </select>
                        </div>
                   </div>
+                  <div class="row">
+                      <div class="col-sm-12 text-center">
+                        <h4 class="block-box">Claimed in the last year?</h4>
+                          <span class="block-box">
+                            <input type="radio" id="noclaimedlast" name="calim" class="checkbox"/>
+                            <label for="noclaimedlast">No</label>
+                          </span>
+                          <span class="block-box">
+                            <input type="radio" id="yesclaimedlast" name="calim" checked class="checkbox"/>
+                            <label for="yesclaimedlast">Yes</label>
+                          </span>
+                      </div>
+                  </div>
+                  <div class="row lastncb">
+                      <div class="col-sm-12 text-center">
+                        <h4 class="block-box">Previous No Claim Bonus (NCB)</h4>
+                          <p>(Check it in your last policy.)</p>
+                          <span class="block-box">
+                            <input type="radio" id="nocl0aimed" name="ncb" class="checkbox"/>
+                            <label for="0">0%</label>
+                          </span>
+                          <span class="block-box">
+                            <input type="radio" id="20" name="ncb" checked class="checkbox"/>
+                            <label for="20">20%</label>
+                          </span>
+                          <span class="block-box">
+                            <input type="radio" id="25" name="ncb" checked class="checkbox"/>
+                            <label for="25">25%</label>
+                          </span>
+                          <span class="block-box">
+                            <input type="radio" id="25" name="ncb" checked class="checkbox"/>
+                            <label for="25">35%</label>
+                          </span>
+                          <span class="block-box">
+                            <input type="radio" id="25" name="ncb" checked class="checkbox"/>
+                            <label for="25">45%</label>
+                          </span>
+                          <span class="block-box">
+                            <input type="radio" id="25" name="ncb" checked class="checkbox"/>
+                            <label for="25">50%</label>
+                          </span>
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                      <div class="col-sm-6 text-right">
+                        <h4 class="block-box">CNG Kit?</h4>
+                          <span class="block-box">
+                            <input type="radio" id="nokit" name="cngkit" checked class="checkbox"/>
+                            <label for="nokit">No</label>
+                          </span>
+                          <span class="block-box">
+                            <input type="radio" id="yeskit" name="cngkit"  class="checkbox"/>
+                            <label for="yeskit">Yes</label>
+                          </span>
+                      </div>
+                      <div class="col-sm-6">
+                        <span class="block-box">
+                              <div class="input-effect">
+                                <input class="effect" type="text">
+                                <label>Kit Price</label>
+                                <span class="focus-border"></span>
+                              </div>
+                          </span>
+                      </div>
+                  </div>
               </div>
-                <div class="footer text-center">
+            </div>
+            <div class="footer text-center">
+                <button type="button" class="btn update">Update</button>
+                <button type="button" class="btn skip">Skip</button>
+             </div>
+        </div>
+        
+        <!-- Discount Details -->
+        <div id="discountdetails" class="popup-content animated sr-only">
+            <div class="v-center">
+                <div class="inner-content">
+                      <div class="row">
+                           <div class="col-sm-12 text-center">
+                               <h3>Fill the Details To Get the Discounts </h3>
+                           </div>
+                          <div class="col-sm-12">
+                            <h4>Choose a Voluntary Deductible</h4>
+                          </div>
+                          <div class="col-sm-12">
+                              <span class="block-box">
+                                <input type="radio" id="Deductible0" name="Voluntary" checked class="checkbox"/>
+                                <label for="Deductible0"><i class="fa fa-inr" aria-hidden="true"></i> 0</label>
+                              </span>
+                              <span class="block-box">
+                                <input type="radio" id="Deductible25" name="Voluntary" class="checkbox"/>
+                                <label for="Deductible25"><i class="fa fa-inr" aria-hidden="true"></i> 2,500</label>
+                              </span>
+                              <span class="block-box">
+                                <input type="radio" id="Deductible50" name="Voluntary" class="checkbox"/>
+                                <label for="Deductible50"><i class="fa fa-inr" aria-hidden="true"></i> 5,000</label>
+                              </span>
+                              <span class="block-box">
+                                <input type="radio" id="Deductible75" name="Voluntary" class="checkbox"/>
+                                <label for="Deductible75"><i class="fa fa-inr" aria-hidden="true"></i> 7,500</label>
+                              </span>
+                              <span class="block-box">
+                                <input type="radio" id="Deductible75" name="Voluntary" class="checkbox"/>
+                                <label for="Deductible75"><i class="fa fa-inr" aria-hidden="true"></i> 15,000</label>
+                              </span>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                          <div class="col-sm-12">
+                            <h4>Is the owner a member of Automobile Association of India?</h4>
+                          </div>
+                          <div class="col-sm-12">
+                              <span class="block-box">
+                                <input type="radio" id="Automobileno" name="Automobile" checked class="checkbox"/>
+                                <label for="Automobileno">No</label>
+                              </span>
+                              <span class="block-box">
+                                <input type="radio" id="Automobileyes" name="Automobile" class="checkbox"/>
+                                <label for="Automobileyes">Yes</label>
+                              </span>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                          <div class="col-sm-12">
+                            <h4>Is the vehicle fitted with ARAI approved anti-theft device?</h4>
+                          </div>
+                          <div class="col-sm-12">
+                              <span class="block-box">
+                                <input type="radio" id="Automobileno" name="Automobile" checked class="checkbox"/>
+                                <label for="Automobileno">No</label>
+                              </span>
+                              <span class="block-box">
+                                <input type="radio" id="Automobileyes" name="Automobile" class="checkbox"/>
+                                <label for="Automobileyes">Yes</label>
+                              </span>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                          <div class="col-sm-12">
+                            <h4>Vehicle Owned By</h4>
+                          </div>
+                          <div class="col-sm-12">
+                              <span class="block-box">
+                                <input type="radio" id="Individual" name="vehicle" checked class="checkbox"/>
+                                <label for="Individual">Individual</label>
+                              </span>
+                              <span class="block-box">
+                                <input type="radio" id="Organization" name="vehicle" class="checkbox"/>
+                                <label for="Organization">Organization</label>
+                              </span>
+                          </div>
+                      </div>
+                </div>
+              </div>
+              <div class="footer text-center">
                     <button type="button" class="btn update">Update</button>
                     <button type="button" class="btn skip" data-dismiss="modal">Skip</button>
                  </div>
-            </div>
-          </div>
         </div>
 
         <div class="top-section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <h4>Hyundai i20 <strong>Magna (O) 1396 cc</strong> <a href="javascript:void(0);" data-toggle="modal" data-target="#modifydetails" class="edit">Edit</a></h4>
+                        <h4>Hyundai i20 <strong>Magna (O) 1396 cc</strong> <a href="javascript:void(0);" id="editcardetail" class="edit">Edit</a></h4>
                         <p class="pull-left">Policy Expiry - <strong>29-03-2018</strong></p>
-                        <p class="pull-left">Last NCB - <strong>45%</strong></p>
+                        <p class="pull-left">New NCB - <strong>45%</strong></p>
                     </div>
-                    <div class="editfields">
-                        <div class="container">
-                            <div class="col-sm-12">
-                                <div class="vehiclemake">
-                                    <select class="ui search dropdown">
-                                       <option value="">Make and Model</option>
-                                       <option value="1">Hyundai i10</option>
-                                       <option value="2">Hyundai Grand i10</option>
-                                       <option value="3" selected>Hyundai i20</option>
-                                       <option value="11">Hyundai Elite i20</option>
-                                       <option value="4">Hyundai i20 Active</option>
-                                       <option value="5">Maruti Suzuki Alto</option>
-                                       <option value="6">Maruti Suzuki Alto K10</option>
-                                       <option value="7">Maruti Suzuki Swift</option>
-                                       <option value="8">Maruti Suzuki Swift Dzire</option>
-                                       <option value="9">Maruti Suzuki Baleno</option>
-                                       <option value="10">Maruti Suzuki Ciaz</option>
-                                    </select>
-                                </div>
-                                <div class="fuel">
-                                    <select class="col-sm-1 ui search dropdown">
-                                       <option value="">Fuel Type</option>
-                                       <option value="1" selected>Diesel</option>
-                                       <option value="2">Petrol</option>
-                                    </select> 
-                                </div>
-                                <div class="variant">
-                                    <select class="ui search dropdown">
-                                       <option value="">Variant</option>
-                                       <option value="6">1.4 Asta, 1396 cc</option>
-                                       <option value="6">1.4 Base, 1396 cc</option>
-                                       <option value="1">1.4 Magna, 1396 cc</option>
-                                       <option value="2" selected>1.4 Magna (O), 1396 cc</option>
-                                       <option value="3">1.4 Magna ABS, 1396 cc</option>
-                                       <option value="4">1.4 Sport Z, 1396 cc</option>
-                                       <option value="5">1.4 Era, 1396 cc</option>
-                                    </select>
-                                </div>
-                                <div class="date">
-                                    <div class="input-effect">
-                                        <input type="text" class="effect datepicker has-content" value="08-10-2014" id="datepicker">
-                                        <label>Registration Date</label>
-                                        <span class="focus-border"></span>
-                                    </div>
-                                </div>
-                                <div class="date">
-                                    <div class="input-effect">
-                                        <input type="text" class="effect datepicker has-content" value="14-04-2018" id="datepicker2">
-                                        <label>Policy Expiry</label>
-                                        <span class="focus-border"></span>
-                                    </div>
-                                </div>
-                                <div class="vehiclemake">
-                                    <span class="label-title">Previous Insurer</span>
-                                    <select class="ui search dropdown" id="previnsurer">
-                                       <option value="">Previous Insurer</option>
-                                       <option value="6">Bajaj Allianz</option>
-                                       <option value="6">Bharti Axa</option>
-                                       <option value="1">Cholamandalam</option>
-                                       <option value="2" selected>Future Generali</option>
-                                       <option value="3">HDFC ERGO</option>
-                                       <option value="4">ICICI Lombard</option>
-                                       <option value="5">IFFCO Tokio</option>
-                                    </select> 
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 prevclaimed text-center">
-                                <h4 class="claim-title">Claimed in the Past Year?</h4>
-                                <span class="claimyesno">
-                                    <input type="radio" id="noclaimed" name="claim" class="checkbox"/>
-                                    <label for="noclaimed">No</label>
-                                </span>
-                                <span class="claimyesno">
-                                    <input type="radio" checked id="yesclaimed" name="claim" class="checkbox"/>
-                                    <label for="yesclaimed">Yes</label>
-                                </span>
-
-                                <span class="claimyesno">&nbsp;</span>
-
-                                <h4 class="claim-title">CNG Kit</h4>
-                                <span class="claimyesno">
-                                    <input type="radio" id="nokit" checked name="cng" class="checkbox"/>
-                                    <label for="nokit">No</label>
-                                </span>
-                                <span class="claimyesno">
-                                    <input type="radio" id="yeskit" name="cng" class="checkbox"/>
-                                    <label for="yeskit">Yes</label>
-                                </span>
-                                
-                                <div class="kitvalue sr-only">
-                                    <div class="input-effect">
-                                        <input type="text" class="effect">
-                                        <label>Kit Price</label>
-                                        <span class="focus-border"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-12 prevncb text-center sr-only">
-                                <h4 class="claim-title">Previous No Claim Bonus (NCB)</h4>
-                                <span class="claimyesno">
-                                    <input type="radio" id="0" name="ncb" class="checkbox"/>
-                                    <label for="0">0%</label>
-                                </span>
-                                <span class="claimyesno">
-                                    <input type="radio"  id="20" name="ncb" class="checkbox"/>
-                                    <label for="20">20%</label>
-                                </span>
-                                <span class="claimyesno">
-                                    <input type="radio" id="25" name="ncb" class="checkbox"/>
-                                    <label for="25">25%</label>
-                                </span>
-                                <span class="claimyesno">
-                                    <input type="radio" id="35" name="ncb" class="checkbox"/>
-                                    <label for="35">35%</label>
-                                </span>
-                                <span class="claimyesno">
-                                    <input type="radio" id="45" name="ncb" class="checkbox"/>
-                                    <label for="45">45%</label>
-                                </span>
-                                <span class="claimyesno">
-                                    <input type="radio" id="50" name="ncb" class="checkbox"/>
-                                    <label for="50">50%</label>
-                                </span>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-sm-12 text-center">
-                                <a href="javascript:void(0);" class="update">Update</a>
-                                <a href="javascript:void(0);" class="skip">Skip</a>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="col-md-4">
                         <div class="idv">
                             <div id="choose-idv">
@@ -295,7 +315,7 @@
                     <h4 class="title text-uppercase">Additional Covers</h4>
                     <span class="covers">
                         <input type="checkbox" id="zd" name="cb" class="checkbox" checked />
-                        <label for="zd" data-toggle="tooltip" title="Insurers pay 100% claim for parts without deducting depreciation.">Zero Depreciation <i class="fa fa-shield text-danger" aria-hidden="true"></i></label>
+                        <label for="zd" data-toggle="tooltip" title="Insurers pay 100% claim for parts without deducting depreciation.">Zero Depreciation <i class="fa fa-shield zerodep-icon" aria-hidden="true"></i></label>
                     </span>
                     <span class="covers">
                         <input type="checkbox" id="cb1" name="cb" class="checkbox"/>
@@ -350,7 +370,7 @@
                     </span>
                     
                     <div class="discount">
-                        <h4 class="title">DISCOUNT <a href="javascript:void(0);" class="apply">Apply</a></h4>
+                        <h4 class="title">DISCOUNT <a href="javascript:void(0);" id="discounts" class="apply">Apply</a></h4>
                         <p><strong>40%</strong> <small>save upto quotes</small></p>
                     </div>
                     
@@ -358,8 +378,8 @@
                 
                 <!----Quotes Section---->
                 <div class="col-sm-9 right-section">
-                    <div class="quote-wrapper animatable fadeInDown">
-                        <div class="quote col-sm-12 col-md-9">
+                    <div class="quote-wrapper">
+                        <div class="quote col-sm-12 col-md-9 animatable fadeInDown">
                             <div class="dropdown">
                                   <button type="button" data-toggle="dropdown">
                                       <span class="circle"></span>
@@ -383,7 +403,7 @@
                                 </ul>
                                 <div class="detail-box">
                                     <a href="" class="garages"><span>6</span> Garages</a>
-                                    <a href="">Details</a>
+                                    <a href="javascript:void(0);" id="breakup">Details</a>
                                 </div>
                             </div>
                             <div class="col-xs-3">
@@ -391,10 +411,31 @@
                                 <a href="" class="buybima">Buy Bima</a>
                             </div>
                         </div>
+                        
+                        <!-- More Details -->
+                        <div id="breakupdetails" class="popup-content premium-breakup animated sr-only">
+                            <div class="v-center">
+                                  <div class="row">
+                                      <div class="col-sm-3">
+
+                                      </div>
+                                      <div class="col-sm-9 right-section">
+                                          
+                                          
+                                          
+                                      </div><!----Right Section End---->
+                                  </div>
+                              </div>
+                              <div class="footer text-center">
+                                    <button type="button" class="btn update">Buy Bima</button>
+                                    <button type="button" class="btn skip" data-dismiss="modal">Skip</button>
+                              </div>
+                        </div>
+
                     </div>
                     
-                    <div class="quote-wrapper animatable fadeInRight">
-                        <div class="quote col-sm-12 col-md-9">
+                    <div class="quote-wrapper">
+                        <div class="quote col-sm-12 col-md-9 animatable fadeInDown">
                             <div class="dropdown">
                                   <button type="button" data-toggle="dropdown">
                                       <span class="circle"></span>
@@ -427,8 +468,8 @@
                         </div>
                     </div>
                     
-                    <div class="quote-wrapper animatable pulse">
-                        <div class="quote col-sm-12 col-md-9">
+                    <div class="quote-wrapper">
+                        <div class="quote col-sm-12 col-md-9 animatable fadeInDown">
                             <div class="dropdown">
                                   <button type="button" data-toggle="dropdown">
                                       <span class="circle"></span>
@@ -462,8 +503,8 @@
                         </div>
                     </div>
                     
-                    <div class="quote-wrapper animatable fadeInLeft">
-                        <div class="quote col-sm-12 col-md-9">
+                    <div class="quote-wrapper">
+                        <div class="quote col-sm-12 col-md-9 animatable fadeInDown">
                             <div class="dropdown">
                                   <button type="button" data-toggle="dropdown">
                                       <span class="circle"></span>
@@ -501,8 +542,8 @@
                         </div>
                     </div>
                     
-                    <div class="quote-wrapper animatable zoomIn">
-                        <div class="quote col-sm-12 col-md-9">
+                    <div class="quote-wrapper">
+                        <div class="quote col-sm-12 col-md-9 animatable fadeInDown">
                             <div class="dropdown">
                                   <button type="button" data-toggle="dropdown">
                                       <span class="circle"></span>
@@ -535,8 +576,8 @@
                         </div>
                     </div>
                     
-                    <div class="quote-wrapper animatable fadeInLeft">
-                        <div class="quote col-sm-12 col-md-9">
+                    <div class="quote-wrapper">
+                        <div class="quote col-sm-12 col-md-9 animatable fadeInDown">
                             <div class="dropdown">
                                   <button type="button" data-toggle="dropdown">
                                       <span class="circle"></span>
@@ -579,6 +620,42 @@
     </div>
     
     <script>
+        // Modify Details Popup
+        $('#editcardetail').click(function(){
+           $('#cardetails').removeClass('sr-only');
+           $('#cardetails').addClass('fadeInDown');
+           $('body').addClass('modal-open');
+        });
+        $('.skip').click(function(){
+           $('#cardetails').addClass('sr-only');
+           $('#cardetails').removeClass('fadeInDown');
+           $('body').removeClass('modal-open');
+        });
+        
+        // Discount Popup
+        $('#discounts').click(function(){
+           $('#discountdetails').removeClass('sr-only');
+           $('#discountdetails').addClass('fadeInDown');
+           $('body').addClass('modal-open');
+        });
+        $('.skip').click(function(){
+           $('#discountdetails').addClass('sr-only');
+           $('#discountdetails').removeClass('fadeInDown');
+           $('body').removeClass('modal-open');
+        });
+        
+        // Brekup Popup
+        $('#breakup').click(function(){
+           $('#breakupdetails').removeClass('sr-only');
+           $('#breakupdetails').addClass('fadeInDown');
+           $('body').addClass('modal-open');
+        });
+        $('.skip').click(function(){
+           $('#breakupdetails').addClass('sr-only');
+           $('#breakupdetails').removeClass('fadeInDown');
+           $('body').removeClass('modal-open');
+        });
+        
         jQuery(function($) {
 
           // Function which adds the 'animated' class to any '.animatable' in view
@@ -676,6 +753,19 @@
                 }
             });
             
+            // Claimed last year 
+            $('#noclaimedlast').click(function(){
+               if($('#noclaimedlast').is(':checked')){
+                   $('.lastncb').addClass('expended');
+               }
+                else{
+                    $('.lastncb').removeClass('expended');
+                }
+            });
+            $('#yesclaimedlast').click(function(){
+               $('.lastncb').removeClass('expended');
+            });
+            
             // Passenger Cover Add or Remove 
             $('.passenger').click(function(){
                if($('.passenger').is(':checked')){
@@ -747,7 +837,6 @@
             $('.reset').click(function(){				
                 $('#cusIDV').val('');					
             });
-            
             
         });
     </script>
