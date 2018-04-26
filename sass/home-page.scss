@@ -2669,7 +2669,7 @@ textarea:focus, textarea:active, textarea:hover {
                             height: 60px;
                             background: url("../images/renewalIcon.svg") no-repeat 50% 50%/40px;
                             top: -10px;
-                            left: 36%;
+                            left: 40%;
                             transform: translateX(-50%);
                         }
                         h3{
@@ -2677,6 +2677,7 @@ textarea:focus, textarea:active, textarea:hover {
                         color: #fff;
                         margin-bottom: 15px;
                         font-family: 'Nobel-Light';
+                        margin-left: 50px;
                     }
                     p{
                         color:lighten($theme, 30%);
