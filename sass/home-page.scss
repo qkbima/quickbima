@@ -1005,33 +1005,7 @@ textarea:focus, textarea:active, textarea:hover {
             top: 50%;
             width: 100%;
             min-height: 450px;
-            .renewel-box{
-                position: absolute;                
-                border: 1px dashed #829eb4;
-                bottom: 40%;
-                padding: 8px 10px 6px 10px;
-                border-radius: 4px;
-                &:after{
-                    position: absolute;
-                    content: "";
-                    top: -22px;
-                    right: 6px;
-                    background: url("../images/renewalIcon.svg") no-repeat 50% 50%/30px;                    
-                    width: 50px;
-                    height: 50px;                  
-                }
-                h2{
-                    font-size: 20px;
-                    line-height: 20px;
-                    font-family: 'Nobel-Book';                    
-                }
-                
-                p{
-                    color: #829eb4;
-                    margin-bottom: 0;
-                    font-size: 12px;
-                }
-            }
+            
         }
         .notification {
             border: 1px solid #586774;
@@ -1692,6 +1666,33 @@ textarea:focus, textarea:active, textarea:hover {
             font-size: $font-size-base - 2px;
         }
     }
+    .renewel-box{
+                position: absolute;                
+                border: 1px dashed #829eb4;
+                bottom: 40%;
+                padding: 8px 10px 6px 10px;
+                border-radius: 4px;
+                &:after{
+                    position: absolute;
+                    content: "";
+                    top: -22px;
+                    right: 6px;
+                    background: url("../images/renewalIcon.svg") no-repeat 50% 50%/30px;                    
+                    width: 50px;
+                    height: 50px;                  
+                }
+                h2{
+                    font-size: 20px;
+                    line-height: 20px;
+                    font-family: 'Nobel-Book';                    
+                }
+                
+                p{
+                    color: #829eb4;
+                    margin-bottom: 0;
+                    font-size: 12px;
+                }
+            }
     .quickquotes {
         width: 100%;
         @include margin (-40px, 0px, 0px, 0px);
