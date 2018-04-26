@@ -2669,7 +2669,7 @@ textarea:focus, textarea:active, textarea:hover {
                             height: 60px;
                             background: url("../images/renewalIcon.svg") no-repeat 50% 50%/40px;
                             top: -10px;
-                            left: 40%;
+                            left: calc(50% - 100px);
                             transform: translateX(-50%);
                         }
                         h3{
