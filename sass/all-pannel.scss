@@ -4221,11 +4221,11 @@ textarea:focus, textarea:active, textarea:hover {
         .dispose {
             margin-top: 15px;
             .notinterested {
-                    padding-left: 30px;
+                    padding-left: 30px!important;
                     position: relative;
                     &:before {
                         background: #7e48ad;
-                        @include position(absolute, $top:12px, $left:0px);
+                        @include position(absolute, $top:8px, $left:0px);
                         content: '';
                         width: 12px;
                         height: 12px;
