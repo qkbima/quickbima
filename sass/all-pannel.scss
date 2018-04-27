@@ -287,6 +287,19 @@ textarea:focus, textarea:active, textarea:hover {
 .navbar-default .navbar-nav > li > a{
 	color:$header-menu-items;
 	font-size:17px;
+    .notify {
+        background: #e6253c;
+        @include border-radius(20px);
+        position: absolute;
+        top: 6px;
+        right: 2px;
+        font-size: 9px;
+        font-family: 'Nobel-Book';
+        padding: 4px;
+        line-height: 9px;
+        height: 16px;
+        width: 16px;
+    }
 }
 .nav > li > a{
 	padding:10px 15px;
@@ -304,6 +317,13 @@ textarea:focus, textarea:active, textarea:hover {
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
 	color:$logo-red;
+    .notify {
+        background:transparent;
+        border: 1px solid $logo-red;
+        color: #fff;
+        padding: 3px;
+        line-height: 9px;
+    }
 }
 .navbar-default {
     .usr-login {
@@ -398,9 +418,93 @@ textarea:focus, textarea:active, textarea:hover {
     }
 }
 .navbar-nav > li > .dropdown-menu {
+    background: darken($theme, 5%);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+    padding-bottom: 10px;
+    max-height: 260px;
+    max-width: 300px;
+    min-width: 300px;
+    overflow-y: scroll;
+    top: 59px;
+    > li {
+        border-bottom: 1px solid lighten($theme, 10%);
+        display: inline-block;
+        width: 100%;
+        a {
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 4px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 100%;
+            color: #fff;
+            &:hover {
+                background: $theme;
+            }
+            .badge {
+                background: darken($theme, 10%);
+                color: lighten($theme, 30%);
+                padding: 3px 8px 4px 8px;
+            }
+            .icon {
+                @include border-radius(50px);
+                color: #fff;
+                float: left;
+                font-size: 16px;
+                text-align: center;
+                padding-top: 6px;
+                height: 35px;
+                width: 35px;
+                margin-top: 5px;
+                margin-right: 8px;
+            }
+            .health {
+                @extend .icon;
+                background: $logo-blue;
+            }
+            .car {
+                @extend .icon;
+                background: $brand-warning;
+            }
+            .bike {
+                @extend .icon;
+                background: $logo-red;
+            }
+            .term {
+                @extend .icon;
+                background: $brand-primary;
+            }
+            .travel {
+                @extend .icon;
+                background: $brand-success;
+            }
+            .details {
+                float: left;
+                h5 {
+                    margin-top: 13px;
+                    margin-left: 10px;
+                }
+                h4 {
+                    color: $brand-primary;
+                    font-family: 'Nobel-Regular';
+                    font-size: 16px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+                p {
+                    display: block;
+                    color: lighten($theme, 40%);
+                    font-size: 12px;
+                    margin-bottom: 0px;
+                }
+            }
+            
+        }
+    }
 }
+
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
     background-color: #fff;
     opacity: 1;
@@ -502,9 +606,9 @@ textarea:focus, textarea:active, textarea:hover {
         width: 25%;
         text-align: center;
         > a {
-          border:none;
-          font-size: $font-size-h4;
-          color: $body-bg;
+            border:none;
+            font-size: $font-size-h4;
+            color: $body-bg;
             text-transform: uppercase;
             &:hover, &:focus {
             color: $body-bg;
@@ -1688,7 +1792,7 @@ textarea:focus, textarea:active, textarea:hover {
         position: fixed;
         top: 19px;
         left: calc(50% - 300px);
-        width:600px;
+        //width:600px;
         z-index: 9999;
         li {
             list-style-type: none;
@@ -1699,7 +1803,7 @@ textarea:focus, textarea:active, textarea:hover {
             .active {
                 background: #fff;
                 color: #3a4855;
-                @include border-radius(30px);
+                @include border-radius(3px);
             }
             a {
                 color: #fff;
@@ -2529,7 +2633,7 @@ textarea:focus, textarea:active, textarea:hover {
         }
     }
     .right-section {
-        @include padding (null, 10px, null, 20px);
+        @include padding (null, 10px, null, 15px);
         @include box-shadow(0px 0px 0px rgba(0,0,0,0));
         float: left;
         height: 100%; 
@@ -3600,25 +3704,29 @@ textarea:focus, textarea:active, textarea:hover {
                 @include border-radius(8px);
                 @include box-shadow(0px 6px 6px rgba(0,0,0,0.1));
                 @include margin (15px, null, 30px, 0px);
-                @include padding (null, null, 10px, null);
+                //@include padding (null, null, 10px, null);
                 background: $body-bg;
                 position: relative;
                 display: inline-block;
                 min-height: 170px;
                 width: 100%;
+                [class*="col-"] {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
                 .work span {
                     font-family: 'Nobel-Regular';
                 }
                 .box-icon {
                     @include position(absolute, $top:0px, $left:0px);
                     @include border-radius(8px 0px 0px 0px);
-                    @include padding (3px, null, null, 2px);
+                    @include padding (5px, null, null, 2px);
                     background:$theme;
                     color: $body-bg;
-                    font-size: $font-size-large;
+                    font-size: 14px;
                     text-align: center;
-                    height: 34px;
-                    width: 34px;
+                    height: 30px;
+                    width: 30px;
                     z-index: 9;
                 }
                 .head-title {
@@ -3650,7 +3758,7 @@ textarea:focus, textarea:active, textarea:hover {
                     @include margin (null, null, 0px, null);
                     @include box-shadow(0px 2px 6px rgba(0,0,0,0.3));
                     h4 {
-                        @include margin (null, null, 20px, null);
+                        @include margin (8px, null, 20px, null);
                         font-family: 'Nobel-Book';
                         font-size: $font-size-base;
                         text-transform: uppercase;
@@ -3658,7 +3766,7 @@ textarea:focus, textarea:active, textarea:hover {
                     h2 {
                         color: $body-bg;
                         text-shadow: 0px 2px 3px rgba(0,0,0,0.3);
-                        font-size: $font-size-h2;
+                        font-size:22px;
                         small {
                             color: $gray-base;
                             font-size: $font-size-base; 
@@ -3729,10 +3837,11 @@ textarea:focus, textarea:active, textarea:hover {
                 }
                 p {
                     @include margin (10px, null, 5px, null);
-                    font-size: $font-size-base;
+                    font-size: 11px;
                 }
                 h5 {
                     font-family: 'Nobel-Book';
+                    font-size: 13px;
                 }
                 .blue {
                     color: $logo-blue;
@@ -3767,9 +3876,9 @@ textarea:focus, textarea:active, textarea:hover {
                 }
             }
             .superadmin-boxes {
-                width: 18%!important;
-                margin-left: 0.9%;
-                margin-right: 0.9%;
+                width: 18.5%!important;
+                margin-left: 0.6%;
+                margin-right: 0.6%;
             }
             .channel-boxes {
                 @extend .superadmin-boxes;
@@ -3779,7 +3888,7 @@ textarea:focus, textarea:active, textarea:hover {
                 @include border-radius(20px 20px 0px 0px);
                 float: left;
                 h4 {
-                    font-size: $font-size-base;
+                    font-size: 13px;
                     font-family: 'Nobel-Book';
                     .fa {
                         margin-right: 4px;
@@ -3799,16 +3908,17 @@ textarea:focus, textarea:active, textarea:hover {
                     }
                 }
                 .health {
-                    padding-left: 40px;
+                    padding-left: 30px;
                     position: relative;
                     margin-top: 20px;
                     font-family: 'Nobel-Light';
-                    font-size: $font-size-large - 2px;
+                    font-size: 15px;
                     &:before {
                         @include position(absolute, $left:0px, $top:1px);
                         content: '\f21e';
                         font-family: 'FontAwesome';
                         color: $brand-primary;
+                        font-size: 13px;
                     }
                     .up {
                         color:$brand-success;
@@ -3854,11 +3964,6 @@ textarea:focus, textarea:active, textarea:hover {
                 [class*="col-"]{
                     @include padding(null, 0px, null, 0px);
                 }
-                @include media(">phone", "<=1366px") {
-                    p {
-                        font-size: $font-size-base - 1px;
-                    }
-                }
                 .box-icon {
                     background: #3f85c6;
                 }
@@ -3877,6 +3982,9 @@ textarea:focus, textarea:active, textarea:hover {
             }
             .term-premium {
                 @extend .box;
+                [class*="col-"]{
+                    @include padding(null, 0px, null, 0px);
+                }
                 .box-icon {
                     background:#7e48ad;
                 }
@@ -3886,6 +3994,9 @@ textarea:focus, textarea:active, textarea:hover {
             }
             .travel-premium {
                 @extend .box;
+                [class*="col-"]{
+                    @include padding(null, 0px, null, 0px);
+                }
                 .box-icon {
                     background:#95a956;
                 }
@@ -3896,6 +4007,9 @@ textarea:focus, textarea:active, textarea:hover {
             .average-premium {
                 @extend .box;
                 width: calc(100% - 20px);
+                [class*="col-"]{
+                    @include padding(null, 0px, null, 0px);
+                }
                 .box-icon {
                     background: $brand-warning;
                 }
@@ -4255,12 +4369,23 @@ textarea:focus, textarea:active, textarea:hover {
             }
         }
         .action-btns {
-            @include margin(null, null, 10px, null);
+            position: relative;
+            .date-range {
+                height: 36px;
+                margin-right: 20px;
+                padding-top: 6px;
+                font-family: 'Nobel-Book';
+            }
             .btn {
                 @include box-shadow(0px 2px 4px rgba(0,0,0,0.2));
                 @include margin(null, null, null, 10px);
+                @include padding(5px, 10px, 5px, 10px);
+                font-size: 13px;
                 color: $body-bg;
                 float: right;
+                .fa {
+                    margin-right: 3px;
+                }
             }
             .add {
                 background: $logo-blue;
@@ -4275,35 +4400,65 @@ textarea:focus, textarea:active, textarea:hover {
                 background: $theme;
             }
             .message {
-                @include position(absolute, $bottom:-24px, $right:15px);
+                @include position(absolute, $bottom:-20px, $right:15px);
                 color: $logo-red;
                 font-family: 'Nobel-Book';
+                font-size: 12px;
             }
         }
         .product-title {
             @include margin(null, null, 25px, 15px);
-            @include padding(10px, 10px, 10px, 10px);
+            @include padding(9px, 10px, 15px, 10px);
             @include border-radius(4px);
-            background: lighten($brand-primary, 10%);
-            color: $body-bg;
-            .fa {
-                @include margin(null, 10px, null, null);
+            border: 1px solid lighten($theme, 30%);
+            min-height: 52px;
+            h3 {
+                margin: 3px 3px 0px;
+                float: left;
+                .fa {
+                    @include margin(null, 10px, null, null);
+                    color: $theme;
+                }
             }
         }
         .table {
             @include margin(null, null, null, 15px);
             background: $body-bg;
-            font-size: $font-size-base;
+            font-size: $font-size-base - 2px;
             font-family: 'Nobel-Book';
             width: calc(100% - 15px);
+            th {
+                font-family: 'Nobel-Regular';
+                padding: 8px 5px;
+            }
+            td {
+                padding: 6px 5px;
+            }
+            .highlight {
+                background-color:lighten($brand-warning, 10%);
+                &:hover {
+                    background-color:$brand-warning;
+                    color: #fff;
+                }
+            }
             input.checkbox {
               &:empty {
+                display: none;
                 ~ label {
-                  @include margin(0px, null, null, null);
+                  @include margin(null, null, null, 8px);
+                  @include padding(null, null, null, 0px);
                   width: 20px;
                   &:before {
                     top:-10px;
+                    width: 16px;
+                    height: 16px;
                   }
+                }
+              }
+              &:checked ~ label {
+                &:before {
+                  content: '';
+                  background:$logo-blue url("../images/radio2.svg") no-repeat 2px 3px/10px;
                 }
               }
             }
@@ -4311,15 +4466,14 @@ textarea:focus, textarea:active, textarea:hover {
                 border-bottom:none;
                 margin-left:0px;
             }
-
         }
         .dataTables_length {
             float: left;
             display: none;
           }
         .dataTables_filter {
-            @include position(absolute, $top:-145px, $left:30px);
-            width: 50%;
+            @include position(absolute, $top:-69px, $left:80px);
+            //width: 120px;
             label {
                width: 100%;
                 color: $body-bg;
@@ -4327,28 +4481,33 @@ textarea:focus, textarea:active, textarea:hover {
                 &:after {
                     content: "\f002"; 
                     font-family: "FontAwesome";
-                    font-size: $font-size-large;
-                    color: $theme;
-                    @include position(absolute, $top:0px, $left:0px);
-                    @include padding(12px, null, null, 15px);
+                    font-size: 14px;
+                    color: #000;
+                    @include position(absolute, $top:7px, $left:12px);
                     height: 50px;
                     width: 50px;
                 }
             }
             input {
-              background: transparent;
+              background: #fff;
               width: 100%;
               color: $theme;
-              height: 50px;
-              font-size: $font-size-large - 2px;
+              height: 35px;
+              font-size: $font-size-base;
               //font-family: 'Nobel-Book';
-              border:1px solid lighten($theme, 30%);
-              @include padding(6px, 20px, 5px, 45px);
-              @include border-radius(4px);
+              border:none;
+              @include padding(6px, 10px, 5px, 32px);
+              @include border-radius(40px);
+              -webkit-transition: width ease 0.3s;
+              transition: width ease 0.3s;
+              width: 120px;
                 &:focus {
                     background: $body-bg;
                     border: none;
                     @include box-shadow(0px 2px 4px rgba(0,0,0,0.15));
+                    -webkit-transition: width ease-out 0.3s;
+                    transition: width ease-out 0.3s;
+                    width: 220px;
                 }
             }
           }
@@ -4441,7 +4600,6 @@ textarea:focus, textarea:active, textarea:hover {
                 @include padding(null, null, null, 55px);
             }
         }
-
     }
     .ops-pannel {
         @include margin(null, null, null, -16px);
@@ -4450,7 +4608,7 @@ textarea:focus, textarea:active, textarea:hover {
             position: fixed;
             top: 19px;
             left: calc(50% - 300px);
-            width:600px;
+            //width:600px;
             z-index: 9999;
             li {
                 list-style-type: none;
@@ -4461,12 +4619,12 @@ textarea:focus, textarea:active, textarea:hover {
                 .active {
                     background: #fff;
                     color: #3a4855;
-                    @include border-radius(30px);
+                    @include border-radius(3px);
                 }
                 a {
                     color: #fff;
-                    font-size: 16px;
-                    padding: 4px 15px;
+                    font-size: 15px;
+                    padding: 4px 12px;
                     .fa {
                         margin-right: 4px;
                     }
@@ -4483,7 +4641,7 @@ textarea:focus, textarea:active, textarea:hover {
             padding-left: 0px!important;
             padding-right: 0px!important;
             background: $theme;
-            width: 60px!important;
+            width: 50px!important;
             .nav-tabs {
                 @include padding(null, null, null, 0px);
                 list-style-type: none;
@@ -4516,9 +4674,12 @@ textarea:focus, textarea:active, textarea:hover {
                         @include padding(10px, 0px!important, 10px, 0px);
                         @include margin(null, 0px!important, null, null);
                         border-bottom:1px solid lighten($theme, 5%)!important;
-                        font-size: $font-size-large + 2px!important;
+                        font-size: $font-size-large!important;
                         text-align: center;
                         display: block;
+                        .fa {
+                            @include margin (null, 0px, null, null);
+                        }
                     }
                     .dropdown {
                         @include border-radius(0px);
@@ -4532,7 +4693,7 @@ textarea:focus, textarea:active, textarea:hover {
                     .dropdown-menu{
                         background: darken($theme, 5%);
                         border: none;
-                        @include position(absolute, $left:60px, $top:0px);
+                        @include position(absolute, $left:50px, $top:0px);
                         @include border-radius(0px);
                         @include padding(0px, null, 0px, null);
                         .open a  {
@@ -4548,6 +4709,7 @@ textarea:focus, textarea:active, textarea:hover {
                             }
                             a {
                                 @include padding(7px, null, 7px, 10px);
+                                padding-right: 10px!important;
                                 font-size: $font-size-large - 2px!important;
                                 text-align: left;
                             }
@@ -4559,7 +4721,7 @@ textarea:focus, textarea:active, textarea:hover {
         }
     .ops-right {
         background:#eaedf1;
-        width: calc(100% - 60px)!important;
+        width: calc(100% - 50px)!important;
         min-height: 90vh!important;
         p span {
             font-family: 'Nobel-Book';
