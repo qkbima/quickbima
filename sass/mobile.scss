@@ -7069,6 +7069,161 @@ footer {
                     height: 100%;
                     min-height: 100vh;
                     @include padding(28px, 0px, 30px, 0px);
+                    
+                    .nav-tabs {
+                        @include border-radius(4px);
+                        @include box-shadow (0px 10px 20px rgba(0,0,0,0.2));
+                        border: none;
+                        background: #fff;
+                        position: fixed;
+                        bottom: 10px;
+                        left: 10px;
+                        width: calc(100% - 20px);
+                        z-index: 9;
+                        li {
+                            width: 33%;
+                            text-align: center;
+                            border-right: 1px solid #e2e7ec;
+                            &:before {
+                                content: '';
+                                padding-right: 0px;
+                            }
+                            &:last-child {
+                                border: none;
+                            }
+                            > a {
+                                color: #000;
+                                padding: 13px 0px;
+                                margin-right: 0px;
+                                @include border-radius(0px);
+                            }
+                            &.active {
+                                position: relative;
+                                &:before {
+                                  position: absolute;
+                                  top: -6px;
+                                  width: 0; 
+                                  height: 0; 
+                                  content: '';
+                                  border-left: 6px solid transparent;
+                                  border-right: 6px solid transparent;
+                                  border-bottom: 6px solid $logo-red; 
+                                  z-index: 9;
+                                }
+                                > a {
+                                    color: $logo-red;
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
+                    .tab-content {
+                        height: calc(100vh - 170px);
+                        overflow-x: scroll;
+                        padding: 10px 5px 10px 5px;
+                        .tab-pane {
+                            padding-bottom: 30px;
+                             .title {
+                                 background: none;
+                                 font-size:13px;
+                              }
+                            .features {
+                                padding: 0px 0px 10px 0px;
+                                margin-bottom: -10px;
+                                font-size: 12px;
+                                margin: 0px;
+                                position: relative;
+                                &:before {
+                                    position: absolute;
+                                    content:'';
+                                    top: 11px;
+                                    left: 0px;
+                                    height: calc(100% - 34px);
+                                    width: 1px;
+                                    background: #3e6da4;
+                                }
+                                li {
+                                    padding-top: 4px;
+                                    padding-bottom: 4px;
+                                    padding-left: 15px;
+                                    position: relative;
+                                    &:before {
+                                        position: absolute;
+                                        content:'';
+                                        top: 11px;
+                                        left: 0px;
+                                        height: 1px;
+                                        width: 8px;
+                                        background: #3e6da4;
+                                    }
+                                }
+                            }
+                            p {
+                                font-family: 'Nobel-Light';
+                                word-wrap: break-word;
+                                span {
+                                    font-family: 'Nobel-Regular';
+                                    display: block;
+                                }
+                            }
+                        }
+                        .row {
+                            margin-left: -5px;
+                            margin-right: -5px;
+                        }
+                        .steps {
+                            background:transparent;
+                            @include border-radius(4px);
+                            border: 1px solid #000;
+                            padding: 7px 15px 5px 15px;
+                            margin-top: 10px;
+                            display: inline-block;
+                            font-family: 'Nobel-Regular';
+                        }
+                        .exclusions {
+                            p {
+                                position: relative;
+                                padding-left: 22px;
+                                &:before {
+                                    position: absolute;
+                                    top:0px;
+                                    left:0px;
+                                    content:'\f0a4';
+                                    font-family: 'FontAwesome';
+                                }
+                            }
+                        }
+                        .step-features {
+                            margin: 10px 0px 30px 0px;
+                            text-align: left;
+                            li {
+                                padding-left: 30px;
+                                margin-bottom: 10px;
+                                position: relative;
+                                &:before {
+                                    position: absolute;
+                                    left: 0px;
+                                    top: -5px;
+                                    font-family: 'FontAwesome';
+                                    font-size: 20px;
+                                    content:'\f00c';
+                                }
+                                &:nth-child(2) {
+                                    &:before {
+                                        content:'\f128';
+                                        color: $logo-blue;
+                                    }
+                                }
+                                &:nth-child(3) {
+                                    &:before {
+                                        content:'\f00d';
+                                        color: $logo-red;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
                     .close {
                         background:$body-bg url('../images/cross.svg') no-repeat center!important;
                         background-size:28px!important;
@@ -7140,7 +7295,7 @@ footer {
                         @include padding(null, null, null, 0px);
                         @include margin(null, null, null, 0px);
                         li {
-                            @include padding(null, null, null, 10px);
+                            @include padding(null, null, null, null);
                             &:before {
                                 content: "\f00c";
                                 color: $theme;
@@ -7149,9 +7304,15 @@ footer {
                             }
                         }
                     }
+                    
+
+
+                    
+                    
                 }
             }
         }
+        
     }
     .other-features {
         background: lighten($theme, 67%);
