@@ -777,12 +777,14 @@
                                                   <th>Select</th>
                                                   <th>Name</th>
                                                   <th>Plan Name</th>
-                                                  <th>Sum Insured</th>
+                                                  <th>Policy Number </th>
                                                   <th>Cover</th>
                                                   <th>Policy Number</th>
                                                   <th>Proposal Number</th>
-                                                  <th>Policy Date</th>
-                                                  <th>Policy Status</th>
+                                                  <th>Payment Date</th>
+                                                  <th>
+                                                    <input id="autocomplete" type="text" placeholder="Status" name="search">
+                                                  </th>
                                                   <th>Premium</th>
                                                   <th>Sales Channel</th>
                                                 </tr> 
@@ -2208,6 +2210,32 @@
                 </div>
             </div>
         </div>
+        
+        <script>
+            var availableMembers = [
+              "Issued",
+              "Rejected",
+              "Cancelled",
+              "Under Writing"
+            ];
+
+            $(function() {
+              $("#autocomplete").autocomplete({
+                delay: 100,
+                minLength: 2,
+                source: availableMembers,
+                focus: function(event, ui) {
+                  // prevent autocomplete from updating the textbox
+                  event.preventDefault();
+                },
+                 select: function( event, ui ) {
+                //alert('Selected');
+              }
+              }).data("ui-autocomplete")._renderItem = function(ul, item) {
+                return $("<li>" + item.label + "</li>").appendTo(ul);
+              };
+            });
+        </script>
         
         <script type="text/javascript">
         $(function() {

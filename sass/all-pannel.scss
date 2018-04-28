@@ -520,6 +520,11 @@ textarea:focus, textarea:active, textarea:hover {
     z-index: 99999;
 }
 
+.ui-widget-content {
+    background: #fff;
+    color:$theme;
+}
+
 .home-header {
     background: $theme;
     @include padding(40px, null, null, null);
@@ -1782,7 +1787,7 @@ textarea:focus, textarea:active, textarea:hover {
 
 .agent-pannel {
     background: lighten($theme, 65%);
-    @include padding (20px, null, 30px, null);
+    @include padding (20px, null, null, null);
     min-height:100%;
     display: inline-table;
     position: relative;
@@ -4436,6 +4441,14 @@ textarea:focus, textarea:active, textarea:hover {
             th {
                 font-family: 'Nobel-Regular';
                 padding: 8px 5px;
+                .ui-helper-hidden-accessible {
+                    display: none;
+                }
+                .ui-autocomplete-input {
+                    border: none;
+                    height: 25px;
+                    width: 100%;
+                }
             }
             td {
                 padding: 6px 5px;
