@@ -31,9 +31,27 @@
          });
       </script>
 	</head>
-<body>
+<body class="modal-open">
 
     <div class="quoteoverlay"></div>
+    
+        <div id="myModal" class="previous-insurer">
+            <div class="top-header">
+                <a class="pi-close" href="#"></a>
+                <h3 class="text-center">Select Previous Insurer</h3>
+            </div>
+            <div class="previousInsurer text-center">                
+                <select class="ui search dropdown">
+                      <option value="">Previous Insurer</option>
+                      <option value="AL">Bajaj Allianz</option>
+                      <option value="AL">Bharti AXA</option>
+                      <option value="AL">HDFC ERGO</option>
+                      <option value="AL">ICICI Lombard</option>
+                   </select>
+                  <span class="error">Select previous insurer.</span>
+            </div>
+            <a class="submit-btn" href="#">Submit</a>
+        </div>
     
     <nav class="navbar navbar-fixed-top navbar-default">
 		  <div class="container-fluid">
@@ -1634,6 +1652,11 @@
             }
         });
         
+         $(".pi-close").click(function(){
+                $(".previous-insurer").addClass("sr-only");
+                $("body").removeClass("modal-open");
+            });
+        
         
         // Accessories Add or Remove 
         $('.accessories').click(function()
@@ -1656,6 +1679,11 @@
             }
         });
         
+        $("#myModal").on("show", function () {
+              $("body").addClass("modal-open");
+            }).on("hidden", function () {
+              $("body").removeClass("modal-open")
+            });
         
         //Datepicker title
         $(document).ready(function(){
