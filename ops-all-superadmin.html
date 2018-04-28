@@ -379,15 +379,13 @@
                                 <!---Dashboard End--->
                                 <div class="tab-pane" id="health">
                                     <div class="row">
-                                        <div class="col-sm-offset-7 col-sm-5 action-btns">
-                                            <div style="height: 40px;">
-                                                <div id="reportrange" class="pull-right">
-                                                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
-                                                    <span></span> <b class="caret"></b>
-                                                </div>
-                                            </div>
+                                        <div class="col-sm-12">
+                                        <div class="product-title action-btns">
+                                            <h3><i class="fa fa-heartbeat" aria-hidden="true"></i> </h3>
                                             
-                                            <button class="btn download" data-toggle="tooltip" title="Download Policy Document"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download</button>
+                                            <button class="btn download" data-toggle="tooltip" title="Download Policy Document"><i class="fa fa-cloud-download" aria-hidden="true"></i> Policy</button>
+                                            <button class="btn download" data-toggle="tooltip" title="Download Policy Document"><i class="fa fa-cloud-download" aria-hidden="true"></i> CSV</button>
+                                            
                                             <button class="btn sms" data-toggle="tooltip" title="Send SMS to Customer"><i class="fa fa-comment-o" aria-hidden="true"></i> SMS</button>
                                             
                                              <div class="dropdown pull-right">
@@ -402,6 +400,8 @@
                                              </div> 
                                             
                                             <button class="btn add"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+                                            <button class="btn add"><i class="fa fa-minus" aria-hidden="true"></i> Edit</button>
+                                            <button class="btn refresh"><i class="fa fa-refresh" aria-hidden="true"></i></button>
                                             
                                             <!----Endorsement---->
                                             <div id="endorsement" class="plan-preview animated slideInUp" style="display:none;">
@@ -759,12 +759,13 @@
                                                 <a href="" class="prev-continue"> <i class="fa fa-check" aria-hidden="true"></i> Submit</a>
                                             </div>
                                             <span class="message">Email sent successfully.</span>
+                                            
+                                            <div id="reportrange" class="pull-right date-range">
+                                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                                                <span></span> <b class="caret"></b>
+                                            </div>
+                                            
                                         </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <h3 class="product-title"><i class="fa fa-heartbeat" aria-hidden="true"></i> Health Insurance Policies</h3>
                                         </div>
                                     </div>
                                     

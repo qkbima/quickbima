@@ -3043,7 +3043,7 @@ textarea:focus, textarea:active, textarea:hover {
             }
         }
         .tab-content {
-            @include margin (19px, null, 20px, null);
+            @include margin (null, null, 20px, null);
             .tab-pane {
                 .plan-title {
                     @include margin (null, null, 20px, null);
@@ -4399,15 +4399,21 @@ textarea:focus, textarea:active, textarea:hover {
             .download {
                 background: $theme;
             }
+            .refresh {
+                background: $brand-danger;
+                .fa {
+                    margin-right: 0px;
+                }
+            }
             .message {
-                @include position(absolute, $bottom:-20px, $right:15px);
+                @include position(absolute, $bottom:-18px, $right:15px);
                 color: $logo-red;
                 font-family: 'Nobel-Book';
                 font-size: 12px;
             }
         }
         .product-title {
-            @include margin(null, null, 25px, 15px);
+            @include margin(null, null, 16px, 15px);
             @include padding(9px, 10px, 15px, 10px);
             @include border-radius(4px);
             border: 1px solid lighten($theme, 30%);
@@ -4472,7 +4478,7 @@ textarea:focus, textarea:active, textarea:hover {
             display: none;
           }
         .dataTables_filter {
-            @include position(absolute, $top:-69px, $left:80px);
+            @include position(absolute, $top:-60px, $left:80px);
             //width: 120px;
             label {
                width: 100%;
@@ -4490,20 +4496,20 @@ textarea:focus, textarea:active, textarea:hover {
             }
             input {
               background: #fff;
-              width: 100%;
               color: $theme;
               height: 35px;
               font-size: $font-size-base;
               //font-family: 'Nobel-Book';
               border:none;
-              @include padding(6px, 10px, 5px, 32px);
+              @include padding(null, null, null, 35px);
               @include border-radius(40px);
               -webkit-transition: width ease 0.3s;
               transition: width ease 0.3s;
-              width: 120px;
-                &:focus {
+              width: 35px;
+                &:focus, &:active {
                     background: $body-bg;
                     border: none;
+                    @include padding(6px, 10px, 5px, 35px);
                     @include box-shadow(0px 2px 4px rgba(0,0,0,0.15));
                     -webkit-transition: width ease-out 0.3s;
                     transition: width ease-out 0.3s;
@@ -4637,7 +4643,7 @@ textarea:focus, textarea:active, textarea:hover {
     }
     .ops-left {
             @extend .left-section;
-            @include margin(-15px, null, null, null);
+            @include margin(-16px, null, null, null);
             padding-left: 0px!important;
             padding-right: 0px!important;
             background: $theme;

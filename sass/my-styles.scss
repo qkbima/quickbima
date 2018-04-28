@@ -8619,6 +8619,9 @@ label {
         min-height: 200px;
         @include margin(null, null, 40px, null);
         @include padding(60px, null, null, null);
+        &.garage {
+            background: url("../images/network-garage.svg") no-repeat bottom center/100%;
+        }
         h2 {
             font-family:'Nobel-Regular';
         }
@@ -8744,10 +8747,10 @@ label {
                 }
                 &:nth-of-type(1) {
                     font-family: 'Nobel-Book';
-                    width: 32%;
+                    width: 28%;
                 }
                 &:nth-of-type(2) {
-                    width: 40%;
+                    width: 44%;
                 }
                 &:nth-of-type(3) {
                     width: 16%;
