@@ -9223,7 +9223,6 @@ footer {
     }
 
 }
-
 .wrapper {
     background: linear-gradient(160deg, darken($theme, 10%), $theme, lighten($theme, 20%));
     min-height: 100%;
@@ -9423,7 +9422,7 @@ footer {
     .top-section {
         @include margin(10px, null, 10px, null);
         font-size: $font-size-large;
-        color: lighten($theme, 60%); 
+        color: lighten($theme, 61%); 
         .logo-icon {
             @include padding(null, 10px, null, null);
             @include margin(null, 16px, null, null);
