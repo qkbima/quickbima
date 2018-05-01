@@ -272,7 +272,156 @@ a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus
             }
         }
     }
+    .last-session-mobile{
+        border: 1px dashed #fff;
+        border-radius: 5px;        
+        width: 92%;
+        position: fixed;
+        bottom: -1px;
+        left: 50%;
+        padding: 10px;
+        background: #3a4855;
+        transform:translateX(-50%);
+        .close-session-mobile{
+                    background: rgba(255,255,255,0.7) url("../images/cross.svg") no-repeat center center/15px;
+                    @include border-radius(50px);
+                    @include box-shadow(0 3px 6px rgba(0,0,0,0.2));
+                    @include position(absolute, $top:-10px, $right:-10px);
+                    opacity: 1;
+                    height: 20px;
+                    width: 20px;
+                    z-index: 999;
+                }
+        .titlev2{
+            color: #fff;
+            position: absolute;
+            top: -41px;
+            left: 50%;
+            transform: translate(-50%);
+            width: 100%;
+            background: #3a4855;
+            padding: 10px;
+            .clr-bell{
+                color: #4FBBB2;
+                margin-right: 5px;
+                }
+            
+            }
+        .inner-mobile{
+            background: #2f404a;
+            color: #fff;
+            padding: 8px;
+            border-radius: 6px;
+            p{
+                margin-bottom: 0;
+                color:#fff;
+                &:last-child{
+                    margin-bottom: 5px;
+                }
+                .amount{
+                    color:#4fbbb2;
+                }
+            }
+            .r-mobile-btn{
+                background: #E6253C;
+                padding: 1px 8px;
+                margin-top: 8px;
+                color:#fff;
+                &:hover{
+                        color:#fff;
+                    }
+                }
+            }
+        }
+    }
+.position-detailsv2 {
+    position: absolute;
+    width: 200px;
+    right: 60px;
+    bottom: 160px;
+    z-index: 4;
+    color: #fff;
+    perspective: 150px;
+    height: 150px;
+    &:before{
+        content: "";
+        height: 200px;
+        width: 180px;
+        background: #4fbbb2;
+        position: absolute;
+        transform-style: preserve-3d;
+        left: 12px;
+        top: -4px;
+        transform: rotateX(-10deg);
+        border-radius: 12px 12px 0 0;
+        
+            }
+    &:after{
+        position: absolute;
+        content: "";
+        border-top: 60px solid #4fbbb2;
+        border-right: 80px solid transparent;
+        border-left: 80px solid transparent;
+        top: 182px;
+        left: 22px;
+    }
+    .header {
+        position: absolute;      
+        border-radius: 50%;
+        height: 120px;
+        width: 120px;
+        top: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #3a4855;
+        border: 8px solid #4FBBB2;
+        img{
+            height: 60px;
+            margin-top: 20px;
+        }
+    }
+    .move-session{
+        background: #fff url("../images/r-arrow.svg") no-repeat center center/30px;
+        border-radius:50px;
+        position: absolute;
+        height: 45px;
+        width: 45px;
+        bottom:-53px;
+        right: 0px;
+        z-index: 9;
+        border:4px solid #2c9e92;
+    }
+    .detailSectionv2{
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform:translateX(-50%);
+        width: 180px;
+        h4{
+            font-size: 20px;
+            line-height: 30px;
+            font-family:'Nobel-Regular';
+            span{
+                color: #000;
+                margin-right: 5px;
+            }
+        }
+        hr{
+            border:1px dashed #fff;
+            width: 100px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        p{
+            line-height: 28px;
+            font-family: 'Nobel-Regular';
+            span{
+                color: #000;
+            }
+        }
+    }
 }
+
 .last-position {
     @include position(fixed, $right:15px, $bottom:12px);
     @include padding (10px, null, null, 15px); 
@@ -282,6 +431,7 @@ a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus
     height: 70px;
     width:80px;
     z-index: 1;
+    opacity: 0;
     &:hover {
         color: $body-bg;
         text-decoration: none;
@@ -434,7 +584,7 @@ header {
           }
       }
   }
-.conference-center-line {
+  .conference-center-line {
     position: absolute;
     width: 2px;
     height:230px;
@@ -444,11 +594,11 @@ header {
     background:lighten($theme, 60%);
     z-index: -1;
     }
-.conference-timeline-content {
+    .conference-timeline-content {
         padding-top: 10px;
         padding-bottom: 10px;
     }
-.timeline-article {
+    .timeline-article {
       width: 100%;
       height: 100%;
       position: relative;
@@ -2140,6 +2290,7 @@ header {
   opacity: 1;
   visibility: visible;
 }
+
 /* Content styles */
 
 .md-content {
@@ -3331,13 +3482,10 @@ header {
     }
 }
 /*---- Proposal Form End ---- */
+
 .mob-proposal-section {
     @include padding(null, null, 80px, null);
     position: relative;
-    .container {
-        padding-left: 13px;
-        padding-right: 13px;
-    }
     .mob-proposal-header {
         background: $theme;
         @include padding(6px, 10px, 6px, 10px);
@@ -3350,11 +3498,9 @@ header {
             @include padding(2px, 12px, 3px, 20px);
             @include margin(3px, null, 10px, null);
             @include border-radius(50px);
-            @include box-shadow(0px 3px 6px rgba(0,0,0,0.1));
             background: lighten($theme, 5%);
             border: none;
-            position: absolute;
-            left: 10px;
+            position: relative;
             color: lighten($theme, 50%);
             &:before {
                 @include position(absolute, $top:2px, $left:10px);
@@ -3388,55 +3534,12 @@ header {
             @include margin(15px, null, 0px, null);
             color: $logo-red;
             font-family: 'Nobel-Regular';
-            font-size: $font-size-h3;
+            font-size: $font-size-large + 2px;
         }
         p {
             font-size: $font-size-base + 2px;
             small {
                 font-size: 65%;
-            }
-        }
-        .modal-dialog {
-            margin: 0px;
-            @include border-radius(0px);
-            height: 100%;
-            .modal-content {
-                @include border-radius(0px);
-                background: lighten($theme, 67%);
-                height: 100%;
-                .close {
-                    @include position(absolute, $top:10px, $right:10px);
-                    @include box-shadow(0px 3px 6px rgba(0,0,0,0.1));
-                    background: $body-bg url("../images/cross.svg") no-repeat center/25px;
-                    opacity: 1;
-                    @include border-radius(50px);
-                    height: 40px;
-                    width: 40px;
-                    z-index: 999;
-                }
-                .modal-body {
-                    color: $theme;
-                    padding-top: 20px;
-                    img {
-                        @include margin(20px, null, 20px, null);
-                    }
-                    h3 {
-                        span {
-                            font-family: 'Nobel-Regular';
-                        }
-                    }
-                    h4 span {
-                        font-size: $font-size-h3;
-                    }
-                    .premium {
-                        color: $logo-red;
-                        font-size: $font-size-h3;
-                        font-family: 'Nobel-Regular';
-                    }
-                    .fa {
-                        margin-left: 4px;
-                    }
-                }
             }
         }
     }
@@ -3457,29 +3560,12 @@ header {
             color: $logo-red;
             font-size: $font-size-base;
             text-align: right;
-            line-height: 14px;
             height: 15px;
             width: calc(100% - 30px);
         }
     }
-    select {
-        background: transparent;
-        border: 1px solid lighten($theme, 60%);
-        @include border-radius(4px);
-        font-size: $font-size-large - 2px;
-        font-family: 'Nobel-Book';
-        padding-left: 10px;
-        width: 100%;
-        height: 40px;
-        appearance:none;
-        -moz-appearance:none;
-        -webkit-appearance:none;
-    }
-    .choose-nominee {
-        @include margin(20px, null, 20px, null);
-    }
     .progress {
-        @include margin(null, null, 20px, null);
+        @include margin(null, null, 25px, null);
         @include border-radius(0px);
         background: lighten($theme, 55%);
         height: 4px;
@@ -3515,23 +3601,12 @@ header {
     .addons {
         position: relative;
         @include margin(null, null, 20px, null);
-        @include padding(null, 10px, 8px, 10px);
+        @include padding(null, null, 8px, null);
         &:before {
             @include position(absolute, $bottom:0px, $left:15px);
             border-bottom: 1px solid lighten($theme, 60%);
-            width: calc(100% - 10px);
+            width: calc(100% - 30px);
             z-index: 9;
-        }
-        [class*="col-"] {
-            @include padding(null, 5px, null, 5px);
-        }
-        .membername {
-            @include margin (12px, null, 5px, null);
-            font-family: 'Nobel-Book';
-            color: $theme;
-        }
-        h4 {
-            font-family: 'Nobel-Book';
         }
         h5 {
             font-size: $font-size-large;
@@ -3539,19 +3614,6 @@ header {
             color: $logo-blue;
             z-index: 99;
             position: relative;
-        }
-        select {
-            background: transparent;
-            border: 1px solid lighten($theme, 60%);
-            @include border-radius(4px);
-            font-size: $font-size-large - 2px;
-            font-family: 'Nobel-Book';
-            padding-left: 10px;
-            width: 100%;
-            height: 40px;
-            appearance:none;
-            -moz-appearance:none;
-            -webkit-appearance:none;
         }
         .addonicons {
             font-size: $font-size-large;
@@ -3601,133 +3663,200 @@ header {
             font-size: $font-size-base;
             line-height: 16px;
         }
-        .toggle {
-              margin-left: -9999px;
-              position: absolute;
-              visibility: hidden;
-              + label {
-                background: transparent;
-                @include border-radius(100px);
-                cursor: pointer;
-                display: block;
-                height:38px;
-                overflow: hidden;
-                padding: 2px;
-                position: relative;
-                width: 76px;
-                max-width: 76px;
-                font-size:$font-size-base - 1px;
-                @include margin(null, auto, null, auto);
-                text-align: left;
-                &::before, &::after {
-                  @include border-radius(100px);
-                  color: $theme;
-                  display: block;
-                  @include padding(3px, 0px, 3px, 0px);
-                  @include position(absolute, $top:4px, $left:0px, $bottom:3px);
-                }
-                &::before {
-                  content: "Added";
-                  right:0px;
-                  text-indent: -208px;
-                  padding: 5px 16px;
-                  border: 1px solid lighten($theme, 45%);
-                }
-                &::after {
-                  background-color:lighten($theme, 10%);
-                  content: "Add";
-                  @include margin(9px, 2px, 9px, 9px);
-                  text-indent: 24px;
-                  line-height: 11px;
-                  width:12px;
-                  height:12px;
-                }
-              }
-              &:checked + label {
-                  background: transparent;
-                &::before {
-                  background-color:$logo-blue;
-                  border: none;
-                  text-indent: 0px;
-                  color: #fff;
-                  padding: 8px 12px;
-                }
-                &::after {
-                  margin-left:56px;
-                  background-color:$body-bg; 
-                }
-              }
-              + label {
-                &::before, &::after {
-                  transition: all 0.5s ease 0s;
-                }
-              }
-            }
-        .family {
-            .toggle {
-              + label {
-                &::before {
-                  content: "Yes";
-                }
-                &::after {
-                  content: "No";
-                  text-indent: 29px;
-                }
-              }
-              &:checked + label {
-                &::before {
-                  text-indent: 13px;
-                }
-              }
-            }
+        .threedcheck {
+          @include margin(40px, null, null, null);
+          @include position(absolute, $top:50%, $left:50%);
+          height: 30px;
+          padding: 6px 0;
+          width: 70px;
+          transform: translate3d(-50%, -50%, 0);
+          &:before {
+            content: '';
+            @include position(absolute, $top:0, $left:-5px);
+            height: 100%;
+            width: 30px;
+            background-color: #3a4855;
+            @include border-radius(50%);
+            box-shadow: 18px 0 0 #3a4855, 36px 0 0 #3a4855;
+          }
+          &:after {
+            content: '';
+            @include position(absolute, $top:-24px, $left:13px);
+            height: 100%;
+            width: 30px;
+            background-color: #fff;
+            @include border-radius(50%);
+            box-shadow: 0 48px 0 #fff;
+          }
+          input {
+            @include position(absolute, $left:-9999px);
+          }
         }
-        .subDetails {
-            display: inline-block;
-            width: calc(100% - 50px);
-            margin-left: 25px;
-            h4 {
-                font-size: $font-size-large - 2px;
-            }
+        .bubble {
+              @include position(absolute, $top:50%, $left:50%);
+              z-index: 2;
+              height: 25px;
+              width: 25px;
+              transform: translate3d(-70%, -50%, 0);
+              margin-left: -20px;
+              background: lighten($theme, 50%);
+              border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+              border-right: 0px solid lighten($theme, 50%);
+              border-left: 0px solid lighten($theme, 50%);
+              animation: toggle-reverse 2s 1;
+          &:after {
+            content: '';
+            @include position(absolute, $top:50%, $left:50%);
+            margin-top: -7px;
+            margin-left: -1px;
+            height: 14px;
+            width: 1.5px;
+            background: #fff;
+            transform: rotate(45deg);
+            border-radius: 2px;
+            transition: 500ms ease all 1.25s;
+          }
+          &:before {
+            content: '';
+            @include position(absolute, $top:50%, $left:50%);
+            margin-top: -7px;
+            margin-left: -1px;
+            height: 14px;
+            width: 1.5px;
+            background: #fff;
+            transform: rotate(-45deg);
+            border-radius: 2px;
+            transition: 500ms ease all 1.25s;
+          }
         }
-        .input-effect {
-            margin-top: 10px;
+        .covers:checked + .bubble {
+            animation: toggle 2s 1;
+            transform: translate3d(74%, -50%, 0);
+            background: $logo-blue;
+          &:after {
+            content: '';
+            @include position(absolute, $top:50%, $left:50%);
+            margin-top: -7px;
+            margin-left: 1px;
+            height: 13px;
+            width: 1.5px;
+            background: #fff;
+            transform: rotate(225deg);
+            border-radius: 2px;
+          }
+          &:before {
+            content: '';
+            @include position(absolute, $top:50%, $left:50%);
+            margin-top: -2px;
+            margin-left: -5px;
+            height: 7px;
+            width: 1.5px;
+            background: #fff;
+            transform: rotate(-215deg);
+            border-radius: 2px;
+          }
         }
-    }
-    
-    input[type="checkbox"] {
-      display: none;
-    }
-    input[type="checkbox"]+label{
-      transition: all 300ms ease;
-      font-size:$font-size-base + 2px;
-      cursor: pointer;
-      @include border-radius(60px);
-      background: #ecf0f1;
-      @include padding(7px, 16px, 7px, 16px);
-      display: inline-block;
-      font-family: 'Nobel-Book'; 
-      // Suggested by @zizzo to prevent text selection
-      -moz-user-select: -moz-none;
-      -khtml-user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      // ------------------------
-      i{
-        color: #bdc3c7;
-      }
-    }
-    input[type="checkbox"]:checked+label{
-      transition: all 300ms ease;
-      background:$logo-blue url(../images/radio2.svg) no-repeat 10px 13px/14px;
-      @include padding(null, null, null, 32px);
-      color: $body-bg;
-      i{
-        color: white;
-        animation: check 1s;
-      }
-    }
+        @keyframes toggle {
+          0% {
+            transform: translate3d(-75%, -50%, 0);
+            border-right: 0 solid lighten($theme, 50%);
+            border-left: 0 solid lighten($theme, 50%);
+            background: lighten($theme, 50%);
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            height: 25px;
+          }
 
+          20% {
+            border-right: 0 solid lighten($theme, 50%);
+            border-left: 0 solid lighten($theme, 50%);
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            transform: translate3d(-75%, -50%, 0);
+            height: 25px;
+          }
+
+          40% {
+            border-left: 0 solid lighten($theme, 50%);
+            border-radius: 35% 65% 65% 35% / 50% 50% 50% 50%;
+            height: 20px;
+          }
+
+          50% {
+            transform: translate3d(0%, -50%, 0);
+            border-right: 25px solid lighten($theme, 50%);
+            border-left: 0 solid lighten($theme, 50%);
+            background: lighten($theme, 50%);
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            height: 20px;
+          }
+
+          75% {
+            border-left: 25px solid $logo-blue;
+            border-color: $logo-blue;
+            background: $logo-blue;
+            border-radius: 65% 35% 35% 65% / 50% 50% 50% 50%;
+            height: 20px;
+          }
+
+          100% {
+            border-right: 0 solid $logo-blue;
+            border-left: 0 solid $logo-blue;
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            transform: translate3d(75%, -50%, 0);
+            height: 25px;
+            width: 25px;
+          }
+        }
+        @keyframes toggle-reverse {
+          0% {
+            transform: translate3d(75%, -50%, 0);
+            background: $logo-blue;
+            border-right: 0 solid $logo-blue;
+            border-left: 0 solid $logo-blue;
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            height: 25px;
+          }
+
+          20% {
+            border-right: 0 solid $logo-blue;
+            border-left: 0 solid $logo-blue;
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            transform: translate3d(75%, -50%, 0);
+            height: 25px;
+          }
+
+          40% {
+            border-right: 0 solid $logo-blue;
+            border-radius: 65% 35% 35% 65% / 50% 50% 50% 50%;
+            height: 20px;
+          }
+
+          50% {
+            transform: translate3d(0%, -50%, 0);
+            border-left: 25px solid $logo-blue;
+            border-right: 0 solid $logo-blue;
+            background: $logo-blue;
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            height: 20px;
+          }
+
+          75% {
+            border-right: 25px solid lighten($theme, 50%);
+            border-color: lighten($theme, 50%);
+            background: lighten($theme, 50%);
+            border-radius: 35% 65% 65% 35% / 50% 50% 50% 50%;
+            height: 20px;
+          }
+
+          100% {
+            border-right: 0 solid lighten($theme, 50%);
+            border-left: 0 solid lighten($theme, 50%);
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            transform: translate3d(-75%, -50%, 0);
+            height: 25px;
+            width: 25px;
+          }
+        }
+    }
     .input-effect {
         position: relative;
         @include margin(30px, null, null, null);
@@ -3806,13 +3935,15 @@ header {
               cursor: pointer;
               color: $theme;
               @include user-select(none);
-              @include padding(2px, null, null, 28px);
-              width: 100%;
+                @include margin(15px, null, 30px, null);
+                @include padding(null, null, null, 28px);
+                width: 100%;
               &:before {
                 position: absolute;
                 display:inline-block;
-                top:0px;
-                left: 0px;
+                top:-2px;
+                bottom: 0;
+                left: 0;
                 content: '';
                 width: 20px;
                 height: 20px;
@@ -3888,23 +4019,26 @@ header {
         .ui {
             &.selection {
             &.dropdown {
-              background: url(../images/arrow-down.svg) no-repeat 36px 22px/13px;
+              background-size: 18px;
               border-bottom:1px solid lighten($theme, 45%);
-              min-width: 20px;
+              min-width: 80px;
               @include padding(16px, null, null, 0px);
               @include margin(26.5px, null, null, null);
               float: left;
-              width: 55px;
+              width: 80px;
             }
   
           }
         }
         .input-effect {
-            width: calc(100% - 55px);
+            width: calc(100% - 80px);
             float: left;  
         }
     }
     .proposer-member {
+        .threedcheck {
+            @include margin(25px, null, null, 5px);
+        }
         p {
             @include margin(20px, null, null, null);
             color: $theme;
@@ -3913,79 +4047,16 @@ header {
         }
     }
     .height {
-        border-bottom: 1px solid lighten($theme, 45%);
-        width: calc(50% - 15px);
         p {
-            @include position(absolute, $top:18px, $left:0px);
+            @include position(absolute, $top:18px, $left:15px);
             color: $theme;
             font-family: 'Nobel-Book';
             font-size: $font-size-base;
         }
-        select {
-            background: transparent;
-            border: none;
-            @include border-radius(4px);
-            font-size: $font-size-large - 2px;
-            font-family: 'Nobel-Book';
-            padding-left: 10px;
-            width: 55%;
-            height: 35px;
-            appearance:none;
-            -moz-appearance:none;
-            -webkit-appearance:none;
+        .ui.selection.dropdown {
+            min-width: 40px;
+            width: 50%;
             float: left;
-            margin-top: 34px;
-            margin-left: -19px;
-            padding-left: 0px;
-        }
-    }
-    .prev-details {
-        position: relative;
-        margin-bottom: 10px;
-        [class*="col-"] {
-            @include padding(null, 7px, null, 7px);
-        }
-        .edit {
-            @include position(absolute, $top:8px, $right:8px);
-            background: lighten($theme, 60%);
-            @include padding(3px, 14px, 2px, 14px);
-            @include border-radius(30px);
-            color: $theme;
-            font-size: $font-size-base;
-            font-family: 'Nobel-Book';
-            &:hover, &:focus {
-                text-decoration: none;
-            }
-        }
-        h4 {
-            font-family: 'Nobel-Regular';
-        }
-        .box-details {
-            border: 1px solid lighten($theme, 60%);
-            @include padding(10px, null, 3px, null);
-            @include border-radius(6px);
-            display: inline-block;
-            width: 100%;
-            [class*="col-"] {
-                min-height: 50px;
-            }
-            p {
-                font-family: 'Nobel-Light';
-                margin-bottom: 0px;
-                span {
-                    font-family: 'Nobel-Book';
-                    display: block;
-                    word-wrap: break-word;
-                    line-height: 12px;
-                    margin-top: 4px;
-                }
-            }
-            .ui.selection.dropdown {
-                margin-top:6.5px;
-            }
-            .input-effect {
-                margin-top:10px;
-            }
         }
     }
     .mob-proposal-footer {
@@ -4008,21 +4079,6 @@ header {
             color: $logo-red;
             font-family: 'Nobel-Book';
             font-size: $font-size-large;
-        }
-        .makepayment {
-            @extend .continue;
-            @include padding(6px, 25px, 5px, 25px);
-            margin-top: -4px;
-            background: $logo-red;
-            color: $body-bg;
-        }
-        .termscondition {
-            font-size: $font-size-small - 4px;
-            margin-bottom: -8px;
-            margin-top: 6px;
-            width: 100%;
-            text-align: center;
-            //@include position (absolute, $bottom:6px, $left:0px);
         }
     }
 }
@@ -5071,6 +5127,7 @@ button.datepick-cmd {
         }
     }
 }
+
 
 .titlebar {
 	background:#2b3844;
@@ -6849,7 +6906,7 @@ footer {
                 font-family: 'Nobel-Book';
                 font-size: $font-size-h4;
                 @include padding(6px, 12px, 4px, 12px);
-                z-index: 99;
+                z-index: 999;
                 .finalPremium {
                     color: $logo-red;
                     font-size: $font-size-h4;
@@ -9384,6 +9441,8 @@ footer {
     }
 
 }
+
+
 .wrapper {
     background: linear-gradient(160deg, darken($theme, 10%), $theme, lighten($theme, 20%));
     min-height: 100%;
@@ -9571,195 +9630,5 @@ footer {
             @extend .whomtoinsure;
             overflow: visible;
         }
-    }
-}
-
-/*------New Version 2018------*/
-.theme-wrapper {
-    background: $theme;
-    @include gradient-vertical(#333f4c, #556a7d);
-    height: 100%;
-    min-height: 100%;
-    .top-section {
-        @include margin(10px, null, 10px, null);
-        font-size: $font-size-large;
-        color: lighten($theme, 61%); 
-        .logo-icon {
-            @include padding(null, 10px, null, null);
-            @include margin(null, 16px, null, null);
-            border-right: 1px solid lighten($theme, 50%);
-            display: inline-block;
-            float: left;
-            img {
-                height: 40px;
-            }
-        }
-        h4 {
-            @include margin(5px, null, null, null);
-        }
-    }
-}
-
-.quick-renew {
-    background: $theme url("../images/road.svg") no-repeat 0px 290px/ 100%;
-    min-height: 100%;
-    padding-top: 10px;
-    color: $body-bg;
-    .top-section {
-        margin-bottom: 30px;
-        img {
-            height: 35px;
-            padding-right: 20px;
-            margin-right: 15px;
-            border-right:1px solid lighten($theme, 40%);
-            float: left;
-        }
-        .title {
-            color: $body-bg;
-            font-size: $font-size-large;
-        }
-    }
-    .progress {
-        width: 70%;
-        height: 1px;
-        background: lighten($theme, 40%);
-        position: relative;
-        margin-bottom: 50px;
-        .active-progress {
-            @include position(absolute, $top:-1px, $left:0px);
-            background: $brand-warning;
-            height: 3px;
-            width: 20%;
-        }
-    }
-    h3 {
-        margin-top: 30px;
-        margin-bottom: 50px;
-        span {
-            font-family: 'Nobel-Regular';
-        }
-    }
-    .footer {
-        @include position(fixed, $bottom:30px, $left:0px);
-        width: 100%;
-        .btn {
-            background: $logo-red;
-            @include border-radius(70px);
-            @include padding(8px, 25px, 8px, 25px);
-            @include margin(8px, 10px, 8px, 10px);
-            @include box-shadow(0px 4px 10px rgba(0,0,0,0.2));
-            color: $body-bg;
-            font-size: $font-size-large;
-            font-family: 'Nobel-Book';
-        }
-        .btn-not {
-            @extend .btn;
-            background: $body-bg;
-            color: $theme;
-            background: $body-bg;
-        }
-    }
-}
-.quick-renew-bubble {
-    @extend .quick-renew;
-    background: $theme;
-    font-size: $font-size-base + 2px;
-    .left-bubble {
-        position: relative;
-        background:#ecedee;
-        @include border-radius(16px);
-        @include padding(9px, 20px, 4px, 20px);
-        @include box-shadow (0px 3px 6px rgba(0,0,0,0.2));
-        margin-bottom: 15px;
-        color: $theme;
-        display: inline-block;
-        &:before {
-            @include position(absolute, $left:-10px, $bottom:0px);
-            content: url(../images/corner.svg);
-        }
-        h4 {
-            margin-top: 4px;
-            margin-bottom:0px;
-            font-family: 'Nobel-Regular';
-            span {
-                font-family: 'Nobel-Book';
-            }
-        }
-        p {
-            @include margin(null, null, 4px, null);
-            font-family: 'Nobel-Book';
-        }
-    }
-    .right-bubble {
-        @extend .left-bubble;
-        &:before {
-            @include position(absolute, $right:-10px, $bottom:0px, $left:auto);
-            content: url(../images/right-corner.svg);
-        }
-    }
-    .claimed {
-        background: $logo-blue;
-        color: $body-bg;
-    }
-    .not-claimed {
-        background: $logo-red;
-        color: $body-bg;
-        &:before {
-            @include position(absolute, $right:-10px, $bottom:0px, $left:auto);
-            content: url(../images/right-corner-red.svg);
-        }
-    }
-    .typing {
-        background:#ecedee;
-        @include border-radius(60px);
-        @include padding(6px, 20px, 3px, 20px);
-        @include box-shadow (0px 3px 6px rgba(0,0,0,0.2));
-        display: inline-block;
-        position: relative;
-        margin-left: 5px;
-        margin-bottom: 15px;
-        height: 34px;
-        width: 70px;
-        .amt-loader {
-            margin-top: -17px;
-            margin-left: -10px;
-        }
-        &:before {
-            background:#ecedee;
-            @include position(absolute, $left:-4px, $bottom:2px);
-            content: '';
-            height: 14px;
-            width: 14px;
-            @include border-radius(60px);
-        }
-        &:after {
-            background:#ecedee;
-            @include position(absolute, $left:-14px, $bottom:-1px);
-            content: '';
-            height: 8px;
-            width: 8px;
-            @include border-radius(60px);
-        }
-    }
-}
-.payment-error {
-    background: #f0f1f3;
-    min-height: 100%;
-    @include padding(20px, 10px, 10px, 10px);
-    h3 {
-        margin-bottom: 20px;
-        font-family: 'Nobel-Regular';
-    }
-    .btn {
-        background: lighten($logo-red, 8%);
-        @include border-radius(80px);
-        border: none;
-        color: $body-bg;
-        font-size: $font-size-large + 2px;
-        font-family: 'Nobel-Book';
-        margin-top: 30px;
-        @include box-shadow(0px 4px 10px rgba(0,0,0,0.2));
-        @include padding(10px, 10px, 10px, 10px);
-        width: 140px;
     }
 }

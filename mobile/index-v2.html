@@ -21,7 +21,7 @@
 	<body>
         
 		<div class="last-session-wrapper animated slideInUp">
-            <div class="last-session">
+            <!--<div class="last-session" style="display: none;">
                 <div class="close-session"></div>
                 <div class="leftcorner"></div>
                 <div class="dash-border">
@@ -43,7 +43,25 @@
                     </div>
                 </div>
                 <div class="rightcorner"></div>
+            </div>-->
+            <div class="last-session-mobile">
+                <div class="titlev2 text-center"><i class="fa fa-bell clr-bell"></i>Pickup Where You Left</div>
+                <a class="close-session-mobile" id="close-sessionMob" href="javascript:void(0);"></a>
+                <div class="col-xs-12 inner-mobile text-center">
+                    <p>6 Health Insurance Plans for you</p>
+                    <p>Premium starts from <span class="amount"><i class="fa fa-inr" aria-hidden="true"></i> 4,093</span></p>
+                    <button class="btn r-mobile-btn">Continue</button>
+                </div>
             </div>
+            <!---<div class="position-detailsv2 text-center"  style="display:none;">
+                <div class="header"><img src="../images/health-icon.svg"></div>
+                <a class="move-session" href="#"></a>
+                <div class="detailSectionv2">
+                    <h4><span>13</span>Health Insurance<br>Plans</h4>
+                    <hr>
+                    <p>Premium starts from<br><span><i class="fa fa-inr" aria-hidden="true"></i> 10,643</span></p>
+                </div>
+            </div>--->
         </div>
         <a href="javascript:void(0);" class="last-position">
             <div class="notification"> Medi Cure Classic Plan 
@@ -142,14 +160,24 @@
         </div>
 	
     <script>
-        $('.close-session').click(function(){
-            $('.last-session-wrapper').hide();
-            $(".notification").show(600);
-        });
-        $('.last-position').click(function(){
-            $('.last-session-wrapper').show();
-            $(".notification").hide(600);
-        });
+        
+        
+        
+        $("#close-sessionMob").click(function() {
+                $(".last-session-wrapper").removeClass('slideInUp');
+                $(".last-session-wrapper").addClass('slideOutDown');
+                $(".last-position").css({ "opacity" : "1" });
+                $(".last-position").animate({ "right" : "100px" }, 1600);
+                $(".last-position").animate({ "right" : "15px" }, 1200);
+                $(".last-position").animate({ "right" : "40px" }, 800);
+                setTimeout(function(){$('.notification').show(200);}, 4000);
+            });
+            
+            $(".last-position").click(function() {
+                $(".last-session-wrapper").removeClass('slideOutDown');
+                $(".last-session-wrapper").addClass('slideInUp');
+                $(".notification").hide();
+            });
     </script>
         
 	</body>
