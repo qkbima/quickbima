@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Travel Insurance - Quickbima</title>
-		<link rel="stylesheet" type="text/css" href="stylesheets/my-styles.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/quotations.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="javascripts/bootstrap.min.js"></script>
 		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
@@ -72,10 +72,18 @@
                                           </div>
                                       </div>
                                       <div class="row">
-                                              <div class="col-sm-6 drop-select">
+                                              <div class="col-sm-3 drop-select">
+                                                  <select class="ui search dropdown">
+                                                      <option value="">Plan Type</option>
+                                                      <option value="AL" selected>Individual/Family</option>
+                                                      <option value="AL">Student</option>
+                                                   </select>
+                                                  <label>Plan Type</label>
+                                              </div>
+                                                <div class="col-sm-3 drop-select">
                                                   <select class="ui search dropdown">
                                                       <option value="">Trip Frequency</option>
-                                                      <option value="AL" selected>Single</option>
+                                                      <option value="AL">Single</option>
                                                       <option value="AL">Multiple</option>
                                                    </select>
                                                   <label>Trip Frequency</label>
@@ -92,23 +100,6 @@
                                                   <input type="text" class="form-control datepicker" id="datepicker3" placeholder="Start Date">
                                                   <label>Trip Start Date</label>
                                             </div>
-                                              
-                                              <div class="col-sm-3 drop-select" style="display:none;">
-                                                  <select class="ui search dropdown">
-                                                    <option value="">Your Age</option>
-                                                    <option value="a">18 Years</option>
-                                                    <option value="b">19 Years</option>
-                                                    <option value="c">20 Years</option>
-                                                    <option value="d">21 Years</option>
-                                                    <option value="e">22 Years</option>
-                                                    <option value="f">23 Years</option>
-                                                    <option value="f">24 Years</option>
-                                                    <option value="f">25 Years</option>
-                                                    <option value="f">26 Years</option>
-                                                    <option value="f">27 Years</option>
-                                                </select>
-                                                  <label>Your Age</label>
-                                              </div>
                                          </div>
                                           <div class="row">     
                                               <div class="col-sm-9 drop-select" id="travelDestinations">
@@ -126,22 +117,36 @@
                                                 </select>
                                                   <label>Travelling Destinations</label>
                                             </div>
-                                              <div class="col-sm-3 drop-select">
-                                                  <select class="ui search dropdown">
-                                                    <option value="">Travellers</option>
-                                                    <option value="a">18 Years</option>
-                                                    <option value="b">19 Years</option>
-                                                    <option value="c">20 Years</option>
-                                                    <option value="d">21 Years</option>
-                                                    <option value="e">22 Years</option>
-                                                    <option value="f">23 Years</option>
-                                                    <option value="f">24 Years</option>
-                                                    <option value="f">25 Years</option>
-                                                    <option value="f">26 Years</option>
-                                                    <option value="f">27 Years</option>
-                                                </select>
-                                                  <label>Travellers</label>
-                                              </div>
+                                              <div class="col-sm-3 date">
+                                                <input type="text" class="form-control" value="4" placeholder="Travellers">
+                                                <label>Travellers</label>    
+  
+                                                <ul class="travellers">
+                                                    <li>
+                                                        <p>Traveller 1</p>
+                                                        <input type="text" placeholder="Age Yrs">
+                                                    </li>
+                                                    <li>
+                                                        <p>Traveller 2</p>
+                                                        <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                        <input type="text" placeholder="Age Yrs">
+                                                    </li>
+                                                    <li>
+                                                        <p>Traveller 3</p>
+                                                        <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                        <input type="text" placeholder="Age Yrs">
+                                                    </li>
+                                                    <li>
+                                                        <p>Traveller 4</p>
+                                                        <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                        <input type="text" placeholder="Age Yrs">
+                                                    </li>
+                                                    <li>
+                                                        <a href="" class="add">+ Add</a>
+                                                        <button type="submit" class="btn submit">Submit</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                       </div>
                                       <div class="row">
                                         <div class="col-sm-12 text-center">

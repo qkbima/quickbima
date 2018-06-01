@@ -418,17 +418,17 @@ textarea:focus, textarea:active, textarea:hover {
     }
 }
 .navbar-nav > li > .dropdown-menu {
-    background: darken($theme, 5%);
+    background:#fff;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     padding-bottom: 10px;
-    max-height: 260px;
+    max-height: 280px;
     max-width: 300px;
     min-width: 300px;
     overflow-y: scroll;
     top: 59px;
     > li {
-        border-bottom: 1px solid lighten($theme, 10%);
+        border-bottom: 1px solid lighten($theme, 60%);
         display: inline-block;
         width: 100%;
         a {
@@ -439,14 +439,15 @@ textarea:focus, textarea:active, textarea:hover {
             padding-top: 5px;
             padding-bottom: 5px;
             width: 100%;
-            color: #fff;
+            color: $theme;
             &:hover {
-                background: $theme;
+                background: lighten($theme, 65%);
             }
             .badge {
-                background: darken($theme, 10%);
-                color: lighten($theme, 30%);
+                background: lighten($theme, 60%);
+                color: lighten($theme, 10%);
                 padding: 3px 8px 4px 8px;
+                margin-top: 5px;
             }
             .icon {
                 @include border-radius(50px);
@@ -489,14 +490,15 @@ textarea:focus, textarea:active, textarea:hover {
                 h4 {
                     color: $brand-primary;
                     font-family: 'Nobel-Regular';
-                    font-size: 16px;
+                    font-size: 15px;
                     margin-top: 5px;
                     margin-bottom: 5px;
                 }
                 p {
                     display: block;
-                    color: lighten($theme, 40%);
-                    font-size: 12px;
+                    color: $theme;
+                    font-size: 11px;
+                    font-family: 'Nobel-Book';
                     margin-bottom: 0px;
                 }
             }
@@ -524,14 +526,24 @@ textarea:focus, textarea:active, textarea:hover {
     background: #fff;
     color:$theme;
 }
-
+.ui-datepicker {
+    z-index: 99999 !important;
+    background: #32404d !important;
+    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+        border: 1px solid #3a4855;
+        color: #fff;
+    }
+    &.ui-widget-content {
+        color: #8298ac!important;
+    }
+}
 .home-header {
-    background: $theme;
+    background: $theme url("../images/boy.svg") no-repeat right bottom;
+    background-size:28%;
     @include padding(40px, null, null, null);
     height: 100%;
     min-height:500px;
-    position: relative; 
-    width: calc(100% + 17px);
+    position: relative;
     h1 {
         display: none;
     }
@@ -549,7 +561,7 @@ textarea:focus, textarea:active, textarea:hover {
         font-family: 'Nobel-ExtraLight';
     }
     .v-center {
-        height:50vh;
+        height:60vh;
         position: relative;
         padding-top: 100px;
         padding-bottom: 100px;
@@ -563,6 +575,7 @@ textarea:focus, textarea:active, textarea:hover {
             top: 50%;
             width: 100%;
             min-height: 450px;
+            
         }
         .notification {
             border: 1px solid #586774;
@@ -595,7 +608,8 @@ textarea:focus, textarea:active, textarea:hover {
     .nav-tabs {
         @include margin(100px, auto, null, auto);
         border:none;
-        width: 500px;
+        text-align: center;
+        width: 600px;
       > li {
         &.active > a {
           color:$logo-blue;
@@ -608,13 +622,15 @@ textarea:focus, textarea:active, textarea:hover {
             border:none;
           }
         }
-        width: 25%;
         text-align: center;
+        float:none;
+        display: inline-block;
         > a {
-            border:none;
-            font-size: $font-size-h4;
-            color: $body-bg;
-            text-transform: uppercase;
+          padding: 10px 30px;
+          border:none;
+          font-size: $font-size-h4;
+          color: $body-bg;
+          text-transform: uppercase;
             &:hover, &:focus {
             color: $body-bg;
             background-color: transparent;
@@ -626,9 +642,15 @@ textarea:focus, textarea:active, textarea:hover {
     .tab-content {
         @include margin(40px, auto, null, auto);
         border:none;
-        width: 650px;
+        width: 674px;
         .firstrow {
             min-height:160px;
+        }
+        .r-height{
+            min-height: 90px;
+        }
+        .secondrow{
+            @extend .firstrow;
         }
         .submitrow {
             @include margin(100px, null, null, null);
@@ -700,6 +722,7 @@ textarea:focus, textarea:active, textarea:hover {
                     }
                   }
                 }
+            
         }
         .form-control {
             border: none;
@@ -713,7 +736,9 @@ textarea:focus, textarea:active, textarea:hover {
             background: $body-bg;
             @include box-shadow(0px 3px 6px rgba(0,0,0,0.4));
             @include border-radius(3px);
-            min-height: 55px;
+            min-height: 56px;
+            display:block;
+            width: 100%;
             [class*="col-"] {
                 &:first-child {
                     border-right:1px solid $theme; 
@@ -722,8 +747,105 @@ textarea:focus, textarea:active, textarea:hover {
                     border-left: 1px solid $theme;
                 }
             }
+            .noborder {
+                border-left: none!important;;
+            }
+        }
+        .last-claimed {
+            border-right:1px solid $theme; 
+            min-height: 56px;
+            padding-right: 1px;
+        }
+        .claimshare {
+            position: absolute;
+            right:0px;
+            top: 26px;
+            font-family: 'Nobel-Book';
+            font-size: 16px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            width: 60%;
+            z-index: 9;
+        }
+        .previousncb {
+            background: #fff;
+            padding: 5px;
+            display: inline-block;
+            @include border-radius(0px 0px 4px 4px);
+            font-family: 'Nobel-Book';
+            position: absolute;
+            left: 0px;
+            top: 57px;
+            z-index: 9;
+            width: 350px;
+            margin-bottom: 0px;
+            p {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+            li {
+                width: 56px;
+                text-align: center;
+                float: left;
+                input.checkbox {
+                  &:empty {
+                    display: none;
+                    ~ label {
+                        border: 1px solid lighten($theme, 60%);
+                        @include border-radius(2px);
+                        position: relative;
+                        font-size:12px;
+                        line-height:14px;
+                        text-indent:0px;
+                        cursor: pointer;
+                        color: #000;
+                        font-weight: normal;
+                        @include user-select(none);
+                        @include padding(5px, 9px, 4px, 9px);
+                      &:before {
+                        position: absolute;
+                        display:inline-block;
+                        top:-2px;
+                        bottom: 0;
+                        left: 0;
+                        content: '';
+                        background-color: transparent;
+                        border:none;
+                        @include border-radius(2px);
+                        width: 100%;
+                        z-index: -1;
+                      }
+                    }
+                  }
+                  &:checked ~ label {
+                      color: #000;
+                      z-index: 1;
+                      border:1px solid #fff;
+                      color: #fff;
+                    &:before {
+                      text-indent: 2px;
+                      border:none;
+                      color: #fff;
+                      background-color:$logo-blue;
+                      @include box-shadow(0px 3px 6px rgba(0,0,0,0.2));
+                    }
+                  }
+                }
+            }
+        }
+        .trip-frequency {
+            border-left: 1px solid $theme;
+            .input-effect, .ui.search.dropdown {
+                float: left;
+                width: 50%;
+            }
+            .ui.search.dropdown {
+                @include border-radius(0px);
+            }
         }
         .lastchild {
+            border-left: 1px solid $theme;
             .ui {
               &.selection {
                 &.dropdown {
@@ -869,14 +991,15 @@ textarea:focus, textarea:active, textarea:hover {
         }
         .input-effect {
           position: relative;
-          height:55px;
+          height:56px;
             .effect {
               border:none;
-              @include padding(4px, 0px, 5px, 10px);
+              @include padding(4px, 0px, 5px, 6px);
               border:none;
               background-color: transparent;
               width: calc(100%, -1px);
-              height:55px;
+              height:56px;
+              color: $theme;
               font-size:$font-size-large - 2px;
               font-family: 'Nobel-Light';
               @include border-radius(3px 0px 0px 3px);
@@ -895,6 +1018,7 @@ textarea:focus, textarea:active, textarea:hover {
                 transition: top 0.2s linear 0.2s;
               }
             }
+
             .title-content {
               @include padding(24px, 0px, 5px, 10px);
               font-family: 'Nobel-Book';
@@ -903,6 +1027,7 @@ textarea:focus, textarea:active, textarea:hover {
               top:4px;
               left: 10px;
               font-size:$font-size-base - 1px;
+              font-weight: normal;
               color: $theme;
               -webkit-transition: top 0.2s linear 0.2s;
                 -moz-transition: top 0.2s linear 0.2s;
@@ -912,62 +1037,182 @@ textarea:focus, textarea:active, textarea:hover {
             }
         }
         .ui {
-          &.selection {
+          &.search {
             &.dropdown {
+              background:$body-bg;
               border: none;
-              background:$body-bg url("../images/arrow-down.svg") no-repeat 96% center;
-              background-size: 22px;
-              min-width: 100px;
-              height: 55px;
-              font-size:$font-size-h4 - 2px;
-              @include border-radius(0px);
-              @include padding(19px, null, null, 10px);
-              @include box-shadow(0px 3px 6px rgba(0,0,0,0));
-              width:100%;
-                .default.text {
-                    color:#999;
-                    font-family: 'Nobel-Light';
+              min-width:50px;
+              min-height: 56px;
+              font-size: $font-size-large - 2px;
+              line-height: 27px;
+              padding: 10px 10px 0px 6px;
+              width: 100%;
+              > {
+                input.search {
+                  background: none transparent !important;
+                  border: none !important;
+                  box-shadow: none !important;
+                  cursor: text;
+                  top: 0;
+                  left: 1px;
+                  width: 100%;
+                  outline: 0;
+                  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+                  padding: inherit;
+                  position: absolute;
+                  z-index: 2;
                 }
+                  .default.text {
+                      color: #999;
+                      font-family: 'Nobel-Light';
+                   }
+                .text {
+                  cursor: text;
+                  position: relative;
+                  font-family: 'Nobel-Book';
+                  left: 1px;
+                  top: 5px;
+                  z-index: 3;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                 width: 100%;   
+                }
+              }
+              .dropdown.icon {
+                display: none;
+              }
             }
-            &.active.dropdown {
-                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+            &.selection.dropdown > {
+                line-height: 27px;
+              input.search {
+                line-height:36px;
+                padding: 10px 5px 0px 5px;
+              }
+            }
+            &.dropdown {
+              &.active > input.search, &.visible > input.search {
+                cursor: auto;
+              }
+              &.active > .text, &.visible > .text {
+                pointer-events: none;
+              }
+            }
+          }
+          &.active.search.dropdown input.search:focus + .text {
+            .flag, .icon {
+              opacity: 0.45;
+            }
+            color: rgba(115, 115, 115, 0.87) !important;
+          }
+            &.active.dropdown:hover .menu {
+                border: none;
+                border-color: transparent;
+                min-width: 100%;
+                max-width: calc(100% - 1px);
+            }  
+          &.search.dropdown .menu {
+            font-size: $font-size-base + 1px;
+            border: none;
+            border-color: transparent;
+            margin-left: 0px;
+            min-width: 100%;
+            max-width: calc(100% - 1px);
+              > .item {
+                border-top: 1px solid #fafafa;
+                padding: .71428571rem 1.14285714rem !important;
+                font-size: 15px;
+            }
+          }
+          &.multiple {
+            &.dropdown {
+              padding: 10px;
               .menu {
-                border: none !important;
-              }
-              &:hover {
-                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                cursor: auto;
               }
             }
-          }
-          &.search.dropdown > .text {
-              font-family: 'Nobel-Book';
-          }
-          &.dropdown > .text {
-              font-family: 'Nobel-Book';
-          }
-          &.search.dropdown.visible > input.search {
-            padding: 16px 10px 9px 10px !important;
-            @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
-          }
-          &.search.selection.dropdown > input.search {
-            padding: 16px 10px 9px 10px;
-            top: 2px;
-          }
-          &.selection.dropdown .menu > .item {
-            padding: 11px 10px 10px 10px !important;
-            font-size:$font-size-base;
-          }
-          &.selection.dropdown .menu {
-            width: 100%!important;
-            min-width: 100%!important;
-              @include margin(null, 0px, null, 0px);
-          }
-          &.dropdown .menu .active.item {
-            color: $logo-blue;
-          }
-          &.selection.dropdown > {
-            .dropdown.icon, .search.icon {
-              display: none;
+            &.search.dropdown {
+              cursor: text;
+              > input.search {
+                cursor: text;
+              }
+            }
+            &.dropdown {
+              > .label {
+                  background: lighten($theme, 65%);
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                display: inline-block;
+                vertical-align: top;
+                white-space: normal;
+                font-size:$font-size-base;
+                color: $theme;
+                padding:3px 13px 4px 6px;
+                margin:7px 3px 4px 0px;
+                box-shadow: 0 0 0 1px rgba(0, 0, 0, 0) inset;
+                  top: 9px;
+                position: relative;
+                  > .delete.icon {
+                    cursor: pointer;
+                    margin-right: 0;
+                    margin-left: .5em;
+                    font-size: .92857143em;
+                    opacity:1;
+                }
+                  .delete::before {
+                        content: "";
+                        background: url("../images/cross.svg") no-repeat center/15px;
+                        position: absolute;
+                        right: 0px;
+                        height: 15px;
+                        width: 15px;
+                    }
+              }
+              .dropdown.icon {
+                margin: '';
+                padding: "";
+              }
+              > {
+                .text {
+                  position: static;
+                  padding: 0;
+                  max-width: 100%;
+                  margin: 0px;
+                  line-height: 1.21429em;
+                }
+                .label ~ {
+                  input.search {
+                    margin-left: 0.14286em !important;
+                  }
+                  .text {
+                    display: none;
+                  }
+                }
+              }
+            }
+            &.search.dropdown > {
+              .text {
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: inherit;
+                margin: 0px;
+                line-height: 35px;
+              }
+              .label ~ .text {
+                display: none;
+              }
+              input.search {
+                position: static;
+                padding: 0;
+                max-width: 100%;
+                margin:0px;
+                width: 2.2em;
+                line-height: 1.21429em;
+              }
             }
           }
         }
@@ -1000,7 +1245,7 @@ textarea:focus, textarea:active, textarea:hover {
             font-size: $font-size-h4;
         }
         .title {
-            @include position(absolute, $top:-20px, $left:10px);
+            @include position(absolute, $top:-20px, $left:6px);
             color:$theme;
             font-size: $font-size-base - 1px;
             width: calc(100% - 10px);
@@ -1022,6 +1267,122 @@ textarea:focus, textarea:active, textarea:hover {
             font-family: 'Nobel-Book';
             width:100;
         }
+        .travellers {
+            background: #fff;
+            padding: 5px 10px 65px 10px;
+            display: inline-block;
+            @include border-radius(0px 4px 4px 4px);
+            @include box-shadow(0px 5px 10px rgba(0,0,0,0.2));
+            font-family: 'Nobel-Book';
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 999;
+            width:100%;
+            margin-bottom: 0px;
+            .submit {
+                background: $logo-blue;
+                color: #fff;
+                font-size: 14px;
+                padding: 5px 18px;
+                margin-top: 10px;
+                display: block;
+                position: absolute;
+                bottom: 6px;
+                right: 10px;
+            }
+            .add {
+                color: $logo-red;
+                padding:10px 10px 10px 0px;
+                display: inline-block;
+                position: absolute;
+                bottom: 4px;
+                left: 10px;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            .error {
+                @extend .add;
+                background: none;
+                top: auto;
+                bottom: 50px;
+                font-size: 11px;
+                left: 5px;
+                right: auto;
+            }
+            li {
+                min-height:35px;
+                position: relative;
+                p {
+                    float: left;
+                    font-size: 13px;
+                    margin-bottom: 0px;
+                    margin-top: 5px;
+                }
+                .ui {
+                  &.search {
+                    &.dropdown {
+                      background:$body-bg;
+                      border-top: none;
+                      border-left: none;
+                      border-right: none;
+                      border-bottom: 1px solid $theme;
+                      min-width:50px;
+                      min-height: 25px;
+                      height: 34px;
+                      font-size: $font-size-base - 2px;
+                        @include border-radius(0px);
+                      line-height: 27px;
+                      padding:0px;
+                      width: 80px;
+                      float: right;
+                    }
+                    &.selection.dropdown > {
+                        line-height: 27px;
+                      input.search {
+                        line-height:27px;
+                        padding:5px 0px 0px 0px;
+                      }
+                    }
+                  }
+                  &.search.dropdown .menu {
+                    font-size: $font-size-base - 2px;
+                    border: none;
+                    border-color: transparent;
+                    margin-left: 0px;
+                    min-width: 100%;
+                    max-width: calc(100% - 1px);
+                      > .item {
+                        border-top: 1px solid #fafafa;
+                        padding: .71428571rem 1.14285714rem !important;
+                        font-size: 12px;
+                    }
+                  }
+                }
+                input {
+                    height: 30px;
+                    background:$body-bg;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-bottom: 1px solid $theme;
+                    font-size: 13px;
+                    float: right;
+                    width: 70px;
+                }
+                .minus {
+                    color: lighten($theme, 30%);
+                    padding: 5px 2px 5px 6px;
+                    font-size: 13px;
+                    position: absolute;
+                    right: 0px;
+                    top: 1px;
+                    z-index: 99;
+                }
+            }
+        }
+        
     }
     .licenced {
         @include position(absolute, $bottom:10px, $left:25px);
@@ -1038,6 +1399,38 @@ textarea:focus, textarea:active, textarea:hover {
             font-size: $font-size-base - 2px;
         }
     }
+    .renewel-box{
+                position: absolute;                
+                border: 1px dashed #829eb4;
+                bottom: 40%;
+                padding: 8px 10px 6px 10px;
+                border-radius: 4px;
+                z-index: 999;
+                @include media(">tablet", "<=desktop"){
+                    bottom: 30%;
+                }
+                &:after{
+                    position: absolute;
+                    content: "";
+                    top: -22px;
+                    right: 6px;
+                    background: url("../images/renewalIcon.svg") no-repeat 50% 50%/30px;                    
+                    width: 50px;
+                    height: 50px;                  
+                }
+                h2{
+                    font-size: 20px;
+                    line-height: 20px;
+                    font-family: 'Nobel-Book';                    
+                }
+                
+                p{
+                    color: #829eb4;
+                    margin-bottom: 0;
+                    font-size: 12px;
+                }
+                
+            }
     .quickquotes {
         width: 100%;
         @include margin (-40px, 0px, 0px, 0px);
@@ -1045,10 +1438,13 @@ textarea:focus, textarea:active, textarea:hover {
             background: $theme;
             border: none;
             @include box-shadow (0px 0px 0px rgba(0,0,0,0));
-            min-height: 91vh;
+            min-height: 100vh;
             .modal-body {
                 background: $theme;
                 @include padding (80px, null, null, null);
+                [class*="col-"] {
+                    padding: 0px;
+                }
                 .close {
                     background: $body-bg url("../images/cross.svg") no-repeat center;
                     background-size: 30px;
@@ -1065,6 +1461,7 @@ textarea:focus, textarea:active, textarea:hover {
     }
     
 }
+
 .modal-backdrop.in {
     opacity: 0 !important;
     

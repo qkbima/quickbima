@@ -841,6 +841,10 @@ textarea:focus, textarea:active, textarea:hover {
             font-weight: 200;
             -webkit-text-stroke: 1px #e1e6ea;
         }
+        .paid {
+            background: url("../images/AEGON-Religare-Life-Insurance-Company-Limited.svg") no-repeat 0px 0px/200px;
+            height: 100px;
+        }
     }
     .checkout-details {
         position: relative;
@@ -954,7 +958,7 @@ textarea:focus, textarea:active, textarea:hover {
                 font-family: 'Nobel-Light';
             }
             .addon-icons {
-                background: url(../images/addon-covers.svg) no-repeat;
+                background: url(../images/addon-covers.svg) no-repeat 0px 0px/320px;
                 @include margin(-15px, 15px, null, null);
                 display: inline-block;
                 float: left;
@@ -996,6 +1000,10 @@ textarea:focus, textarea:active, textarea:hover {
             .discount {
                 @extend .addon-icons;
                 background-position:0px -122px;
+            }
+            .exchange {
+                @extend .addon-icons;
+                background-position:-250px -65px;
             }
             .price {
                 color: $logo-blue;
@@ -1249,6 +1257,7 @@ textarea:focus, textarea:active, textarea:hover {
             @include position(absolute, $top:-12px, $left:15px);
             font-size:$font-size-base - 1px;
             color: $logo-blue;
+            font-weight: normal;
         }
         .gainful-income {
             .input-effect {
@@ -1306,6 +1315,7 @@ textarea:focus, textarea:active, textarea:hover {
                 font-size:$font-size-large - 2px;
                 color: lighten($theme, 40%);
                 transition: 0.3s;
+                font-weight: normal;
               }
               &:focus ~ label {
                 top: -12px;

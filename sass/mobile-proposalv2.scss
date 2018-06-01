@@ -577,12 +577,14 @@ select:-webkit-autofill:focus {
               background: $logo-red;
             }
             .has-error.effect ~ label {
-              top: 10px;
+              top: -10px;
+              font-size:14px;
               transition: 0.3s;
+              color: $theme;
                 &:before {
                     position: absolute;
                     right: 4px;
-                    bottom:0px;
+                    bottom:-20px;
                     content: '\f071 ';
                     font-size: 10px;
                     color: $logo-red;
@@ -600,14 +602,14 @@ select:-webkit-autofill:focus {
                 ~ label {
                   background: lighten($theme, 67%);
                   position: relative;
-                  font-size:15px;
+                  font-size:14px;
                   line-height:12px;
                   cursor: pointer;
                   color: $theme;
                   font-family: 'Nobel-Book';
                   @include user-select(none);
                   @include border-radius(3px);
-                  padding: 8px 15px 8px 15px;
+                  padding: 8px 12px 8px 12px;
                   display: inline;
                   text-indent: 8px;
                   width: 100%;
@@ -626,7 +628,10 @@ select:-webkit-autofill:focus {
             span {
                 float: left;
                 display: inline-block;
-                margin-right: 10px;
+                margin-right: 8px;
+                &:last-child {
+                    margin-right: 0px;
+                }
             }
             .icon {
                 width: 30px;

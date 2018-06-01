@@ -1481,7 +1481,7 @@ label {
                 height: 19px;
                 width: calc(100% - 20px);
             }
-            h3 {
+            h3, h2 {
                 @include margin(null, null, 20px, null);
             }
             .registration {
@@ -1511,6 +1511,123 @@ label {
                     @include position(absolute, $bottom:11px, $right:40px);
                     color:$theme;
                 }
+                .travellers {
+                    background: #fff;
+                    padding: 5px 10px;
+                    display: inline-block;
+                    @include border-radius(0px 0px 4px 4px);
+                    @include box-shadow(0px 5px 10px rgba(0,0,0,0.2));
+                    font-family: 'Nobel-Book';
+                    position: absolute;
+                    left: 10px;
+                    top: 42px;
+                    z-index: 999;
+                    width:calc(100% - 20px);
+                    margin-bottom: 0px;
+                    li {
+                        min-height:35px;
+                        position: relative;
+                        p {
+                            float: left;
+                            font-size: 13px;
+                            margin-bottom: 0px;
+                            margin-top: 5px;
+                        }
+                        a {
+                            background: transparent;
+                        }
+                        .ui {
+                          &.search {
+                            &.dropdown {
+                              background:$body-bg;
+                              border-top: none;
+                              border-left: none;
+                              border-right: none;
+                              border-bottom: 1px solid $theme;
+                              min-width:50px;
+                              min-height: 25px;
+                              height: 34px;
+                              font-size: $font-size-base - 2px;
+                                @include border-radius(0px);
+                              line-height: 27px;
+                              padding:0px;
+                              width: 80px;
+                              float: right;
+                            }
+                            &.selection.dropdown > {
+                                line-height: 27px;
+                              input.search {
+                                line-height:27px;
+                                padding:5px 0px 0px 0px;
+                              }
+                            }
+                          }
+                          &.search.dropdown .menu {
+                            font-size: $font-size-base - 2px;
+                            border: none;
+                            border-color: transparent;
+                            margin-left: 0px;
+                            min-width: 100%;
+                            max-width: calc(100% - 1px);
+                              > .item {
+                                border-top: 1px solid #fafafa;
+                                padding: .71428571rem 1.14285714rem !important;
+                                font-size: 12px;
+                            }
+                          }
+                        }
+                        input {
+                            height: 30px;
+                            background:$body-bg;
+                            border-top: none;
+                            border-left: none;
+                            border-right: none;
+                            border-bottom: 1px solid $theme;
+                            font-size: 13px;
+                            float: right;
+                            width: 70px;
+                        }
+                        .add {
+                            background: transparent;
+                            color: $logo-red;
+                            padding:10px 10px 10px 0px;
+                            margin: 5px 0px 0px;
+                            display: inline-block;
+                            text-shadow: 0px 1px 2px rgba(0,0,0,0);
+                            .fa {
+                                position: static;
+                            }
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
+                        .minus {
+                            background: transparent;
+                            color: lighten($theme, 30%);
+                            padding: 5px 2px 5px 6px;
+                            font-size: 13px;
+                            position: absolute;
+                            text-shadow: 0px 1px 2px rgba(0,0,0,0);
+                            margin: 0px;
+                            right: 0px;
+                            top: 1px;
+                            z-index: 99;
+                            .fa {
+                                position: static;
+                            }
+                        }
+                        .submit {
+                            background: $logo-blue;
+                            color: #fff;
+                            font-size: 14px;
+                            padding: 5px 18px;
+                            margin-top: 10px;
+                            float: right;
+                            display: block;
+                        }
+                    }
+                }
+
             }
             .update {
                 background: $logo-blue;
@@ -3369,6 +3486,20 @@ label {
                         svg .icon {
                           font-family: FontAwesome;
                         }
+                        &.bike-breakup {
+                            display: flex;
+                            .total-amount {
+                                position: absolute;
+                                left: 0px;
+                                bottom: 0px;
+                                margin: 0px;
+                            }
+                            .brdr-breakup {
+                                padding-bottom: 60px;
+                                border-left: 1px solid lighten($theme, 60%);
+                            }
+                        }
+                        
                     }
                 }
                 .zerodep-popup {
@@ -5405,5 +5536,9 @@ label {
         left: calc(50% - 60px);
         bottom: 10px;
         font-family: 'Nobel-Book';
+        &:hover {
+            text-decoration: none;
+            cursor: pointer;
+        }
     }
 }

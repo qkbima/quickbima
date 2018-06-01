@@ -31,6 +31,16 @@
                 $( "#draggable" ).draggable();
               } );
           </script>
+        <script>
+         $(function() {
+            $( "#datepicker, #datepicker2, #datepicker3, #datepicker4, #rangedatepicker5" ).datepicker({
+               changeMonth:true,
+               changeYear:true,
+               dateFormat: 'dd-mm-yy',
+               numberOfMonths:[1,1]
+            });
+         });
+      </script>
 	</head>
 	<body>
 		<nav class="navbar navbar-fixed-top navbar-default">
@@ -212,223 +222,446 @@
                     <div class="container">
                         <div class="row v-center">
                             <div class="col-sm-12 autoheight">
-                                <ul id="tabs" class="nav nav-tabs" role="tablist">
-                                  <li role="presentation" class="active"><a href="#car" role="tab" data-toggle="tab">Car</a></li>
-                                  <li role="presentation"><a href="#health" role="tab" data-toggle="tab">Health</a></li>
-                                  <li role="presentation"><a href="#bike" role="tab" data-toggle="tab">Bike</a></li>
-                                  <li role="presentation"><a href="#term" role="tab" data-toggle="tab">Term</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane fade in active" id="car">
-                                        <div class="row firstrow">
-                                            <div class="col-sm-12">
-                                                <div class="registration">
-                                                    <input type="text" class="form-control text-center" placeholder="CH 01 AB 1234">
-                                                    <div class="error">Enter a valid Registration no.</div>
-                                                    <span class="policy-type">
-                                                        <input type="radio" id="new" name="motor" class="checkbox"/>
-                                                        <label for="new">New</label>
-                                                    </span>
-                                                    <span class="policy-type">
-                                                        <input type="radio" id="renew" name="motor" class="checkbox" checked/>
-                                                        <label for="renew">Renew</label>
-                                                    </span>
-                                                    <span class="policy-type">
-                                                        <input type="radio" id="expired" name="motor" class="checkbox"/>
-                                                        <label for="expired">Expired</label>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 text-center">
-                                                <button type="button" class="btn submit" data-toggle="modal" data-target="#verifydetails">Verify Details</button>
-                                            </div>
+                        <ul id="tabs" class="nav nav-tabs" role="tablist">
+                          <li role="presentation" class="active"><a href="#car" role="tab" data-toggle="tab">Car</a></li>
+                          <li role="presentation"><a href="#health" role="tab" data-toggle="tab">Health</a></li>
+                          <li role="presentation"><a href="#bike" role="tab" data-toggle="tab">Bike</a></li>
+                          <li role="presentation"><a href="#term" role="tab" data-toggle="tab">Term</a></li>
+                          <li role="presentation"><a href="#travel" role="tab" data-toggle="tab">Travel</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="car">
+                                <!---div class="row firstrow">
+                                    <div class="col-sm-12">
+                                        <div class="registration">
+                                            <input type="text" class="form-control text-center" placeholder="CH 01 AB 1234">
+                                            <div class="error">Enter a valid Registration no.</div>
+                                            <span class="policy-type">
+                                                <input type="radio" id="new" name="motor" class="checkbox"/>
+                                                <label for="new">New</label>
+                                            </span>
+                                            <span class="policy-type">
+                                                <input type="radio" id="renew" name="motor" class="checkbox" checked/>
+                                                <label for="renew">Renew</label>
+                                            </span>
+                                            <span class="policy-type">
+                                                <input type="radio" id="expired" name="motor" class="checkbox"/>
+                                                <label for="expired">Expired</label>
+                                            </span>
                                         </div>
                                     </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="health">
-                                        <div class="row firstrow">
-                                            <div class="bgshadow">
-                                                <div class="col-sm-6 insured-members">
-                                                    <div class="input-effect">
-                                                        <input type="text" class="form-control text-capitalize members effect" placeholder="Whom to insure?" id="healthCover">
-                                                        <label>Insured Members</label>
-                                                        <span class="focus-border"></span>
-                                                    </div>
-
-                                                    <div class="adults" style="display:none;">
-                                                            <div class="row">
-                                                                <div class="col-xs-6">	
-                                                                    <input type="radio" id="one" name="insure" class="checkbox"/>
-                                                                    <label for="one">One Adult</label>
-                                                                </div>
-                                                                <div class="col-xs-6">
-                                                                    <input type="radio" id="two" name="insure" class="checkbox"/>
-                                                                    <label for="two">Two Adults</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-xs-6"><p class="child"> Children</p></div>
-                                                                <div class="col-xs-6">
-                                                                    <div class="input-group">
-                                                                        <span class="input-group-btn">
-                                                                            <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]"><span class="glyphicon glyphicon-minus"></span></button>
-                                                                        </span>
-                                                                        <input type="text" id="children" name="quant[1]" class="form-control input-number" readonly="readonly" value="0">
-                                                                        <span class="input-group-btn">
-                                                                            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]"> <span class="glyphicon glyphicon-plus"></span></button>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-xs-12 msg">Please select atleast one adult.</div>
-                                                            </div>
-                                                        </div>
-                                                </div>	
-                                                <div class="col-sm-3">
-                                                    <span id="gender-title" class="title">Eldest Member</span>
-                                                    <select class="ui search dropdown" id="gendertitle">
-                                                        <option value="">Gender</option>
-                                                        <option value="m">Male</option>
-                                                        <option value="f">Female</option>
-                                                    </select>
-                                                    <span class="error">Enter input details.</span>
-                                                </div>
-                                                <div class="col-sm-3 lastchild">
-                                                    <select class="ui search dropdown" id="agetitle">
-                                                        <option value="">Age</option>
-                                                        <option value="a">18</option>
-                                                        <option value="b">19</option>
-                                                        <option value="c">20</option>
-                                                        <option value="d">21</option>
-                                                        <option value="e">22</option>
-                                                        <option value="f">23</option>
-                                                        <option value="g">24</option>
-                                                        <option value="h">25</option>
-                                                        <option value="h">26</option>
-                                                        <option value="h">27</option>
-                                                        <option value="h">28</option>
-                                                        <option value="h">29</option>
-                                                        <option value="h">30</option>
-                                                    </select>
-                                                    <span id="age-title" class="title" style="display:none;">Eldest Member</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="row submitrow">
-                                                    <div class="col-sm-12 text-center ">
-                                                        <button type="button" class="btn submit">Continue</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                </div--->
+                                
+                                <div class="row firstrow">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-4">
+                                            <span id="gender-title" class="title">Make and Model</span>
+                                            <select class="ui search dropdown">
+                                              <option value="">Make and Model</option>
+                                              <option value="Ad">Audi Q5</option>
+                                              <option value="ms">MARUTI SWIFT VDI</option>
+                                              <option value="msd" selected>Maruti Swift Dezire</option>
+                                              <option value="ha">Honda Amaze</option>
+                                              <option value="hc">Honda City</option>
+                                              <option value="hv">Honda Civic</option>
+                                              <option value="hi">Hundai i20</option>
+                                              <option value="ti">Tata Indica Vista</option>
+                                              <option value="tm">Tata Indica Manza</option>
+                                              <option value="tic">Tata Indigo Cs</option>
+                                            </select>
+                                        </div>	
+                                        <div class="col-sm-2">
+                                            <span id="gender-title" class="title">Fuel Type</span>
+                                            <select class="ui search dropdown" id="gendertitle">
+                                                <option value="">Fuel Type</option>
+                                                <option value="m" selected>Diesel</option>
+                                                <option value="f">Petrol</option>
+                                            </select>
+                                            <span class="error">Enter input</span>
                                         </div>
-                                        <div class="row" style="display:none;">
-                                            <div class="bgshadow">
-                                                <div class="col-sm-6 firstchild">
-                                                    <div class="input-effect">
-                                                        <input type="text" placeholder="Email Address" class="form-control effect">
-                                                        <label>Email Address</label>
-                                                        <span class="focus-border"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="input-effect">
-                                                        <input type="text" placeholder="Pincode" class="form-control effect">
-                                                        <label>Pincode</label>
-                                                        <span class="focus-border"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3 lastchild">
-                                                    <div class="input-effect">
-                                                        <input type="text" placeholder="Mobile" class="form-control effect">
-                                                        <label>Mobile</label>
-                                                        <span class="focus-border"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="row submitrow">
-                                                    <div class="col-sm-12 text-center ">
-                                                        <a href="" class="back">Back</a>
-                                                        <button type="button" class="btn submit">Get Free Quotes</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="col-sm-6 lastchild">
+                                            <select class="ui search dropdown" id="agetitle">
+                                                <option value="">Variant</option>
+                                                  <option value="AL" selected>1.4 CX CRDI 6-Speed MT</option>
+                                                  <option value="AL">LDI, 1248 CC</option>
+                                                  <option value="AL">ZDI, 1248 CC</option>
+                                            </select>
+                                            <span id="age-title" class="title" style="display:none;">Eldest Member</span>
                                         </div>
                                     </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="bike">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="registration">
-                                                    <input type="text" class="form-control text-center" placeholder="CH 01 AB 1234">
-                                                    <a href="">I don't know registration number.</a>
-                                                </div>
+                                </div>
+                                
+                                <div class="row firstrow">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-3">
+                                            <div class="input-effect">
+                                                <input type="text" id="rangedatepicker5" placeholder="Registration Date" class="form-control effect datepicker">
+                                                <label>Registration Date</label>
+                                                <span class="focus-border"></span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="term">
-                                        <div class="row firstrow">
-                                            <div class="bgshadow">
-                                                <div class="col-sm-6 firstchild">
-                                                    <select class="ui search dropdown">
-                                                        <option value="">Annual Income</option>
-                                                        <option value="m">Below 2 Lakhs</option>
-                                                        <option value="m">2 to 3 Lakhs</option>
-                                                        <option value="f">4 to 5 Lakhs</option>
-                                                        <option value="f">5 to 10 Lakhs</option>
-                                                        <option value="f">Above 10 Lakhs</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="col-sm-3">
-                                                    <select class="ui search dropdown">
-                                                        <option value="">Gender</option>
-                                                        <option value="m">Eldest Member's</option>
-                                                        <option value="m">Male</option>
-                                                        <option value="f">Female</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-sm-3 lastchild">
-                                                    <select class="ui search dropdown">
-                                                        <option value="">Age</option>
-                                                        <option value="m">Eldest Member's</option>
-                                                        <option value="a">18</option>
-                                                        <option value="b">19</option>
-                                                        <option value="c">20</option>
-                                                        <option value="d">21</option>
-                                                        <option value="e">22</option>
-                                                        <option value="f">23</option>
-                                                        <option value="g">24</option>
-                                                        <option value="h">25</option>
-                                                        <option value="h">26</option>
-                                                        <option value="h">27</option>
-                                                        <option value="h">28</option>
-                                                        <option value="h">29</option>
-                                                        <option value="h">30</option>
-                                                    </select>
-                                                </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Policy Expiry" class="form-control effect datepicker">
+                                                <label>Policy Expiry</label>
+                                                <span class="focus-border"></span>
                                             </div>
                                         </div>
-                                        <div class="row" style="display:none;">
-                                            <div class="bgshadow">
-                                                <div class="col-sm-6 firstchild">
-                                                    <input type="text" class="form-control" placeholder="Email address">
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <input type="text" class="form-control" placeholder="Pincode">
-                                                </div>
-                                                <div class="col-sm-3 member-age">
-                                                    <select class="ui search dropdown">
-                                                        <option value="">Smoker</option>
-                                                        <option value="m">No</option>
-                                                        <option value="f">Yes</option>
-                                                    </select>
-                                                </div>
+                                        <div class="col-sm-2 last-claimed">
+                                            <span id="claimed-title" class="title">Claimed?</span>
+                                            <select class="ui search dropdown" id="madeclaim">
+                                                <option value="">Claimed</option>
+                                                <option value="m">No</option>
+                                                <option value="f">Yes</option>
+                                            </select>
+                                            <span class="claimshare sr-only">25%</span>
+                                            <ul class="previousncb animated sr-only">
+                                                <p>Select Previous NCB</p>
+                                                <li><input type="radio" id="ncb0" name="pncb" class="checkbox"/>
+                                                    <label for="ncb0">0%</label>
+                                                </li>
+                                                <li><input type="radio" id="ncb20" name="pncb" class="checkbox"/>
+                                                    <label for="ncb20">20%</label>
+                                                </li>
+                                                <li><input type="radio" id="ncb25" checked name="pncb" class="checkbox"/>
+                                                    <label for="ncb25">25%</label>
+                                                </li>
+                                                <li><input type="radio" id="ncb35" name="pncb" class="checkbox"/>
+                                                    <label for="ncb35">35%</label>
+                                                </li>
+                                                <li><input type="radio" id="ncb45" name="pncb" class="checkbox"/>
+                                                    <label for="ncb45">45%</label>
+                                                </li>
+                                                <li><input type="radio" id="ncb50" name="pncb" class="checkbox"/>
+                                                    <label for="ncb50">50%</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Mobile" class="form-control effect">
+                                                <label>Mobile</label>
+                                                <span class="focus-border"></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!------ /Nav Tabs------>
+                                
+                                
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="button" class="btn submit" data-toggle="modal" data-target="#verifydetails">Verify Details</button>
+                                    </div>
+                                </div>
                             </div>
+                            <div role="tabpanel" class="tab-pane fade" id="health">
+                                <div class="row firstrow">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-6 insured-members">
+                                            <div class="input-effect">
+                                                <input type="text" class="form-control text-capitalize members effect" placeholder="Whom to insure?" id="healthCover">
+                                                <label>Insured Members</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+
+                                            <div class="adults" style="display:none;">
+                                                    <div class="row">
+                                                        <div class="col-xs-6">	
+                                                            <input type="radio" id="one" name="insure" class="checkbox"/>
+                                                            <label for="one">One Adult</label>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <input type="radio" id="two" name="insure" class="checkbox"/>
+                                                            <label for="two">Two Adults</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6"><p class="child"> Children</p></div>
+                                                        <div class="col-xs-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-btn">
+                                                                    <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]"><span class="glyphicon glyphicon-minus"></span></button>
+                                                                </span>
+                                                                <input type="text" id="children" name="quant[1]" class="form-control input-number" readonly="readonly" value="0">
+                                                                <span class="input-group-btn">
+                                                                    <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]"> <span class="glyphicon glyphicon-plus"></span></button>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 msg">Please select atleast one adult.</div>
+                                                    </div>
+                                                </div>
+                                        </div>	
+                                        <div class="col-sm-3">
+                                            <span id="gender-title" class="title">Eldest Member</span>
+                                            <select class="ui search dropdown" id="gendertitle">
+                                                <option value="">Gender</option>
+                                                <option value="m">Male</option>
+                                                <option value="f">Female</option>
+                                            </select>
+                                            <span class="error">Enter input details.</span>
+                                        </div>
+                                        <div class="col-sm-3 lastchild">
+                                            <select class="ui search dropdown" id="agetitle">
+                                                <option value="">Age</option>
+                                                <option value="a">18</option>
+                                                <option value="b">19</option>
+                                                <option value="c">20</option>
+                                                <option value="d">21</option>
+                                                <option value="e">22</option>
+                                                <option value="f">23</option>
+                                                <option value="g">24</option>
+                                                <option value="h">25</option>
+                                                <option value="h">26</option>
+                                                <option value="h">27</option>
+                                                <option value="h">28</option>
+                                                <option value="h">29</option>
+                                                <option value="h">30</option>
+                                            </select>
+                                            <span id="age-title" class="title" style="display:none;">Eldest Member</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row submitrow">
+                                            <div class="col-sm-12 text-center ">
+                                                <button type="button" class="btn submit">Continue</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="display:none;">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-6 firstchild">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Email Address" class="form-control effect">
+                                                <label>Email Address</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Pincode" class="form-control effect">
+                                                <label>Pincode</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 lastchild">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Mobile" class="form-control effect">
+                                                <label>Mobile</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row submitrow">
+                                            <div class="col-sm-12 text-center ">
+                                                <a href="" class="back">Back</a>
+                                                <button type="button" class="btn submit">Get Free Quotes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="bike">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="registration">
+                                            <input type="text" class="form-control text-center" placeholder="CH 01 AB 1234">
+                                            <a href="">I don't know registration number.</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="term">
+                                <div class="row firstrow">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-6 firstchild">
+                                            <select class="ui search dropdown">
+                                                <option value="">Annual Income</option>
+                                                <option value="m">Below 2 Lakhs</option>
+                                                <option value="m">2 to 3 Lakhs</option>
+                                                <option value="f">4 to 5 Lakhs</option>
+                                                <option value="f">5 to 10 Lakhs</option>
+                                                <option value="f">Above 10 Lakhs</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col-sm-3">
+                                            <select class="ui search dropdown">
+                                                <option value="">Gender</option>
+                                                <option value="m">Eldest Member's</option>
+                                                <option value="m">Male</option>
+                                                <option value="f">Female</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 lastchild">
+                                            <select class="ui search dropdown">
+                                                <option value="">Age</option>
+                                                <option value="m">Eldest Member's</option>
+                                                <option value="a">18</option>
+                                                <option value="b">19</option>
+                                                <option value="c">20</option>
+                                                <option value="d">21</option>
+                                                <option value="e">22</option>
+                                                <option value="f">23</option>
+                                                <option value="g">24</option>
+                                                <option value="h">25</option>
+                                                <option value="h">26</option>
+                                                <option value="h">27</option>
+                                                <option value="h">28</option>
+                                                <option value="h">29</option>
+                                                <option value="h">30</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="display:none;">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-6 firstchild">
+                                            <input type="text" class="form-control" placeholder="Email address">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" placeholder="Pincode">
+                                        </div>
+                                        <div class="col-sm-3 member-age">
+                                            <select class="ui search dropdown">
+                                                <option value="">Smoker</option>
+                                                <option value="m">No</option>
+                                                <option value="f">Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="travel">
+                                <div class="row firstrow">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-3 firstchild">
+                                            <span class="title">Plan Type</span>
+                                            <select class="ui search dropdown">
+                                                <option value="">Plan Type</option>
+                                                <option value="single">Individual/Family</option>
+                                                <option value="multiple">Student</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <span id="trip-title" class="title">Trip Frequency</span>
+                                            <select class="ui search dropdown" id="tripFrequency">
+                                                <option value="">Trip Frequency</option>
+                                                <option value="single">Single</option>
+                                                <option value="multiple">Multiple</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 trip-frequency" id="tripstartend">
+                                            <div class="input-effect">
+                                                <input class="effect datepicker" placeholder="Start Date" value="" id="datepicker3" type="text">
+                                                <label>Start Date</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                            <div class="input-effect">
+                                                <input class="effect datepicker" placeholder="End Date" value="" id="datepicker4" type="text">
+                                                <label>End Date</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 trip-frequency sr-only" id="tripduration">
+                                            <div class="input-effect">
+                                                <input class="effect datepicker" placeholder="Trip Start Date" value="" id="datepicker5" type="text">
+                                                <label>Start Date</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                            <span class="title">Duration</span>
+                                            <select class="ui search dropdown">
+                                                <option value="">Duration for</option>
+                                                <option value="a">30 Days</option>
+                                                <option value="b">60 Days</option>
+                                                <option value="c">90 Days</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 lastchild">
+                                            <div class="input-effect">
+                                                <input class="effect" placeholder="Travellers" type="text">
+                                                <label>Travellers</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                            <ul class="travellers">
+                                                <li>
+                                                    <p>Traveller 1</p>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                <li>
+                                                    <p>Traveller 2</p>
+                                                    <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                <li>
+                                                    <p>Traveller 3</p>
+                                                    <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                <li>
+                                                    <p>Traveller 4</p>
+                                                    <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                    <span class="error">1 Traveller's min. age should be 18 years.</span>
+                                                    <a href="" class="add">+ Add</a>
+                                                    <button type="submit" class="btn submit">Submit</button>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 sr-only" id="traveller-age">
+                                            <span id="yourage-title" class="title">Your Age</span>
+                                            <select class="ui search dropdown" id="yourage">
+                                                <option value="">Your Age</option>
+                                                <option value="a">18 Years</option>
+                                                <option value="b">19 Years</option>
+                                                <option value="c">20 Years</option>
+                                                <option value="d">21 Years</option>
+                                                <option value="e">22 Years</option>
+                                                <option value="f">23 Years</option>
+                                                <option value="f">24 Years</option>
+                                                <option value="f">25 Years</option>
+                                                <option value="f">26 Years</option>
+                                                <option value="f">27 Years</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-9" id="travelDestinations">
+                                            <span id="travel-title" class="title">Travelling Destinations</span>
+                                            <select class="ui search dropdown" multiple="" id="multiCountries">
+                                                <option value="">Where you want to travel?</option>
+                                                <option value="a">USA</option>
+                                                <option value="b">UK</option>
+                                                <option value="c">Singapore</option>
+                                                <option value="d">Thialand</option>
+                                                <option value="f">Afghanistan</option>
+                                                <option value="g">Albania</option>
+                                                <option value="h">Algeria</option>
+                                                <option value="i">Andorra</option>
+                                                <option value="j">Angola</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 noborder">
+                                            <div class="input-effect">
+                                                <input class="effect" placeholder="Mobile" type="text">
+                                                <label>Mobile</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!------ /Nav Tabs------>
+                        
+                    </div>
+                    
                         </div>
                     </div>
                 </div>

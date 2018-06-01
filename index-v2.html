@@ -9,6 +9,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="javascripts/bootstrap.min.js"></script>
         <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"> 
+        
 		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css' rel='stylesheet' type='text/css'>
 		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css' rel='stylesheet' type='text/css'>
@@ -36,7 +40,7 @@
             }
         </style>
 	</head>
-	<body class="modal-open">  
+	<body>  
     
     <div id="verifydetails" class="modal fade" role="dialog">
       <div class="modal-dialog details-correct">
@@ -354,29 +358,7 @@
       </div>
     </div>
       
-    <!--<div class="last-session">
-        <div class="inner-box animated slideInUp">
-            <div class="leftcorners"></div>
-            <div class="rightcorners"></div>
-            <div class="dash-border">
-                <button type="button" class="close" id="session-close"></button>
-                <div class="col-sm-2">
-                    <img src="images/kotak_general_insurance.svg" class="insurer">
-                </div>
-                <div class="col-sm-6">
-                    <h4><span>6 Health Insurance Plans </span></h4>
-                    <p>Coverage for <span>Self, Spouse &amp; 2 Children</span></p>
-                    <p>Sum Insured <span>5 Lakhs</span></p>
-                </div>
-                <div class="col-sm-4 text-right">
-                    <h4><span>PREMIUM</span> from <span class="amount"><i class="fa fa-inr" aria-hidden="true"></i> 12,045</span></h4>
-                    <button type="button" class="btn">Pickup where you left</button>
-                </div>
-            </div>
-        </div>
-    </div>-->
-      <!-- last session for Health quotation  --->
-    <div class="last-session-v2 animated slideInUp" >
+    <!--div class="last-session-v2 animated slideInUp" >
         <div class="titlev2 text-center"><i class="fa fa-bell clr-bell"></i>Pickup Where You Left</div>
         <a class="close-session" id="close-sessionv2" href="javascript:void(0);"></a>
         <div class="col-sm-2 taken-travelNative-icon"></div>
@@ -385,7 +367,7 @@
             <p>Premium starts from <span class="amount"><i class="fa fa-inr" aria-hidden="true"></i> 4,093</span></p>
             <button class="btn r-continue-btn">Continue</button>
         </div>
-    </div>
+    </div-->
     <!--- last session for Health proposal --->
        <div class="last-session-v2 animated slideInUp" style="display:none;">
         <div class="titlev2 text-center"><i class="fa fa-bell clr-bell"></i>Pickup Where You Left</div>
@@ -622,10 +604,17 @@
                                 
                                 <div class="row firstrow">
                                     <div class="bgshadow">
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-3">
                                             <div class="input-effect">
                                                 <input type="text" placeholder="Registration Date" class="form-control effect datepicker">
                                                 <label>Registration Date</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Policy Expiry" class="form-control effect datepicker">
+                                                <label>Policy Expiry</label>
                                                 <span class="focus-border"></span>
                                             </div>
                                         </div>
@@ -636,55 +625,33 @@
                                                 <option value="m">No</option>
                                                 <option value="f">Yes</option>
                                             </select>
-                                            <span class="claimshare sr-only"></span>
-                                            <ul class="previousncb animated sr-only text-center">
-                                                <p>Previous NCB</p>
-                                                <li><input type="radio"  id="ncb1" name="ncb" class="checkbox"/>
-                                                    <label for="ncb1">0%</label>
+                                            <span class="claimshare sr-only">25%</span>
+                                            <ul class="previousncb animated sr-only">
+                                                <p>Select Previous NCB</p>
+                                                <li><input type="radio" id="ncb0" name="pncb" class="checkbox"/>
+                                                    <label for="ncb0">0%</label>
                                                 </li>
-                                                <li><input type="radio"  id="ncb2" name="ncb" class="checkbox"/>
-                                                    <label for="ncb2">20%</label>
+                                                <li><input type="radio" id="ncb20" name="pncb" class="checkbox"/>
+                                                    <label for="ncb20">20%</label>
                                                 </li>
-                                                <li><input type="radio"  id="ncb3" name="ncb" class="checkbox"/>
-                                                    <label for="ncb3">25%</label>
+                                                <li><input type="radio" id="ncb25" checked name="pncb" class="checkbox"/>
+                                                    <label for="ncb25">25%</label>
                                                 </li>
-                                                <li><input type="radio"  id="ncb4" name="ncb" class="checkbox"/>
-                                                    <label for="ncb4">35%</label>
+                                                <li><input type="radio" id="ncb35" name="pncb" class="checkbox"/>
+                                                    <label for="ncb35">35%</label>
                                                 </li>
-                                                <li><input type="radio"  id="ncb5" name="ncb" class="checkbox"/>
-                                                    <label for="ncb5">45%</label>
+                                                <li><input type="radio" id="ncb45" name="pncb" class="checkbox"/>
+                                                    <label for="ncb45">45%</label>
                                                 </li>
-                                                <li><input type="radio" id="ncb1" name="ncb" class="checkbox"/>
-                                                    <label for="ncb1">0%</label>
-                                                </li>
-                                                <li><input type="radio" id="ncb2" name="ncb" class="checkbox"/>
-                                                    <label for="ncb2">20%</label>
-                                                </li>
-                                                <li><input type="radio" id="ncb3" name="ncb" class="checkbox"/>
-                                                    <label for="ncb3">25%</label>
-                                                </li>
-                                                <li><input type="radio" id="ncb4" name="ncb" class="checkbox"/>
-                                                    <label for="ncb4">35%</label>
-                                                </li>
-                                                <li><input type="radio" id="ncb5" name="ncb" class="checkbox"/>
-                                                    <label for="ncb5">45%</label>
-                                                </li>
-                                                <li><input type="radio" id="ncb6" name="ncb" class="checkbox"/>
-                                                    <label for="ncb6">50%</label>
+                                                <li><input type="radio" id="ncb50" name="pncb" class="checkbox"/>
+                                                    <label for="ncb50">50%</label>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="col-sm-3 borderleft">
+                                        <div class="col-sm-4">
                                             <div class="input-effect">
                                                 <input type="text" placeholder="Mobile" class="form-control effect">
                                                 <label>Mobile</label>
-                                                <span class="focus-border"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5 lastchild">
-                                            <div class="input-effect">
-                                                <input type="text" placeholder="Email" class="form-control effect">
-                                                <label>Email</label>
                                                 <span class="focus-border"></span>
                                             </div>
                                         </div>
@@ -881,7 +848,15 @@
                             <div role="tabpanel" class="tab-pane fade" id="travel">
                                 <div class="row firstrow">
                                     <div class="bgshadow">
-                                        <div class="col-sm-5 firstchild">
+                                        <div class="col-sm-3 firstchild">
+                                            <span class="title">Plan Type</span>
+                                            <select class="ui search dropdown">
+                                                <option value="">Plan Type</option>
+                                                <option value="single">Individual/Family</option>
+                                                <option value="multiple">Student</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2">
                                             <span id="trip-title" class="title">Trip Frequency</span>
                                             <select class="ui search dropdown" id="tripFrequency">
                                                 <option value="">Trip Frequency</option>
@@ -889,7 +864,7 @@
                                                 <option value="multiple">Multiple</option>
                                             </select>
                                         </div>
-                                        <div class="col-sm-4 trip-multidate">
+                                        <div class="col-sm-4 trip-frequency" id="tripstartend">
                                             <div class="input-effect">
                                                 <input class="effect datepicker" placeholder="Start Date" value="" id="datepicker3" type="text">
                                                 <label>Start Date</label>
@@ -901,30 +876,53 @@
                                                 <span class="focus-border"></span>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4 tripStartDate" style="display:none;">
+                                        <div class="col-sm-4 trip-frequency sr-only" id="tripduration">
                                             <div class="input-effect">
                                                 <input class="effect datepicker" placeholder="Trip Start Date" value="" id="datepicker5" type="text">
-                                                <label>Trip Start Date</label>
+                                                <label>Start Date</label>
                                                 <span class="focus-border"></span>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-3 lastchild" id="travelMembers">
-                                            <span id="travellers" class="title">Travellers</span>
-                                            <select class="ui search dropdown" id="no-travellers">
-                                                <option value="">Travellers</option>
-                                                <option value="a">1</option>
-                                                <option value="b">2</option>
-                                                <option value="c">3</option>
-                                                <option value="d">4</option>
-                                                <option value="e">5</option>
-                                                <option value="f">6</option>
-                                                <option value="f">7</option>
-                                                <option value="f">8</option>
-                                                <option value="f">9</option>
-                                                <option value="f">10</option>
+                                            <span class="title">Duration</span>
+                                            <select class="ui search dropdown">
+                                                <option value="">Duration for</option>
+                                                <option value="a">30 Days</option>
+                                                <option value="b">60 Days</option>
+                                                <option value="c">90 Days</option>
                                             </select>
                                         </div>
-                                        <div class="col-sm-3 lastchild" style="display:none;" id="traveller-age">
+                                        <div class="col-sm-3 lastchild">
+                                            <div class="input-effect">
+                                                <input class="effect" placeholder="Travellers" type="text">
+                                                <label>Travellers</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                            <ul class="travellers">
+                                                <li>
+                                                    <p>Traveller 1</p>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                <li>
+                                                    <p>Traveller 2</p>
+                                                    <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                <li>
+                                                    <p>Traveller 3</p>
+                                                    <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                <li>
+                                                    <p>Traveller 4</p>
+                                                    <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                    <span class="error">1 Traveller's min. age should be 18 years.</span>
+                                                    <a href="" class="add">+ Add</a>
+                                                    <button type="submit" class="btn submit">Submit</button>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 sr-only" id="traveller-age">
                                             <span id="yourage-title" class="title">Your Age</span>
                                             <select class="ui search dropdown" id="yourage">
                                                 <option value="">Your Age</option>
@@ -1139,7 +1137,7 @@ animantium statui deceat extremum quid enim est a chrysippo praetermissum in sto
 			</div>
 		</div>
 
-		<div class="container video">
+		<!--div class="container video">
 			<div class="row">
 				<div class="col-md-6">
 					<center><a href="#"><img src="images/video.jpg" alt="video"></a></center>
@@ -1151,8 +1149,66 @@ animantium statui deceat extremum quid enim est a chrysippo praetermissum in sto
                     </div>
                 </div>
 			</div>
-		</div>
+		</div--->
+        
+        <div class="container-fluid testimonials">
+            <div class="row">
+				<div class="col-md-12 text-center">
+                    <h2><span>Listen to our</span> <br> Customer Speak</h2>
+                </div>
+                <div class="col-md-12 text-center">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                          <div class="item active">
+                              <a href="">
+                              <img src="images/customer-photo.jpg" alt="customer name" class="customer-photo">
+                              <h4><span class="qote"><i class="fa fa-quote-left" aria-hidden="true"></i> </span> Thanks so much for your extended support to settle my Mediclaim. It was really extraordinary support for me and my satisfactory relationship with Quickbima. <span class="qote"><i class="fa fa-quote-right" aria-hidden="true"></i> </span></h4>
+                              
+                              <p><span>Ravi Prakash Arya,</span> Delhi</p>
+                            </a>
+                          </div>
 
+                          <div class="item">
+                              <a href="">
+                              <img src="images/customer.jpg" alt="customer name" class="customer-photo">
+                              <h4><span class="qote"><i class="fa fa-quote-left" aria-hidden="true"></i> </span> Thanks so much for your extended support to settle my Mediclaim. It was really extraordinary support for me and my satisfactory relationship with Quickbima. <span class="qote"><i class="fa fa-quote-right" aria-hidden="true"></i> </span></h4>
+                              
+                              <p><span>Ravi Prakash Arya,</span> Delhi</p>
+                            </a>
+                          </div>
+
+                          <div class="item">
+                              <a href="">
+                              <img src="images/customer-photo.jpg" alt="customer name" class="customer-photo"> 
+                              <h4><span class="qote"><i class="fa fa-quote-left" aria-hidden="true"></i> </span> Thanks so much for your extended support to settle my Mediclaim. It was really extraordinary support for me and my satisfactory relationship with Quickbima. <span class="qote"><i class="fa fa-quote-right" aria-hidden="true"></i> </span></h4>
+                              
+                              <p><span>Ravi Prakash Arya,</span> Delhi</p>
+                            </a>
+                          </div>
+                        </div>
+                        
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                          <li data-target="#myCarousel" data-slide-to="1"></li>
+                          <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                          <i class="fa fa-angle-left" aria-hidden="true"></i>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                          <i class="fa fa-angle-right" aria-hidden="true"></i>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                </div>
+            </div>
+        </div>
+        
 		<div class="container-fluid ourpartners">
 			<div class="container">
 				<div class="row">
@@ -6842,8 +6898,9 @@ animantium statui deceat extremum quid enim est a chrysippo praetermissum in sto
             $('#madeclaim').change(function(){
                if($(this).parent().parent().find('default')){
                    $('#claimed-title').css({'top': '4px'});
-                   $(this).parent().parent().find('.text').css('top', "9px");
+                   $(this).parent().parent().find('.text').css('top', "14px");
                    $(this).parent().parent().find('input').css('top', "9px");
+                   $(".claimshare").removeClass('sr-only');
                    $(".previousncb").removeClass('sr-only');
                    $(".previousncb").addClass('fadeInDown');
                }else{
@@ -6873,16 +6930,18 @@ animantium statui deceat extremum quid enim est a chrysippo praetermissum in sto
             $('#tripFrequency').change(function(){
                 var frequency = $("#tripFrequency").val();
                 if(frequency == "single"){
-                    $(".trip-multidate").show();
+                    $("#tripduration").addClass('sr-only');
+                    $("#tripstartend").removeClass('sr-only');
                     $(".tripStartDate").hide();
-                    $("#travelMembers").show();
-                    $("#traveller-age").hide();
+                    $("#travelMembers").removeClass('sr-only');
+                    $("#traveller-age").addClass('sr-only');
                 }
                 else{
-                    $(".trip-multidate").hide();
+                    $("#tripduration").removeClass('sr-only');
+                    $("#tripstartend").addClass('sr-only');
                     $(".tripStartDate").show();
-                    $("#travelMembers").hide();
-                    $("#traveller-age").show();
+                    $("#travelMembers").addClass('sr-only');
+                    $("#traveller-age").removeClass('sr-only');
                 }
                if($(this).parent().parent().find('default')){
                    $('#trip-title').css({'top': '4px'});

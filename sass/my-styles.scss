@@ -24,6 +24,16 @@ $logo-red:#e6253c;
 $header-menu-items:#fefefe;
 $form-background:#1d242a;
 
+@include font-face(Comfortaa, "../fonts/Comfortaa/Comfortaa_Regular");
+
+@include font-face(robotothin, "../fonts/Roboto-Thin/Roboto-Thin");
+@include font-face(robotolight, "../fonts/Roboto-Light/Roboto-Light");
+@include font-face(robotoregular, "../fonts/Roboto-Regular/Roboto-Regular");
+@include font-face(robotomedium, "../fonts/Roboto-Medium/Roboto-Medium");
+@include font-face(robotobold, "../fonts/Roboto-Bold/Roboto-Bold");
+@include font-face(robotoblack, "../fonts/Roboto-Black/Roboto-Black");
+
+
 @include font-face(Nobel-ExtraLight, "../fonts/Nobel-ExtraLight/Nobel-ExtraLight");
 @include font-face(Nobel-Light, "../fonts/Nobel-Light/Nobel-Light");
 @include font-face(Nobel-Book, "../fonts/Nobel-Book/Nobel-Book");
@@ -22208,3 +22218,143 @@ body.modal-open .background-container {
 .col-sm-12.text-center.claim_btn {
             margin-bottom: 230px;
         }
+
+.footerv2 {
+    background:$theme;
+    padding-top: 30px;
+    min-height: 200px;
+    .container {
+        max-width: 1400px;
+    }
+    .disclaimer {
+        font-size: 9px;
+        color: #949fa9;
+    }
+    .copright p {
+        color: #fff;
+        font-size: 13px;
+        font-family: 'Comfortaa';
+        border-top: 1px solid darken($theme, 4%);
+        margin-top: 15px;
+        padding-top: 12px;
+        padding-bottom: 5px;
+    }
+    .top-part {
+        border-bottom: 1px solid darken($theme, 4%);
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+        h5 {
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-size: 12px;
+            font-family: 'Comfortaa';
+            font-weight: 400;
+        }
+        p {
+            font-size: 10px;
+            margin-top: 6px;
+            color: #949fa9;
+            float: left;
+        }
+        a {
+            color: #fff;
+            font-size: 24px;
+            margin-right: 10px;
+            padding: 5px;
+            &:hover {
+                color: $logo-blue;
+            }
+        }
+        .irdai {
+            background: url("../images/irda-logo.svg") no-repeat 0px 0px/35px;
+            display: block;
+            height: 60px;
+            width: 60px;
+            float: left;
+        }
+        .security {
+            background: url("../images/home-icons.svg") no-repeat 0px -106px/220px;
+            display: block;
+            height: 50px;
+            width: 190px;
+        }
+        .payment {
+            background: url("../images/home-icons.svg") no-repeat 0px -50px/220px;
+            display: block;
+            height: 50px;
+            width: 200px;
+            min-height: 50px;
+            padding: 0px;
+        }
+    }
+    .sitelinks {
+        border-bottom: 1px solid darken($theme, 4%);
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        ul {
+            margin: 0px;
+            padding: 0px;
+            float: left;
+            width: 25%;
+            li {
+                color: #fff;
+                font-size: 13px;
+                font-weight: 400;
+                margin-top: 5px;
+                a {
+                    color: #949fa9;
+                    display: inline-block;
+                    padding: 5px 0px;
+                    font-size: 11px;
+                    font-family: 'robotolight';
+                    &:hover {
+                        text-decoration: none;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .subscribe {
+        background: url("../images/subscribe.svg") no-repeat right 6px/167px;
+        position: relative;
+        padding-top: 106px;
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        h4 {
+            position: absolute;
+            top: 55px;
+            left:0px;
+            color:#949fa9; 
+        }
+        input {
+            background: transparent;
+            border-bottom: 1px solid #212b34;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            color: #949fa9;
+            @include border-radius(0px);
+            font-size: 14px;
+            font-family: 'robotolight';
+            height: 30px;
+            width: calc(100% - 65px);
+        }
+        .btn {
+            background: lighten($logo-red, 6%);
+            border: none;
+            @include border-radius(4px);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 300;
+            font-family: 'Comfortaa';
+            padding: 6px 30px 5px;
+            margin-top: 10px;
+            margin-left: 65px;
+            display: block;
+        }
+    }
+}
