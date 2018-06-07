@@ -693,7 +693,7 @@ textarea:focus, textarea:active, textarea:hover {
     }
     .notification {
         @include position(fixed, $right:20px, $bottom:96px);
-        @include padding (10px, 18px, 10px, 18px);
+        @include padding (10px, 15px, 10px, 15px);
         @include border-radius(4px);
         @include box-shadow(0px 2px 6px rgba(0,0,0,0.4));
         background: $body-bg;
@@ -858,7 +858,7 @@ textarea:focus, textarea:active, textarea:hover {
         
     }
     .close-session-new{
-        background: rgba(255,255,255,0.7) url("../images/cross.svg") no-repeat center center/20px;
+        background: rgba(255,255,255,0.85) url("../images/cross.svg") no-repeat center center/20px;
         @include border-radius(50px);
         @include box-shadow(0 3px 6px rgba(0,0,0,0.2));
         @include position(absolute, $top:-25px, $right:-16px);
@@ -876,7 +876,7 @@ textarea:focus, textarea:active, textarea:hover {
         h4{
             font-size: 20px;
             line-height: 22px;
-            font-family:'Nobel-Regular';
+            font-family:'Comfortaa';
             span{
                 color: #000;
                 margin-right: 5px;
@@ -890,9 +890,11 @@ textarea:focus, textarea:active, textarea:hover {
         }
         p{
             line-height: 28px;
-            font-family: 'Nobel-Regular';
+            font-family: 'robotolight';
+            font-size: 14px;
             span{
                 color: #000;
+                font-size: 18px;
             }
         }
     }

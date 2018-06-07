@@ -1,0 +1,592 @@
+// Import Bootstrap Compass integration
+@import "compass/reset";
+@import "bootstrap";
+@import "animate";
+@import "datepicker";
+@import "include-media";
+@import "fonts";
+
+a:focus {
+	outline:none;
+	text-decoration:none;
+}
+a:active {
+	outline:none;
+	text-decoration:none;
+}
+
+$background-header:#3a4855;
+$theme:#3a4855;
+$quote-bg:#32404d;
+$engrave-bg:#2b3844;
+$logo-blue:#4fbbb2;
+$logo-red:#e6253c;
+$header-menu-items:#fefefe;
+$form-background:#1d242a;
+
+@include font-face(Comfortaa, "../fonts/Comfortaa/Comfortaa_Regular");
+
+@include font-face(robotothin, "../fonts/Roboto-Thin/Roboto-Thin");
+@include font-face(robotolight, "../fonts/Roboto-Light/Roboto-Light");
+@include font-face(robotoregular, "../fonts/Roboto-Regular/Roboto-Regular");
+@include font-face(robotomedium, "../fonts/Roboto-Medium/Roboto-Medium");
+@include font-face(robotobold, "../fonts/Roboto-Bold/Roboto-Bold");
+@include font-face(robotoblack, "../fonts/Roboto-Black/Roboto-Black");
+
+
+html, body {
+    height: 100%;
+}
+body{
+	font-family: 'comfortaa';
+    font-weight: 300;
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+	font-smooth: always;
+	-moz-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-moz-font-smoothing: subpixel-antialiased; 
+	-webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-o-font-smoothing: subpixel-antialiased;
+	-ms-font-smoothing: subpixel-antialiased;
+}
+
+a:focus{
+	outline:none;
+}
+h2, h3, h4, h5 {
+	margin:0;
+	padding:0;
+}
+select { 
+	outline:none;
+	color: rgba(0,0,0,0);
+}
+select option { 
+	padding:4px!important;
+}
+.btn:focus, .btn.focus, .btn:active:focus, .btn.focus:active, .btn.active:focus, .btn.active.focus {
+    outline: none;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+    @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+}
+.btn:active, .btn.active {
+    @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+}
+
+/*--------------Mixins------------------*/
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+ 
+@mixin border-radius($radius: none) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@mixin border($style, $color, $sides) {
+    @if ($style != "") {
+        @if ($sides == "") {
+            border: $style $color;
+        } @else {
+            @each $side in $sides {
+               @if ($side == 'top' or
+                    $side == 'right' or
+                    $side == 'bottom' or
+                    $side == 'left') {
+                    border-#{$side}: $style $color;
+                }
+            }
+        }  
+    }
+}
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+// Horizontal gradient, from left to right
+//@include gradient-horizontal($brand-primary, $logo-blue);
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Opera 12
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+
+// Vertical gradient, from top to bottom
+//@include gradient-vertical($brand-primary, $logo-blue);
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+/*--------------Mixins End------------------*/
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #fff;
+    opacity: 1;
+    cursor:default!important;
+}
+#ui-datepicker-div {
+    z-index: 1051!important;
+}
+    
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="datetime"]:focus,
+    input[type="datetime-local"]:focus,
+    input[type="date"]:focus,
+    input[type="month"]:focus,
+    input[type="time"]:focus,
+    input[type="number"]:focus,
+    input[type="email"]:focus,
+    input[type="url"]:focus,
+    input[type="search"]:focus,
+    input[type="tel"]:focus,
+    .uneditable-input:focus {   
+      border-color:none!important;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0);
+      outline: 0 none;
+}
+.form-control:focus {
+    border-color:none!important;
+    outline:0px !important;
+}
+textarea:focus, textarea:active, textarea:hover {
+    border-color:none!important;
+    outline:0px !important;
+    -webkit-appearance:none;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+    display: none;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+    background: lighten($theme, 65%);
+    @include margin (0px, null, 6px, null);
+    @include padding (6px, 18px, 6px, 18px);
+    color: $theme;
+}
+
+.navbar {
+    background: lighten($theme, 65%);
+    margin: 0px;
+    min-height: 60px;
+    .navbar-brand {
+        padding: 12px 15px;
+    }
+    .logo {
+        height: 40px;
+    }
+}
+
+p {
+    font-family: 'robotolight';
+}
+
+.payment-gateway {
+    background: lighten($theme, 65%);
+    padding-top: 90px;
+    min-height: 100%;
+    .container {
+        max-width: 1400px;
+        margin-bottom: 110px;
+        [class*="col-"] {
+            padding-left: 15px;
+            padding-right: 15px;
+            position: relative;
+        }
+    }
+    h2 {
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+    .nav-tabs {
+        max-width: 767px;
+        margin:30px auto 50px;
+        border: none;
+        li {
+            display: inline-block;
+            text-align: center;
+            float: none;
+            margin-left: 3%;
+            margin-right: 3%;
+            &.active {
+                background: #fff;
+                @include border-radius(4px);
+                a {
+                    border: none;
+                    background: transparent;
+                }
+            }
+            a {
+                padding-top: 65px;
+                border: none;
+                color: $theme;
+                font-weight: 700;
+                margin: 0px;
+                width: 140px;
+                &:hover {
+                    background: transparent;
+                    border: none;
+                }
+            }
+        }
+        $cards: credit, debit, banking, emi;
+        $k: 0;
+        @each $icons in $cards {
+            $bacRightP: $k * 117;
+            $k: $k + 1;
+            .#{$icons} {
+                position: relative;
+                &:before {
+                    position: absolute;
+                    left: calc(50% - 30px);
+                    top: 3px;
+                    background: url("../images/payment-icons.svg") no-repeat -#{$bacRightP}px 0px/400px;
+                    content: '';
+                    width:60px;
+                    height: 55px;
+                }
+            }
+        }
+    }
+    .tab-content {
+        .tab-pane {
+            max-width: 500px;
+            margin:50px auto;
+            &:last-child {
+                max-width: 600px;
+            }
+        }
+        h4 {
+            margin-bottom: 20px;
+        }
+        .input-effect {
+          position: relative;
+          margin-bottom: 40px;
+          height: 40px;
+            .effect {
+              border:none;
+              @include padding(10px, 0px, 5px, 0px);
+              border-bottom: 1px solid lighten($theme, 50%);
+              background-color: transparent;
+              width: 100%;
+              height: 40px;
+              font-size:16px;
+              @include border-radius(0px);
+              @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+              @include position (absolute, $left:0px, $top:0px);
+              z-index: 9;
+              ~ .focus-border {
+                position: absolute;
+                bottom: 0;
+                left: 0px;
+                width: 0;
+                height: 1px;
+                background-color:$theme;
+                transition: 0.4s;
+                z-index: 9;
+              }
+              &:focus ~ .focus-border {
+                width: 100%;
+                transition: 0.4s;
+              }
+              ~ label {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                top:10px;
+                font-size:16px;
+                font-weight: 400;
+                color: lighten($theme, 40%);
+                transition: 0.3s;
+              }
+              &:focus ~ label {
+                top: -12px;
+                left: 0;
+                font-size:14px;
+                color:$theme;
+                transition: 0.3s;
+                z-index: 99;
+              }
+            }   
+            .has-content.effect ~ label {
+              top: -12px;
+              font-size:14px;
+              color: #777;
+              transition: 0.3s;
+            }
+            .has-error.effect ~ .focus-border {
+              width: 100%;
+              transition: 0.4s;
+              background: $logo-red;
+            }
+            .has-error.effect ~ label {
+              top: -12px;
+              font-size:12px;
+              color: $logo-red;
+              transition: 0.3s;
+            } 
+            .error {
+                color: $logo-red;
+                font-size: 12px;
+                font-family: 'robotolight';
+                position: absolute;
+                right: 0px;
+                bottom: -18px;
+            }
+        }     
+        .expiry {
+            width: 60px;
+            float: left;
+            &:last-child {
+                width: calc(100% - 60px);
+            }
+        }
+        input.checkbox {
+          &:empty {
+            display: none;
+            ~ label {
+              position: relative;
+              font-size: 15px;
+              font-weight: 300;
+              line-height:18px;
+              text-indent:5px;
+              cursor: pointer;
+              color: $theme;
+              @include user-select(none);
+              padding-left: 22px;
+              margin-top: 10px;
+              margin-bottom: 10px;
+              width: 100%;
+              &:before {
+                position: absolute;
+                display:inline-block;
+                top:0px;
+                bottom: 0;
+                left: 0;
+                content: '';
+                width: 18px;
+                height: 18px;
+                background-color: transparent;
+                border:1px solid lighten($theme, 30%);
+                @include border-radius(2px);
+              }
+            }
+          }
+          &:checked ~ label {
+            &:before {
+              background: url("../images/radio2.svg") no-repeat 3px 4px/11px;
+              content: '';
+              text-indent: 2px;
+              border:1px solid $logo-blue;
+              background-color:$logo-blue;
+              line-height: 14px;
+            }
+          }
+        }
+        .ui {
+          &.selection {
+            &.dropdown {
+              border: none;
+              background: transparent;
+              border-bottom:1px solid lighten($theme, 50%);
+              min-width: 40px;
+              height: 40px;
+              font-size:16px;
+              @include border-radius(0px);
+              @include padding(17px, null, 5px, 0px);
+              margin-top: 25px;
+              width: 100%;
+                .default.text {
+                    color: lighten($theme, 40%);
+                    font-weight: 300;
+                }
+            }
+            &.active.dropdown {
+                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+              .menu {
+                border: none !important;
+                max-height:145px!important;
+                min-width:100px!important;
+              }
+              &:hover {
+                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+              }
+            }
+          }
+          &.search.dropdown > .text {
+              width: 100%;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              height: 22px;
+          }
+          &.search.dropdown.visible > input.search {
+            padding: 14px 10px 10px 0px !important;
+            @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+
+          }
+          &.search.selection.dropdown > input.search {
+            padding: 14px 10px 10px 0px;
+            top: 0px;
+          }
+          &.selection.dropdown .menu > .item {
+            padding: 11px 10px 10px 5px !important;
+            font-size:14px;
+          }
+          &.dropdown .menu .active.item {
+            color: $logo-blue;
+          }
+          &.selection.dropdown > {
+            .dropdown.icon, .search.icon {
+              display: none;
+            }
+          }
+        }     
+        .error {
+            color: $logo-red;
+            font-size: 12px;
+            font-family: 'robotolight';
+            position: absolute;
+            right: 10px;
+            bottom: -18px;
+        }
+        .nav-tabs {
+            margin: 0px;
+            max-height: 270px;
+            border-right: 1px solid lighten($theme, 56%);
+            padding-right: 10px;
+            overflow-x: hidden;
+            > li {
+                width: 100%;
+                text-align: left;
+                margin-bottom: 8px;
+                margin-left: 0px;
+                &.active {
+                    background: #fff;
+                    @include border-radius(4px);
+                    a {
+                        border: none;
+                        background: transparent;
+                    }
+                }
+                > a {
+                    padding: 6px 10px;
+                    width: 100%;
+                }
+            }
+        }
+        .tab-content {
+            margin: 0px;
+            .tab-pane {
+                margin: 0px;
+                .bankemis {
+                    display: block;
+                    margin-bottom:17px;
+                    label {
+                        font-size: 14px;
+                        margin-top: 0px;
+                    }
+                    .emi {
+                        padding-left: 12px;
+                        margin-left: 12%;
+                        margin-right: 9%;
+                        position: relative;
+                        width: 70px;
+                        display: inline-block;
+                        &:before {
+                          position: absolute;
+                          font-family: 'FontAwesome';
+                          top: 1px;
+                          left:0px;
+                          content: "\f156";
+                        }
+                    }
+                    .total {
+                        @extend .emi;
+                        margin-left: 5px;
+                        margin-right: 0px;
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        background: lighten($theme, 65%);
+        @include box-shadow(0 -6px 10px -5px rgba(0,0,0,0.1));
+        border-top: 1px solid #fff; 
+        padding-top: 27px;
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        height: 100px;
+        width: 100%;
+        .pay {
+            @include border-radius(4px);
+            background: lighten($logo-red, 10%);
+            border: 1px solid $logo-red;
+            color: #fff;
+            display: inline-block;
+            font-size: 20px;
+            padding: 9px 30px;
+            img {
+                height: 25px;
+                margin-right: 4px;
+                margin-top: -2px;
+            }
+            .fa {
+                margin-left: 5px;
+                font-size: 19px;
+            }
+        }
+    }
+}

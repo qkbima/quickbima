@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Payment Gateway - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/payment.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="javascripts/bootstrap.min.js"></script>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+        <script src="javascripts/bootstrap-dropdownhover.min.js"></script>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css' rel='stylesheet' type='text/css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+        
+         <nav class="navbar navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><img src="images/quickBima_logo.svg" class="logo" alt="quickbima"></a>
+            </div>
+          </div>
+        </nav> 
+        
+        <div class="container-fluid payment-gateway">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h2>Payment Details</h2>
+                        <p>Please select your payment mode and fill in your details.</p>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 text-center">
+                    <ul class="nav nav-tabs">
+                      <li class="active credit"><a data-toggle="tab" href="#credit">Credit Card</a></li>
+                      <li class="debit"><a data-toggle="tab" href="#debit">Debit Card</a></li>
+                      <li class="banking"><a data-toggle="tab" href="#banking">Net Banking</a></li>
+                      <li class="emi"><a data-toggle="tab" href="#emi">EMI</a></li>
+                    </ul>
+
+                    <div class="tab-content text-left">
+                      <div id="credit" class="tab-pane fade in active">
+                          <div class="col-sm-12">
+                              <div class="input-effect">
+                                <input class="effect" type="text">
+                                <label>Card Number</label>
+                                <span class="focus-border"></span>
+                                <span class="error">Enter Card Number.</span>
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                              <div class="input-effect expiry">
+                                <input class="effect" type="text">
+                                <label>Month</label>
+                                <span class="focus-border"></span>
+                              </div>
+                              <div class="input-effect expiry">
+                                <input class="effect" type="text">
+                                <label>Year</label>
+                                <span class="focus-border"></span>
+                                <span class="error">Enter expiry date.</span>
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                              <div class="input-effect">
+                                <input class="effect" type="text">
+                                <label>CVV / CVC Code</label>
+                                <span class="focus-border"></span>
+                              </div>
+                          </div>
+                          <div class="col-sm-12 col-md-9">
+                              <div class="input-effect">
+                                <input class="effect" type="text">
+                                <label>Card Holder name</label>
+                                <span class="focus-border"></span>
+                              </div>
+                          </div>
+                      </div>
+                      <div id="debit" class="tab-pane fade">
+                        <div class="col-sm-12">
+                              <div class="input-effect">
+                                <input class="effect" type="text">
+                                <label>Card Number</label>
+                                <span class="focus-border"></span>
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                              <div class="input-effect expiry">
+                                <input class="effect" type="text">
+                                <label>Month</label>
+                                <span class="focus-border"></span>
+                              </div>
+                              <div class="input-effect expiry">
+                                <input class="effect" type="text">
+                                <label>Year</label>
+                                <span class="focus-border"></span>
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                              <div class="input-effect">
+                                <input class="effect" type="text">
+                                <label>CVV / CVC Code</label>
+                                <span class="focus-border"></span>
+                              </div>
+                          </div>
+                          <div class="col-sm-12 col-md-9">
+                              <div class="input-effect">
+                                <input class="effect" type="text">
+                                <label>Card Holder name</label>
+                                <span class="focus-border"></span>
+                              </div>
+                          </div>
+                      </div>
+                      <div id="banking" class="tab-pane fade">
+                          <div class="col-sm-12"><h4 class="text-uppercase">Most Popular Banks</h4></div>
+                          <div class="col-sm-4">
+                            <input name="banks" id="hdfc" class="checkbox" type="radio">
+                            <label for="hdfc">HDFC Bank</label>
+                          </div>
+                          <div class="col-sm-4">
+                            <input name="banks" id="ICICI" class="checkbox" type="radio">
+                            <label for="ICICI">ICICI Bank</label>
+                          </div>
+                          <div class="col-sm-4">
+                            <input name="banks" id="kotak" class="checkbox" type="radio">
+                            <label for="kotak">Kotak Bank</label>
+                          </div>
+                          <div class="col-sm-4">
+                            <input name="banks" id="Axis" class="checkbox" type="radio">
+                            <label for="Axis">Axis Bank</label>
+                          </div>
+                          <div class="col-sm-5">
+                            <input name="banks" id="sbi" class="checkbox" type="radio">
+                            <label for="sbi">State Bank of India</label>
+                          </div>
+                          <div class="col-sm-12 col-md-8">
+                              <select class="ui search dropdown">
+                                <option value="">Select Bank</option>
+                                <option value="1">Bank of India</option>
+                                <option value="2">ICICI Bank</option>
+                                <option value="3">Indian Bank</option>
+                                <option value="4">HDFC Bank</option>
+                                <option value="5">Axis Bank</option>
+                                <option value="6">Yes Bank</option>
+                              </select>
+                              <span class="error">Please select bank.</span>
+                          </div>
+                      </div>
+                      <div id="emi" class="tab-pane fade">
+                          <div class="col-sm-4">
+                             <ul class="nav nav-tabs nav-stacked">
+                                <li class="active"><a data-toggle="tab" href="#axis-emi">Axis Bank</a></li>
+                                <li><a data-toggle="tab" href="#citi-emi">Citibank</a></li>
+                                <li><a data-toggle="tab" href="#hdfc-emi">HDFC Bank</a></li>
+                                <li><a data-toggle="tab" href="#hsbc-emi">HSBC Bank</a></li>
+                                <li><a data-toggle="tab" href="#icici-emi">ICICI Bank</a></li>
+                                <li><a data-toggle="tab" href="#indusind-emi">Indusind Bank</a></li>
+                                <li><a data-toggle="tab" href="#kotak-emi">Kotak Bank</a></li>
+                                <li><a data-toggle="tab" href="#rbl-emi">RBL Bank</a></li>
+                                <li><a data-toggle="tab" href="#scb-emi">Standard Chartered Bank</a></li>
+                                <li><a data-toggle="tab" href="#scb-emi">State Bank of India</a></li>
+                              </ul>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="tab-content">
+                                <div id="axis-emi" class="tab-pane fade in active">
+                                    <div class="bankemis">  
+                                        <input name="emis" id="3" class="checkbox" type="radio">
+                                        <label for="3">3 EMI @12% pa <span class="emi">2,652</span>
+                                      Total <span class="total">7,955</span> </label>
+                                    </div>
+                                    <div class="bankemis">  
+                                        <input name="emis" id="6" class="checkbox" type="radio">
+                                        <label for="6">6 EMI @12% pa <span class="emi">1,346</span>
+                                      Total <span class="total">8,074</span> </label>
+                                    </div>
+                                    <div class="bankemis">  
+                                        <input name="emis" id="9" class="checkbox" type="radio">
+                                        <label for="9">9 EMI @13% pa <span class="emi">914</span>
+                                      Total <span class="total">8,228</span> </label>
+                                    </div>
+                                    <div class="bankemis">  
+                                        <input name="emis" id="12" class="checkbox" type="radio">
+                                        <label for="12">12 EMI @13% pa <span class="emi">697</span>
+                                      Total <span class="total">8,359</span> </label>
+                                    </div>
+                                    <div class="bankemis">  
+                                        <input name="emis" id="18" class="checkbox" type="radio">
+                                        <label for="18">18 EMI @15% pa <span class="emi">487</span>
+                                      Total <span class="total">8,758</span> </label>
+                                    </div>
+                                      <div class="bankemis">  
+                                        <input name="emis" id="24" class="checkbox" type="radio">
+                                        <label for="24">24 EMI @15% pa <span class="emi">378</span>
+                                      Total <span class="total">9,076</span> </label>
+                                    </div>
+                                </div>
+                                <div id="citi-emi" class="tab-pane fade">
+                                    <div class="bankemis">  
+                                        <input name="cemis" id="c3" class="checkbox" type="radio">
+                                        <label for="c3">3 EMI @12% pa <span class="emi">2,652</span>
+                                      Total <span class="total">7,955</span> </label>
+                                    </div>
+                                    <div class="bankemis">  
+                                        <input name="cemis" id="c6" class="checkbox" type="radio">
+                                        <label for="c6">6 EMI @12% pa <span class="emi">1,346</span>
+                                      Total <span class="total">8,074</span> </label>
+                                    </div>
+                                    <div class="bankemis">  
+                                        <input name="cemis" id="c9" class="checkbox" type="radio">
+                                        <label for="c9">9 EMI @13% pa <span class="emi">914</span>
+                                      Total <span class="total">8,228</span> </label>
+                                    </div>
+                                    <div class="bankemis">  
+                                        <input name="cemis" id="c12" class="checkbox" type="radio">
+                                        <label for="c12">12 EMI @13% pa <span class="emi">697</span>
+                                      Total <span class="total">8,359</span> </label>
+                                    </div>
+                                    <div class="bankemis">  
+                                        <input name="cemis" id="c18" class="checkbox" type="radio">
+                                        <label for="c18">18 EMI @15% pa <span class="emi">487</span>
+                                      Total <span class="total">8,758</span> </label>
+                                    </div>
+                                </div>
+                                <div id="hdfc-emi" class="tab-pane fade">
+                                    <div class="bankemis">  
+                                        <input name="hemis" id="h3" class="checkbox" type="radio">
+                                        <label for="h3">3 EMI @12% pa <span class="emi">2,652</span>
+                                      Total <span class="total">7,955</span> </label>
+                                    </div>
+                                    <div class="bankemis">  
+                                        <input name="hemis" id="h6" class="checkbox" type="radio">
+                                        <label for="h6">6 EMI @12% pa <span class="emi">1,346</span>
+                                      Total <span class="total">8,074</span> </label>
+                                    </div>
+                                    <div class="bankemis">  
+                                        <input name="hemis" id="h9" class="checkbox" type="radio">
+                                        <label for="h9">9 EMI @13% pa <span class="emi">914</span>
+                                      Total <span class="total">8,228</span> </label>
+                                    </div>
+                                    <div class="bankemis">  
+                                        <input name="hemis" id="h12" class="checkbox" type="radio">
+                                        <label for="h12">12 EMI @13% pa <span class="emi">697</span>
+                                      Total <span class="total">8,359</span> </label>
+                                    </div>
+                                </div>
+                                <div id="hsbc-emi" class="tab-pane fade">
+                                  <h3>Menu 3</h3>
+                                  <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer text-center">
+                <a href="" class="pay"><img src="images/q-icon.svg" alt="icon"> Pay <i class="fa fa-inr"></i> 12,093</a>
+            </div>
+        </div>
+        
+        <script>
+            $(function() {
+                $('.ui.dropdown').dropdown();
+            });
+            
+            $(window).load(function(){
+                $(".input-effect input").focusout(function(){
+                    if($(this).val() != ""){
+                        $(this).addClass("has-content");
+                    }else {
+                        $(this).removeClass("has-content");
+                    }
+                })
+                $(".input-effect input").focusin(function(){
+                    $(this).removeClass("has-content");
+                })
+            });
+        </script>
+        
+	</body> 
+</html>

@@ -1282,6 +1282,13 @@ label {
                         margin-top: -9px;
                         margin-left: 15px;
                         top: 12px;
+                        .error {
+                            color: $logo-red;
+                            font-size: 10px;
+                            position: absolute;
+                            right: 0px;
+                            bottom: -16px;
+                        }
                     }
                 }
                 .lastncb {
@@ -1605,7 +1612,7 @@ label {
                     margin-top:10px;
                     margin-bottom:20px;
                 }
-                $covers: pawoner, zerodeps, invoice, roadside, engine, ncb, driver, consumable, key, passenger, accessories;
+                $covers: pawoner, zerodeps, invoice, roadside, engine, ncb, driver, consumable, key, passenger, accessories, personal-belonging, transport, repair-glass, tyre;
                 $k: 0;
                 @each $icons in $covers {
                     $bacRightP: $k * 32;
